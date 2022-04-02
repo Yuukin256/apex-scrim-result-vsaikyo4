@@ -1,61 +1,32 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import FabToTop from '../atomics/fabToTop';
 
 const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
+  const title = 'V最協S4 練習カスタム試合結果 (非公式)';
+  const description =
+    'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト';
+
   return (
     <>
-      {' '}
       <Head>
-        <Helmet
-          htmlAttributes={{
-            lang: 'ja',
-          }}
-          title="V最協S4 練習カスタム試合結果 (非公式)"
-          titleTemplate="V最協S4 練習カスタム試合結果 (非公式)"
-          meta={[
-            {
-              name: `description`,
-              content:
-                'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
-            },
-            {
-              property: `og:title`,
-              content: 'V最協S4 練習カスタム試合結果 (非公式)',
-            },
-            {
-              property: `og:description`,
-              content:
-                'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
-            },
-            {
-              property: `og:type`,
-              content: `website`,
-            },
-            {
-              name: `twitter:card`,
-              content: `summary`,
-            },
-            {
-              name: `twitter:creator`,
-              content: 'Yuukin256',
-            },
-            {
-              name: `twitter:title`,
-              content: 'V最協S4 練習カスタム試合結果 (非公式)',
-            },
-            {
-              name: `twitter:description`,
-              content:
-                'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
-            },
-          ]}
-        />
-        <title>V最協S4 練習カスタム試合結果 (非公式)</title>
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta name="description" content={description} />
+        <meta property="og:url" content="https://apex-scrim-result-vsaikyo4.vercel.app/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/ogp.png" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@Yuukin256" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="/ogp.png" />
       </Head>
-      <div className="">
+      <div>
         <div className="bg-orange p-5">
           <h1 className="text-center text-4xl font-bold text-white">
             <Link href="/">V最協S4 練習カスタム試合結果 (非公式)</Link>
