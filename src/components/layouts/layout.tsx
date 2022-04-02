@@ -19,12 +19,12 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
         <meta property="og:site_name" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/ogp.png" />
+        <meta property="og:image" content="https://apex-scrim-result-vsaikyo4.vercel.app/ogp.png" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@Yuukin256" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="/ogp.png" />
+        <meta name="twitter:image" content="https://apex-scrim-result-vsaikyo4.vercel.app/ogp.png" />
       </Head>
       <div>
         <div className="bg-orange p-5">
