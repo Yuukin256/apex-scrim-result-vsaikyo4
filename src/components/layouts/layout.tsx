@@ -1,4 +1,3 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
@@ -6,15 +5,9 @@ import { Helmet } from 'react-helmet';
 import FabToTop from '../atomics/fabToTop';
 
 const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#dc8f00',
-      },
-    },
-  });
   return (
-    <ThemeProvider theme={theme}>
+    <>
+      {' '}
       <Head>
         <Helmet
           htmlAttributes={{
@@ -25,7 +18,8 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
           meta={[
             {
               name: `description`,
-              content: 'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
+              content:
+                'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
             },
             {
               property: `og:title`,
@@ -33,7 +27,8 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
             },
             {
               property: `og:description`,
-              content: 'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
+              content:
+                'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
             },
             {
               property: `og:type`,
@@ -53,13 +48,13 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
             },
             {
               name: `twitter:description`,
-              content: 'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
+              content:
+                'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト',
             },
           ]}
         />
         <title>V最協S4 練習カスタム試合結果 (非公式)</title>
       </Head>
-
       <div className="">
         <div className="bg-orange p-5">
           <h1 className="text-center text-4xl font-bold text-white">
@@ -81,7 +76,7 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
           .
         </footer>
       </div>
-    </ThemeProvider>
+    </>
   );
 };
 

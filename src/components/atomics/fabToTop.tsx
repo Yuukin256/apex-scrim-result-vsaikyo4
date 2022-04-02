@@ -4,7 +4,7 @@ import React from 'react';
 
 const FabToTop: React.VFC = () => (
   <Fab className="bottom-5 right-5 fixed text-white" variant="extended" color="primary" href="#top">
-    <UpIcon sx={{ color: 'white' }} />
+    <UpIcon htmlColor="white" />
     トップに戻る
   </Fab>
 );
