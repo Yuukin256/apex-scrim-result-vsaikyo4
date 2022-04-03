@@ -1,4 +1,9 @@
+import Alert from '@mui/material/Alert';
+import Dialog from '@mui/material/Dialog';
+import Paper from '@mui/material/Paper';
 import type { NextPage } from 'next';
+import PlayerStatsView from '../components/blocks/PlayerStatsView';
+import TeamStatsView from '../components/blocks/TeamStatsView';
 import Layout from '../components/layouts/Layout';
 
 const Home: NextPage = () => {
@@ -10,6 +15,10 @@ const Home: NextPage = () => {
           (スクリム)
           の試合結果一覧です。正確性を保つ努力はしておりますが、集計に誤りがある可能性があります。ご了承ください。
         </p>
+        <Alert className="my-4 font-bold" severity="warning">
+          現在鋭意開発中です！完成までお待ち下さい。テストデータを表示しています。
+        </Alert>
+
         {/* <ul className="list-disc ml-4 text-sm">
           <li>マップはすべてWorld&apos;s Edgeです。</li>
           <li>
@@ -23,21 +32,35 @@ const Home: NextPage = () => {
         </ul> */}
       </div>
 
+      <div>
+        <h2 className="text-2xl  mt-4">テストデータ</h2>
+
+        <Paper className="p-3 my-4 border-orange" variant="outlined" square>
+          <h3 className="text-xl">チーム成績</h3>
+          <TeamStatsView />
+        </Paper>
+
+        <Paper className="p-3 my-4 border-orange" variant="outlined" square>
+          <h3 className="text-xl">個人成績</h3>
+          <PlayerStatsView />
+        </Paper>
+      </div>
+
       <h2 className="text-2xl mt-4">各種リンク</h2>
       <div>
         <ul className="list-disc ml-4">
           <li>
-            <a className="underline text-blue-700" href="https://vtuber-saikyo.jp/">
+            <a className="underline visited:text-purple-900 text-blue-700" href="https://vtuber-saikyo.jp/">
               大会公式サイト
             </a>
           </li>
           <li>
-            <a className="underline text-blue-700" href="https://twitter.com/ShibuyaHAL">
+            <a className="underline visited:text-purple-900 text-blue-700" href="https://twitter.com/ShibuyaHAL">
               渋谷ハルさんTwitter
             </a>
           </li>
           <li>
-            <a className="underline text-blue-700" href="https://youtube.com/c/HALchannel">
+            <a className="underline visited:text-purple-900 text-blue-700" href="https://youtube.com/c/HALchannel">
               渋谷ハルさんYouTube
             </a>
           </li>
