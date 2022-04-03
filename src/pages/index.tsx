@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Layout from '../components/layouts/layout';
+import Layout from '../components/layouts/Layout';
 
 const Home: NextPage = () => {
   return (
@@ -10,7 +10,7 @@ const Home: NextPage = () => {
           (スクリム)
           の試合結果一覧です。正確性を保つ努力はしておりますが、集計に誤りがある可能性があります。ご了承ください。
         </p>
-        <ul className="list-disc ml-4 text-sm">
+        {/* <ul className="list-disc ml-4 text-sm">
           <li>マップはすべてWorld&apos;s Edgeです。</li>
           <li>
             本番は全5試合のうち、1試合目3ポイント、2,3試合目6ポイントのキルポイント上限があります。練習カスタムでは全チームが各マッチのキルポイント上限を意識して動いているわけではないため、キルポイント上限の有無を切り替えて結果を見られるようにしています。
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             キルポイント上限を適用しているときにキル数が<em>斜体</em>
             で表示されているものは上限を超えていることを意味します。
           </li>
-        </ul>
+        </ul> */}
       </div>
 
       <h2 className="text-2xl mt-4">各種リンク</h2>

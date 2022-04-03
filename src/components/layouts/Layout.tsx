@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import FabToTop from '../atomics/fabToTop';
+import FabToTop from '../atoms/FabToTop';
 
 const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
   const title = 'V最協S4 練習カスタム試合結果 (非公式)';
