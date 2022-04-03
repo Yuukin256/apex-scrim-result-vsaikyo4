@@ -34,17 +34,27 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
         </div>
         <FabToTop />
         <main className="m-4">{children}</main>
-        <footer className="absolute bottom-0 w-full mt-8 p-2 bg-orange text-white">
-          © 2022 Yuukin256 (
-          <a className="underline visited:text-purple-900 text-blue-700" href="https://twitter.com/Yuukin256">
-            @Yuukin256
-          </a>
-          ), Built with
-          {` `}
-          <a className="underline visited:text-purple-900 text-blue-700" href="https://nextjs.org/">
-            Next.js
-          </a>
-          .
+        <footer className="absolute bottom-0 w-full mt-8 p-2">
+          <p>
+            このサイトはGoogle Analyticsを使用しています。
+            <a
+              className="underline visited:text-purple-900 text-orange"
+              href="https://policies.google.com/technologies/partner-sites?hl=ja"
+            >
+              詳しく見る
+            </a>
+          </p>
+          <p>
+            © 2022 Yuukin256 (
+            <a className="underline visited:text-purple-900 text-orange" href="https://twitter.com/Yuukin256">
+              @Yuukin256
+            </a>
+            ), Built with{' '}
+            <a className="underline visited:text-purple-900 text-orange" href="https://nextjs.org/">
+              Next.js
+            </a>
+            .
+          </p>
         </footer>
       </div>
     </>

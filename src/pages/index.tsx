@@ -49,17 +49,17 @@ const Home: NextPage = () => {
       <div>
         <ul className="list-disc ml-4">
           <li>
-            <a className="underline visited:text-purple-900 text-blue-700" href="https://vtuber-saikyo.jp/">
+            <a className="underline visited:text-purple-900 text-orange" href="https://vtuber-saikyo.jp/">
               大会公式サイト
             </a>
           </li>
           <li>
-            <a className="underline visited:text-purple-900 text-blue-700" href="https://twitter.com/ShibuyaHAL">
+            <a className="underline visited:text-purple-900 text-orange" href="https://twitter.com/ShibuyaHAL">
               渋谷ハルさんTwitter
             </a>
           </li>
           <li>
-            <a className="underline visited:text-purple-900 text-blue-700" href="https://youtube.com/c/HALchannel">
+            <a className="underline visited:text-purple-900 text-orange" href="https://youtube.com/c/HALchannel">
               渋谷ハルさんYouTube
             </a>
           </li>
