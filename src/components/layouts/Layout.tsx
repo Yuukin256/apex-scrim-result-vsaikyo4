@@ -26,7 +26,7 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="https://apex-scrim-result-vsaikyo4.vercel.app/ogp.png" />
       </Head>
-      <div>
+      <div className="min-h-screen relative">
         <div className="bg-orange p-5">
           <h1 className="text-center text-4xl font-bold text-white">
             <Link href="/">V最協S4 練習カスタム試合結果 (非公式)</Link>
@@ -34,14 +34,14 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
         </div>
         <FabToTop />
         <main className="m-4">{children}</main>
-        <footer className="mt-8">
+        <footer className="absolute bottom-0 w-full mt-8 p-2 bg-orange text-white">
           © 2022 Yuukin256 (
-          <a className="underline text-blue-700" href="https://twitter.com/Yuukin256">
+          <a className="underline visited:text-purple-900 text-blue-700" href="https://twitter.com/Yuukin256">
             @Yuukin256
           </a>
           ), Built with
           {` `}
-          <a className="underline text-blue-700" href="https://nextjs.org/">
+          <a className="underline visited:text-purple-900 text-blue-700" href="https://nextjs.org/">
             Next.js
           </a>
           .
