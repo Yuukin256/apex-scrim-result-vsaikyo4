@@ -1,5 +1,4 @@
 import Alert from '@mui/material/Alert';
-import Dialog from '@mui/material/Dialog';
 import Paper from '@mui/material/Paper';
 import type { NextPage } from 'next';
 import PlayerStatsView from '../components/blocks/PlayerStatsView';
