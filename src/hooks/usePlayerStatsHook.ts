@@ -18,8 +18,8 @@ const calculateTotalAndAverage = (stats: Omit<PlayerStats, 'total' | 'average'>)
 
   const total = stats.matches.reduce(
     (prev, cur) => {
-      const kill = prev.kill === null || cur.kill === null ? null : (prev.kill ?? 0) + (cur.kill ?? 0);
-      const damage = prev.damage === null || cur.damage === null ? null : (prev.damage ?? 0) + (cur.damage ?? 0);
+      const kill = prev.kill === null && cur.kill === null ? null : (prev.kill ?? 0) + (cur.kill ?? 0);
+      const damage = prev.damage === null && cur.damage === null ? null : (prev.damage ?? 0) + (cur.damage ?? 0);
       return {
         kill,
         damage,
