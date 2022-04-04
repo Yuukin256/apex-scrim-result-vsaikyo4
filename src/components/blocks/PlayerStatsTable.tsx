@@ -66,7 +66,7 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
               <TableCellRight className="border-r">{i + 1}</TableCellRight>
 
               <Tooltip title={player.team}>
-                <TableCellLeft className="border-r">{player.name}</TableCellLeft>
+                <TableCellLeft className="whitespace-nowrap border-r">{player.name}</TableCellLeft>
               </Tooltip>
 
               <TableCellRight>{player.total.kill}</TableCellRight>
