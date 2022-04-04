@@ -1,20 +1,21 @@
 import Alert from '@mui/material/Alert';
 import Paper from '@mui/material/Paper';
 import type { NextPage } from 'next';
+import A from '../components/atoms/A';
 import PlayerStatsView from '../components/blocks/PlayerStatsView';
 import TeamStatsView from '../components/blocks/TeamStatsView';
 import Layout from '../components/layouts/Layout';
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <Layout title="トップ">
       <div>
         <p>
           2022年4月17日に行われる渋谷ハルさん主催の VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム
           (スクリム)
           の試合結果一覧です。正確性を保つ努力はしておりますが、集計に誤りがある可能性があります。ご了承ください。
         </p>
-        
+
         <Alert className="my-4 font-bold" severity="warning">
           現在鋭意開発中です！完成までお待ち下さい。テストデータを表示しています。
         </Alert>
@@ -48,19 +49,19 @@ const Home: NextPage = () => {
       <div>
         <ul className="list-disc ml-4">
           <li>
-            <a className="underline visited:text-purple-900 text-orange" href="https://vtuber-saikyo.jp/">
+            <A href="https://vtuber-saikyo.jp/">
               大会公式サイト
-            </a>
+            </A>
           </li>
           <li>
-            <a className="underline visited:text-purple-900 text-orange" href="https://twitter.com/ShibuyaHAL">
+            <A href="https://twitter.com/ShibuyaHAL">
               渋谷ハルさんTwitter
-            </a>
+            </A>
           </li>
           <li>
-            <a className="underline visited:text-purple-900 text-orange" href="https://youtube.com/c/HALchannel">
+            <A href="https://youtube.com/c/HALchannel">
               渋谷ハルさんYouTube
-            </a>
+            </A>
           </li>
         </ul>
       </div>
