@@ -26,7 +26,7 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="https://apex-scrim-result-vsaikyo4.vercel.app/ogp.png" />
       </Head>
-      <div className="min-h-screen relative">
+      <div className="min-h-screen flex flex-col">
         <div className="bg-orange p-5">
           <h1 className="text-center text-4xl font-bold text-white">
             <Link href="/">V最協S4 練習カスタム試合結果 (非公式)</Link>
@@ -34,7 +34,7 @@ const Layout: React.VFC<{ children: React.ReactNode }> = ({ children }) => {
         </div>
         <FabToTop />
         <main className="m-4">{children}</main>
-        <footer className="absolute bottom-0 w-full mt-8 p-2">
+        <footer className="w-full mt-4 p-2">
           <p>
             このサイトはGoogle Analyticsを使用しています。
             <a
