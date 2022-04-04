@@ -7,22 +7,22 @@ import { Dispatch, SetStateAction, memo } from 'react';
 import type { SortOption } from '../../hooks/usePlayerStatsHook';
 
 interface Props {
-  sort: string;
-  setSort: Dispatch<SetStateAction<string>>;
+  sortKey: string;
+  setSortKey: Dispatch<SetStateAction<string>>;
   options: SortOption[];
 }
 
-const PlayerStatsOptionForm = memo<Props>(function PlayerStatsOptionForm(props) {
+const PlayerStatsOptionForm = memo<Props>(function PlayerStatsOptionForm({ sortKey, setSortKey, options }) {
   const handleChange = (event: SelectChangeEvent) => {
-    props.setSort(event.target.value);
+    setSortKey(event.target.value);
   };
 
   return (
     <Box sx={{ width: '16rem', padding: '1rem' }}>
       <FormControl fullWidth variant="filled">
         <InputLabel>並べ替え</InputLabel>
-        <Select value={props.sort} onChange={handleChange} label="並べ替え">
-          {props.options.map((v, i) => (
+        <Select value={sortKey} onChange={handleChange} label="並べ替え">
+          {options.map((v, i) => (
             <MenuItem value={v.value} key={i}>
               {v.text}
             </MenuItem>

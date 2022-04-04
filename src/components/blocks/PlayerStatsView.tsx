@@ -23,11 +23,11 @@ const testData = [
 ];
 
 const PlayerStatsView: VFC = () => {
-  const { stats, sortKey, setSort, sortOptions, numberOfMatches } = usePlayerStatsSortHook(testData);
+  const { stats, sortKey, setSortKey, sortOptions, numberOfMatches } = usePlayerStatsSortHook(testData);
 
   return (
     <>
-      <PlayerStatsOptionForm sort={sortKey} setSort={setSort} options={sortOptions} />
+      <PlayerStatsOptionForm sortKey={sortKey} setSortKey={setSortKey} options={sortOptions} />
       <PlayerStatsTable players={stats} numberOfMatches={numberOfMatches} />
     </>
   );

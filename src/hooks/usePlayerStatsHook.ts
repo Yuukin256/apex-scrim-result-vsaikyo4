@@ -37,17 +37,19 @@ const calculateTotalAndAverage = (stats: Omit<PlayerStats, 'total' | 'average'>)
   };
 };
 
+type SortFunction = (a: PlayerStats, b: PlayerStats) => number;
+
 export interface SortOption {
   value: string;
   text: string;
-  sort: (a: PlayerStats, b: PlayerStats) => number;
+  sort: SortFunction;
 }
 
 interface Result {
   stats: PlayerStats[];
   numberOfMatches: number;
   sortKey: string;
-  setSort: Dispatch<SetStateAction<string>>;
+  setSortKey: Dispatch<SetStateAction<string>>;
   sortOptions: SortOption[];
 }
 
@@ -101,27 +103,31 @@ export const usePlayerStatsSortHook = (
       ...forMatches,
     ];
   }, [numberOfMatches]);
-  const [sortKey, setSort] = useState('total_kill');
 
-  const sorter = sortOptions.find((option) => option.value === sortKey)?.sort;
+  const [sortKey, setSortKey] = useState('total_kill');
+
+  const sorter = useMemo(() => {
+    return sortOptions.find((option) => option.value === sortKey)?.sort;
+  }, [sortKey, sortOptions]);
+
+  const sortedStats = useMemo(() => stats.sort(sorter ?? sortOptions[0].sort), [sortOptions, sorter, stats]);
 
   // sorter が無いときのエラー防止
   if (!sorter) {
     return {
-      stats: stats,
+      stats: sortedStats,
       numberOfMatches,
       sortKey: 'total_kill',
-      setSort,
+      setSortKey,
       sortOptions,
     };
   }
 
-  stats.sort(sorter);
   return {
-    stats: stats,
+    stats: sortedStats,
     numberOfMatches,
     sortKey,
-    setSort,
+    setSortKey,
     sortOptions,
   };
 };
