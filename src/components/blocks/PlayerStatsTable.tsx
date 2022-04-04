@@ -16,7 +16,7 @@ interface Props {
 }
 
 const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
-  const HeadRow1 = memo(function HeadRow1() {
+  const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
     return (
       <TableRow>
         <TableCellCenter className="border-r" colSpan={2}></TableCellCenter>
@@ -35,7 +35,7 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
     );
   });
 
-  const HeadRow2 = memo(function HeadRow2() {
+  const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfMatches }) {
     return (
       <TableRow>
         <TableCellCenter className="font-bold w-16 border-r">順位</TableCellCenter>
@@ -56,8 +56,8 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
     <TableContainer>
       <Table size="small" className="border-collapse w-auto">
         <TableHead className="bg-gray-50 text-center border-t">
-          <HeadRow1 />
-          <HeadRow2 />
+          <HeadRow1 numberOfMatches={numberOfMatches} />
+          <HeadRow2 numberOfMatches={numberOfMatches} />
         </TableHead>
 
         <TableBody>
@@ -88,8 +88,8 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
         </TableBody>
 
         <TableHead className="bg-gray-50 text-center border-b">
-          <HeadRow2 />
-          <HeadRow1 />
+          <HeadRow2 numberOfMatches={numberOfMatches} />
+          <HeadRow1 numberOfMatches={numberOfMatches} />
         </TableHead>
       </Table>
     </TableContainer>
