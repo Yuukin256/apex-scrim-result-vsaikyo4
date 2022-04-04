@@ -16,14 +16,20 @@ export interface PlayerStats {
 const calculateTotalAndAverage = (stats: Omit<PlayerStats, 'total' | 'average'>): PlayerStats => {
   const numberOfMatches = stats.matches.length;
 
-  const total = stats.matches.reduce((prev, cur) => {
-    const kill = prev.kill === null || cur.kill === null ? null : (prev.kill ?? 0) + (cur.kill ?? 0);
-    const damage = prev.damage === null || cur.damage === null ? null : (prev.damage ?? 0) + (cur.damage ?? 0);
-    return {
-      kill,
-      damage,
-    };
-  });
+  const total = stats.matches.reduce(
+    (prev, cur) => {
+      const kill = prev.kill === null || cur.kill === null ? null : (prev.kill ?? 0) + (cur.kill ?? 0);
+      const damage = prev.damage === null || cur.damage === null ? null : (prev.damage ?? 0) + (cur.damage ?? 0);
+      return {
+        kill,
+        damage,
+      };
+    },
+    {
+      kill: null,
+      damage: null,
+    }
+  );
 
   const average = {
     kill: total.kill === null ? null : total.kill / numberOfMatches,
@@ -53,9 +59,7 @@ interface Result {
   sortOptions: SortOption[];
 }
 
-export const usePlayerStatsSortHook = (
-  statsWithoutTotalAndAverage: Omit<PlayerStats, 'total' | 'average'>[]
-): Result => {
+export const usePlayerStats = (statsWithoutTotalAndAverage: Omit<PlayerStats, 'total' | 'average'>[]): Result => {
   const stats = useMemo(
     () => statsWithoutTotalAndAverage.map((p) => calculateTotalAndAverage(p)),
     [statsWithoutTotalAndAverage]

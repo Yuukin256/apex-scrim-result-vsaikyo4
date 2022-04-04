@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { usePlayerStatsSortHook } from '../../hooks/usePlayerStatsHook';
+import { usePlayerStats } from '../../hooks/usePlayerStatsHook';
 import PlayerStatsOptionForm from './PlayerStatsOptionForm';
 import PlayerStatsTable from './PlayerStatsTable';
 
@@ -23,7 +23,7 @@ const testData = [
 ];
 
 const PlayerStatsView: VFC = () => {
-  const { stats, sortKey, setSortKey, sortOptions, numberOfMatches } = usePlayerStatsSortHook(testData);
+  const { stats, sortKey, setSortKey, sortOptions, numberOfMatches } = usePlayerStats(testData);
 
   return (
     <>

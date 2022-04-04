@@ -19,15 +19,15 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
   const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
     return (
       <TableRow>
-        <TableCellCenter className="border-r" colSpan={2}></TableCellCenter>
-        <TableCellCenter className="border-r" colSpan={2}>
+        <TableCellCenter className="font-bold border-r" colSpan={2}></TableCellCenter>
+        <TableCellCenter className="font-bold border-r" colSpan={2}>
           合計
         </TableCellCenter>
-        <TableCellCenter className="border-r" colSpan={2}>
+        <TableCellCenter className="font-bold border-r" colSpan={2}>
           平均
         </TableCellCenter>
         {[...new Array(numberOfMatches)].map((_, i) => (
-          <TableCellCenter className="border-r last:border-r-0" colSpan={2} key={i + 1}>
+          <TableCellCenter className="font-bold border-r last:border-r-0" colSpan={2} key={i + 1}>
             {i + 1}試合目
           </TableCellCenter>
         ))}
@@ -41,10 +41,10 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
         <TableCellCenter className="font-bold w-16 border-r">順位</TableCellCenter>
         <TableCellCenter className="font-bold w-48 border-r">選手名</TableCellCenter>
         {[...new Array(numberOfMatches + 2)].flatMap((_, i) => [
-          <TableCellCenter className="w-20" key={2 * i}>
+          <TableCellCenter className="font-bold w-20" key={2 * i}>
             キル
           </TableCellCenter>,
-          <TableCellCenter className="w-20 border-r last:border-r-0" key={2 * i + 1}>
+          <TableCellCenter className="font-bold w-20 border-r last:border-r-0" key={2 * i + 1}>
             ダメージ
           </TableCellCenter>,
         ])}

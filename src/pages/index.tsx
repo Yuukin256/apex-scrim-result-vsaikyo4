@@ -14,6 +14,7 @@ const Home: NextPage = () => {
           (スクリム)
           の試合結果一覧です。正確性を保つ努力はしておりますが、集計に誤りがある可能性があります。ご了承ください。
         </p>
+        
         <Alert className="my-4 font-bold" severity="warning">
           現在鋭意開発中です！完成までお待ち下さい。テストデータを表示しています。
         </Alert>
