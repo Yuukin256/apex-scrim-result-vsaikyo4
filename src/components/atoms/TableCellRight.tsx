@@ -1,8 +1,9 @@
 import TableCell from '@mui/material/TableCell';
 import { styled } from '@mui/system';
 
-const TableCellCenter = styled(TableCell)({
+const TableCellRight = styled(TableCell)({
   textAlign: 'right',
+  padding: '6px',
 });
 
-export default TableCellCenter;
+export default TableCellRight;
