@@ -35,12 +35,10 @@ const Home: NextPage = () => {
         <h2 className="text-2xl  mt-4">テストデータ</h2>
 
         <Paper className="p-3 my-4 border-orange" variant="outlined" square>
-          <h3 className="text-xl">チーム成績</h3>
           <TeamStatsView />
         </Paper>
 
         <Paper className="p-3 my-4 border-orange" variant="outlined" square>
-          <h3 className="text-xl">個人成績</h3>
           <PlayerStatsView />
         </Paper>
       </div>

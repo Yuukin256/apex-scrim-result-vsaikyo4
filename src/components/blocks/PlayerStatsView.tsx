@@ -27,6 +27,7 @@ const PlayerStatsView: VFC = () => {
 
   return (
     <>
+      <h3 className="text-xl">個人成績</h3>
       <PlayerStatsOptionForm sortKey={sortKey} setSortKey={setSortKey} options={sortOptions} />
       <PlayerStatsTable players={stats} numberOfMatches={numberOfMatches} />
     </>
