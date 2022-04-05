@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useMemo, useState } from 'react';
+import { PlayerResult } from '../utils/resultData';
 
 interface BaseStats {
   kill: number | null;
@@ -13,10 +14,10 @@ export interface PlayerStats {
   matches: BaseStats[];
 }
 
-const calculateTotalAndAverage = (stats: Omit<PlayerStats, 'total' | 'average'>): PlayerStats => {
-  const numberOfMatches = stats.matches.length;
+const calculateTotalAndAverage = (result: PlayerResult): PlayerStats => {
+  const numberOfMatches = result.matches.length;
 
-  const total = stats.matches.reduce(
+  const total = result.matches.reduce(
     (prev, cur) => {
       const kill = prev.kill === null && cur.kill === null ? null : (prev.kill ?? 0) + (cur.kill ?? 0);
       const damage = prev.damage === null && cur.damage === null ? null : (prev.damage ?? 0) + (cur.damage ?? 0);
@@ -37,7 +38,8 @@ const calculateTotalAndAverage = (stats: Omit<PlayerStats, 'total' | 'average'>)
   };
 
   return {
-    ...stats,
+    ...result,
+    team: `${result.team.tag} ${result.team.name}`,
     total,
     average,
   };
@@ -59,11 +61,8 @@ interface Result {
   sortOptions: SortOption[];
 }
 
-export const usePlayerStats = (statsWithoutTotalAndAverage: Omit<PlayerStats, 'total' | 'average'>[]): Result => {
-  const stats = useMemo(
-    () => statsWithoutTotalAndAverage.map((p) => calculateTotalAndAverage(p)),
-    [statsWithoutTotalAndAverage]
-  );
+export const usePlayerStats = (result: PlayerResult[]): Result => {
+  const stats = useMemo(() => result.map((p) => calculateTotalAndAverage(p)), [result]);
   const numberOfMatches = useMemo(
     () => stats.map((v) => v.matches.length).reduce((prev, cur) => (prev > cur ? prev : cur)),
     [stats]

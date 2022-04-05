@@ -38,7 +38,7 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
   const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfMatches }) {
     return (
       <TableRow>
-        <TableCellCenter className="font-bold w-12 border-r">順位</TableCellCenter>
+        <TableCellCenter className="font-bold w-8 border-r">#</TableCellCenter>
         <TableCellCenter className="font-bold w-48 border-r">選手名</TableCellCenter>
         {[...new Array(numberOfMatches + 2)].flatMap((_, i) => [
           <TableCellCenter className="font-bold w-20" key={2 * i}>
