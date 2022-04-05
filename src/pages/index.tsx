@@ -1,9 +1,7 @@
 import Alert from '@mui/material/Alert';
 import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
 import type { NextPage } from 'next';
-import PlayerStatsView from '../components/blocks/PlayerStatsView';
-import TeamStatsView from '../components/blocks/TeamStatsView';
+import StatsView from '../components/blocks/StatsView';
 import Layout from '../components/layouts/Layout';
 import testData from '../data/test.json';
 import { formatData } from '../utils/resultData';
@@ -22,35 +20,29 @@ const Home: NextPage = () => {
         <Alert className="my-4 font-bold" severity="warning">
           ほぼ完成しました！カスタムが始まるまでの間、テストデータを表示しています。データの不整合などの不具合を発見した場合は、ページ下部に表示したTwitterアカウントからご連絡ください。
         </Alert>
-
-        <ul className="list-disc ml-8">
-          <li>マップはすべてWorld&apos;s Edgeです。</li>
-        </ul>
       </div>
 
-      <div>
-        <h2 className="text-2xl  mt-4">テストデータ</h2>
-
-        <Paper className="p-3 my-4 border-orange" variant="outlined" square>
-          <TeamStatsView result={testTeamResult} defaultNumberOfMatches={1} />
-        </Paper>
-
-        <Paper className="p-3 my-4 border-orange" variant="outlined" square>
-          <PlayerStatsView result={testPlayerResult} />
-        </Paper>
-      </div>
+      <StatsView
+        statsTitle="テストデータ"
+        teamResult={testTeamResult}
+        playerResult={testPlayerResult}
+        defaultNumberOfMatches={1}
+      />
 
       <h2 className="text-2xl mt-4">各種リンク</h2>
       <div>
-        <ul className="list-disc ml-4">
+        <ul className="list-disc ml-8">
           <li>
             <Link href="https://vtuber-saikyo.jp/">大会公式サイト</Link>
           </li>
           <li>
-            <Link href="https://twitter.com/ShibuyaHAL">渋谷ハルさんTwitter</Link>
+            <Link href="https://vtuber-saikyo.jp/season4/rule/">大会ルール</Link>
           </li>
           <li>
-            <Link href="https://youtube.com/c/HALchannel">渋谷ハルさんYouTube</Link>
+            <Link href="https://twitter.com/ShibuyaHAL">渋谷ハルさん Twitter</Link>
+          </li>
+          <li>
+            <Link href="https://youtube.com/c/HALchannel">渋谷ハルさん YouTube (大会配信チャンネル)</Link>
           </li>
         </ul>
       </div>
