@@ -1,7 +1,7 @@
 import Alert from '@mui/material/Alert';
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import type { NextPage } from 'next';
-import A from '../components/atoms/A';
 import PlayerStatsView from '../components/blocks/PlayerStatsView';
 import TeamStatsView from '../components/blocks/TeamStatsView';
 import Layout from '../components/layouts/Layout';
@@ -20,20 +20,12 @@ const Home: NextPage = () => {
         </p>
 
         <Alert className="my-4 font-bold" severity="warning">
-          現在鋭意開発中です！完成までお待ち下さい。テストデータを表示しています。
+          ほぼ完成しました！カスタムが始まるまでの間、テストデータを表示しています。データの不整合などの不具合を発見した場合は、ページ下部に表示したTwitterアカウントからご連絡ください。
         </Alert>
 
-        {/* <ul className="list-disc ml-4 text-sm">
+        <ul className="list-disc ml-8">
           <li>マップはすべてWorld&apos;s Edgeです。</li>
-          <li>
-            本番は全5試合のうち、1試合目3ポイント、2,3試合目6ポイントのキルポイント上限があります。練習カスタムでは全チームが各マッチのキルポイント上限を意識して動いているわけではないため、キルポイント上限の有無を切り替えて結果を見られるようにしています。
-          </li>
-          <li>各日6試合目以降の延長戦はキルポイント上限無しで集計しています。</li>
-          <li>
-            キルポイント上限を適用しているときにキル数が<em>斜体</em>
-            で表示されているものは上限を超えていることを意味します。
-          </li>
-        </ul> */}
+        </ul>
       </div>
 
       <div>
@@ -52,13 +44,13 @@ const Home: NextPage = () => {
       <div>
         <ul className="list-disc ml-4">
           <li>
-            <A href="https://vtuber-saikyo.jp/">大会公式サイト</A>
+            <Link href="https://vtuber-saikyo.jp/">大会公式サイト</Link>
           </li>
           <li>
-            <A href="https://twitter.com/ShibuyaHAL">渋谷ハルさんTwitter</A>
+            <Link href="https://twitter.com/ShibuyaHAL">渋谷ハルさんTwitter</Link>
           </li>
           <li>
-            <A href="https://youtube.com/c/HALchannel">渋谷ハルさんYouTube</A>
+            <Link href="https://youtube.com/c/HALchannel">渋谷ハルさんYouTube</Link>
           </li>
         </ul>
       </div>

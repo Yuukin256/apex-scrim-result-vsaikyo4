@@ -1,7 +1,7 @@
+import Link from '@mui/material/Link';
 import Head from 'next/head';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import React from 'react';
-import A from '../atoms/A';
 import FabToTop from '../atoms/FabToTop';
 
 const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ children, title }) => {
@@ -30,7 +30,7 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
       <div className="min-h-screen flex flex-col">
         <div className="bg-orange p-5">
           <h1 className="text-center text-4xl font-bold text-white">
-            <Link href="/">V最協S4 練習カスタム試合結果 (非公式)</Link>
+            <NextLink href="/">V最協S4 練習カスタム試合結果 (非公式)</NextLink>
           </h1>
         </div>
         <FabToTop />
@@ -38,16 +38,11 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <footer className="w-full mt-4 p-2">
           <p>
             このサイトはGoogle Analyticsを使用しています。
-            <a
-              className="underline visited:text-purple-900 text-orange"
-              href="https://policies.google.com/technologies/partner-sites?hl=ja"
-            >
-              詳しく見る
-            </a>
+            <Link href="https://policies.google.com/technologies/partner-sites?hl=ja">詳しく見る</Link>
           </p>
           <p>
-            © 2022 Yuukin256 (<A href="https://twitter.com/Yuukin256">@Yuukin256</A>
-            ), Built with <A href="https://nextjs.org/">Next.js</A>.
+            © 2022 Yuukin256 (<Link href="https://twitter.com/Yuukin256">@Yuukin256</Link>
+            ), Built with <Link href="https://nextjs.org/">Next.js</Link>.
           </p>
         </footer>
       </div>
