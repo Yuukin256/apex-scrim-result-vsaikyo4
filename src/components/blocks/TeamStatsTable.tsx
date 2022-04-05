@@ -3,12 +3,12 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Tooltip from '@mui/material/Tooltip';
 import { memo } from 'react';
 import { TeamStats } from '../../hooks/useTeamStatsHook';
 import TableCellCenter from '../atoms/TableCellCenter';
 import TableCellLeft from '../atoms/TableCellLeft';
 import TableCellRight from '../atoms/TableCellRight';
+import Tooltip from '../atoms/Tooltip';
 
 const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
   return (
@@ -33,27 +33,48 @@ const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfM
   return (
     <TableRow>
       <TableCellCenter className="font-bold w-8 border-r">#</TableCellCenter>
-      <TableCellCenter className="font-bold w-64 border-r" colSpan={2}>
+      <TableCellCenter className="font-bold w-80 border-r" colSpan={2}>
         チーム
       </TableCellCenter>
 
-      <TableCellCenter className="font-bold w-20">ポイント</TableCellCenter>
-      <TableCellCenter className="font-bold w-20">順位ポイント</TableCellCenter>
-      <TableCellCenter className="font-bold border-r">キルポイント</TableCellCenter>
+      <TableCellCenter className="font-bold w-16">
+        <span className="inline-block">ポイ</span>
+        <span className="inline-block">ント</span>
+      </TableCellCenter>
+      <TableCellCenter className="font-bold w-16">
+        <span className="inline-block">順位</span>
+        <span className="inline-block">ポイ</span>
+        <span className="inline-block">ント</span>
+      </TableCellCenter>
+      <TableCellCenter className="font-bold w-16 border-r">
+        <span className="inline-block">キル</span>
+        <span className="inline-block">ポイ</span>
+        <span className="inline-block">ント</span>
+      </TableCellCenter>
 
-      <TableCellCenter className="font-bold w-20">ポイント</TableCellCenter>
-      <TableCellCenter className="font-bold w-20">順位</TableCellCenter>
-      <TableCellCenter className="font-bold w-20 border-r">キルポイント</TableCellCenter>
+      <TableCellCenter className="font-bold w-16">
+        <span className="inline-block">ポイ</span>
+        <span className="inline-block">ント</span>
+      </TableCellCenter>
+      <TableCellCenter className="font-bold w-16">順位</TableCellCenter>
+      <TableCellCenter className="font-bold w-16 border-r">
+        <span className="inline-block">キル</span>
+        <span className="inline-block">ポイ</span>
+        <span className="inline-block">ント</span>
+      </TableCellCenter>
 
       {[...new Array(numberOfMatches)].flatMap((_, i) => [
-        <TableCellCenter className="font-bold w-20" key={3 * i + 2}>
-          ポイント
+        <TableCellCenter className="font-bold w-16" key={3 * i}>
+          <span className="inline-block">ポイ</span>
+          <span className="inline-block">ント</span>
         </TableCellCenter>,
-        <TableCellCenter className="font-bold w-20" key={3 * i}>
+        <TableCellCenter className="font-bold w-16" key={3 * i + 1}>
           順位
         </TableCellCenter>,
-        <TableCellCenter className="font-bold w-20 border-r last:border-r-0" key={3 * i + 1}>
-          キルポイント
+        <TableCellCenter className="font-bold w-16 border-r last:border-r-0" key={3 * i + 2}>
+          <span className="inline-block">キル</span>
+          <span className="inline-block">ポイ</span>
+          <span className="inline-block">ント</span>
         </TableCellCenter>,
       ])}
     </TableRow>
@@ -83,10 +104,10 @@ const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches
         </TableCellRight>
       </Tooltip>
 
-      <TableCellRight>
-        <span className="font-bold">{team.average.point}</span>
-      </TableCellRight>
-      <TableCellRight>{team.average.placementPoint}</TableCellRight>
+      <TableCellRight>{team.average.point}</TableCellRight>
+      <Tooltip title={`${team.average.placementPoint}ポイント`}>
+        <TableCellRight>{team.average.placement}</TableCellRight>
+      </Tooltip>
       <Tooltip title={`${team.average.kill}キル`}>
         <TableCellRight className="border-r">
           {team.average.kill !== team.average.killPoint ? (

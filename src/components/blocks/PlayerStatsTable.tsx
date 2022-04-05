@@ -3,12 +3,12 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Tooltip from '@mui/material/Tooltip';
 import { memo, VFC } from 'react';
 import type { PlayerStats } from '../../hooks/usePlayerStatsHook';
 import TableCellCenter from '../atoms/TableCellCenter';
 import TableCellLeft from '../atoms/TableCellLeft';
 import TableCellRight from '../atoms/TableCellRight';
+import Tooltip from '../atoms/Tooltip';
 
 interface Props {
   players: PlayerStats[];
@@ -41,7 +41,7 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
         <TableCellCenter className="font-bold w-8 border-r">#</TableCellCenter>
         <TableCellCenter className="font-bold w-48 border-r">選手名</TableCellCenter>
         {[...new Array(numberOfMatches + 2)].flatMap((_, i) => [
-          <TableCellCenter className="font-bold w-20" key={2 * i}>
+          <TableCellCenter className="font-bold w-16" key={2 * i}>
             キル
           </TableCellCenter>,
           <TableCellCenter className="font-bold w-20 border-r last:border-r-0" key={2 * i + 1}>
