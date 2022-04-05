@@ -1,4 +1,4 @@
-export const getPlacementPoint = (placement: number | string): number => {
+export const getPlacementPoint = (placement: number | string | null): number => {
   switch (placement) {
     case 1:
       return 12;
