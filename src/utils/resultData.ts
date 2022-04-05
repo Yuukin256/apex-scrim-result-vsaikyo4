@@ -21,10 +21,10 @@ export interface TeamResult {
   name: string;
   tag: string;
   matches: {
-    maxKill: number | null;
+    maxKill: number;
     placement: number | null;
     placementPoint: number;
-    kill: number;
+    kill: number | null;
   }[];
 }
 
@@ -62,10 +62,12 @@ export const formatData = (data: MatchData[]): Result => {
       teamResult
         .find((t) => t.id === team.id)
         ?.matches.push({
-          maxKill: match.maxKill,
+          maxKill: match.maxKill ?? Infinity,
           placement: team.placement,
           placementPoint: getPlacementPoint(team.placement),
-          kill: team.players.map((p) => p.kill ?? 0).reduce((prev, cur) => prev + cur, 0),
+          kill: team.players
+            .map((p) => p.kill)
+            .reduce((prev, cur) => (prev === null && cur === null ? null : (prev ?? 0) + (cur ?? 0)), null),
         });
 
       team.players.forEach((player) => {
