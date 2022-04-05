@@ -5,8 +5,11 @@ import A from '../components/atoms/A';
 import PlayerStatsView from '../components/blocks/PlayerStatsView';
 import TeamStatsView from '../components/blocks/TeamStatsView';
 import Layout from '../components/layouts/Layout';
+import testData from '../data/test.json';
+import { formatData } from '../utils/resultData';
 
 const Home: NextPage = () => {
+  const { team: testTeamResult, player: testPlayerResult } = formatData(testData);
   return (
     <Layout title="トップ">
       <div>
@@ -37,11 +40,11 @@ const Home: NextPage = () => {
         <h2 className="text-2xl  mt-4">テストデータ</h2>
 
         <Paper className="p-3 my-4 border-orange" variant="outlined" square>
-          <TeamStatsView />
+          <TeamStatsView result={testTeamResult} defaultNumberOfMatches={5} />
         </Paper>
 
         <Paper className="p-3 my-4 border-orange" variant="outlined" square>
-          <PlayerStatsView />
+          <PlayerStatsView result={testPlayerResult} />
         </Paper>
       </div>
 
@@ -49,19 +52,13 @@ const Home: NextPage = () => {
       <div>
         <ul className="list-disc ml-4">
           <li>
-            <A href="https://vtuber-saikyo.jp/">
-              大会公式サイト
-            </A>
+            <A href="https://vtuber-saikyo.jp/">大会公式サイト</A>
           </li>
           <li>
-            <A href="https://twitter.com/ShibuyaHAL">
-              渋谷ハルさんTwitter
-            </A>
+            <A href="https://twitter.com/ShibuyaHAL">渋谷ハルさんTwitter</A>
           </li>
           <li>
-            <A href="https://youtube.com/c/HALchannel">
-              渋谷ハルさんYouTube
-            </A>
+            <A href="https://youtube.com/c/HALchannel">渋谷ハルさんYouTube</A>
           </li>
         </ul>
       </div>
