@@ -1,4 +1,5 @@
 import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 import { PlayerResult, TeamResult } from '../../utils/resultData';
 import PlayerStatsView from './PlayerStatsView';
@@ -13,7 +14,9 @@ interface Props {
 
 const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNumberOfMatches }) => (
   <>
-    <h2 className="text-2xl  mt-4">{statsTitle}</h2>
+    <Typography variant="h2" fontWeight="regular" mt={1}>
+      {statsTitle}
+    </Typography>
 
     <ul className="list-disc ml-8">
       <li>マップはすべてWorld&apos;s Edgeです。</li>

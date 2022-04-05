@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         の試合結果一覧です。正確性を保つ努力はしておりますが、集計に誤りがある可能性があります。ご了承ください。
       </p>
 
-      <Alert className="my-4 font-bold" severity="warning">
+      <Alert className="my-4" severity="warning">
         ほぼ完成しました！カスタムが始まるまでの間、テストデータを表示しています。データの不整合などの不具合を発見した場合は、ページ下部に表示したTwitterアカウントからご連絡ください。
       </Alert>
 

@@ -1,9 +1,12 @@
 import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 
 const RelatedLinks: VFC = () => (
   <>
-    <h2 className="text-2xl mt-8">関連リンク集</h2>
+    <Typography variant="h2" mt={4}>
+      関連リンク集
+    </Typography>
     <ul className="list-disc ml-8">
       <li>
         <Link href="https://vtuber-saikyo.jp/">大会公式サイト</Link>

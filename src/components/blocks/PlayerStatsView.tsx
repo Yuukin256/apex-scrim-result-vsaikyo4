@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { VFC } from 'react';
 import { usePlayerStats } from '../../hooks/usePlayerStatsHook';
 import { PlayerResult } from '../../utils/resultData';
@@ -5,7 +6,7 @@ import PlayerStatsOptionForm from './PlayerStatsOptionForm';
 import PlayerStatsTable from './PlayerStatsTable';
 
 interface Props {
-  result: PlayerResult[]
+  result: PlayerResult[];
 }
 
 const PlayerStatsView: VFC<Props> = (props) => {
@@ -13,7 +14,7 @@ const PlayerStatsView: VFC<Props> = (props) => {
 
   return (
     <>
-      <h3 className="text-xl">個人成績</h3>
+      <Typography variant="h3">個人成績</Typography>
       <PlayerStatsOptionForm sortKey={sortKey} setSortKey={setSortKey} options={sortOptions} />
       <PlayerStatsTable players={stats} numberOfMatches={numberOfMatches} />
     </>
