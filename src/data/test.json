@@ -1,7 +1,7 @@
 [
   {
     "match": 1,
-    "maxKill": null,
+    "maxKill": 5,
     "teams": [
       {
         "id": 1,

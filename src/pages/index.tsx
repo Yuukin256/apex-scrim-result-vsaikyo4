@@ -40,7 +40,7 @@ const Home: NextPage = () => {
         <h2 className="text-2xl  mt-4">テストデータ</h2>
 
         <Paper className="p-3 my-4 border-orange" variant="outlined" square>
-          <TeamStatsView result={testTeamResult} defaultNumberOfMatches={5} />
+          <TeamStatsView result={testTeamResult} defaultNumberOfMatches={1} />
         </Paper>
 
         <Paper className="p-3 my-4 border-orange" variant="outlined" square>
