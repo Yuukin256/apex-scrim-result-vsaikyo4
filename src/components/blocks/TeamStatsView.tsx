@@ -24,21 +24,25 @@ const TeamStatsView: VFC<Props> = (props) => {
 
       <Accordion square defaultExpanded>
         <AccordionSummary className="bg-orange-100" expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="h5" component="div">表の注意事項</Typography>
+          <Typography variant="h5" component="div">
+            表の注意事項
+          </Typography>
         </AccordionSummary>
         <AccordionDetails className="bg-orange-50">
           <ul className="list-disc list-inside ml-4">
-            {/* <li>
-            本番は全5試合のうち、1試合目3ポイント、2,3試合目6ポイントのキルポイント上限があります。練習カスタムでは全チームが各マッチのキルポイント上限を意識して動いているわけではないため、キルポイント上限の有無を切り替えて結果を見られるようにしています。
-            </li>
-            <li>各日6試合目以降の延長戦はキルポイント上限無しとして集計しています。</li> */}
             <li>
-              キルポイント上限を適用しているときに「キルポイント」の項目が<em>斜体</em>
+              本番は全5試合のうち、{/* 1試合目3ポイント、2,3試合目6ポイントの*/}
+              キルポイント上限があります。練習カスタムでは全チームが各マッチのキルポイント上限を意識して動いているわけではないため、キルポイント上限の有無を切り替えて結果を見られるようにしています。
+            </li>
+            <li>{props.defaultNumberOfMatches + 1}試合目以降の延長戦はキルポイント上限無しとして集計しています。</li>
+            <li>
+              キルポイント上限を適用しているときに「キルポイント」の項目が<span className="italic">斜体</span>
               で表示されているものは上限を超えていることを意味します。ホバー (タップ)
               すると、上限適用前のキル数が出ます。
             </li>
-            <li>「平均順位」の項目は、ホバー (タップ) すると平均の順位ポイントが出ます。</li>
-            <li>各試合の「順位」の項目は、ホバー (タップ) すると順位ポイントが出ます。</li>
+            <li>
+              「順位」の項目は、ホバー (タップ) すると順位ポイントが出ます (「平均順位」の場合は平均の順位ポイント)。
+            </li>
           </ul>
         </AccordionDetails>
       </Accordion>

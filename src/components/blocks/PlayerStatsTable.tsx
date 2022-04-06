@@ -71,12 +71,10 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
               </Tooltip>
 
               <TableCellRight>{player.total.kill}</TableCellRight>
-
               <TableCellRight className="border-r">{player.total.damage}</TableCellRight>
 
-              <TableCellRight>{player.average.kill}</TableCellRight>
-
-              <TableCellRight className="border-r">{player.average.damage}</TableCellRight>
+              <TableCellRight>{player.average.kill?.toFixed(1) ?? ''}</TableCellRight>
+              <TableCellRight className="border-r">{player.average.damage?.toFixed(1) ?? 0}</TableCellRight>
 
               {player.matches.flatMap((match, j) => [
                 <TableCellRight key={2 * j}>{match.kill}</TableCellRight>,

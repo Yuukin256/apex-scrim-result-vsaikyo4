@@ -1,24 +1,25 @@
-import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 import { TeamStats } from '../../hooks/useTeamStatsHook';
 import TableCellCenter from '../atoms/TableCellCenter';
 import TableCellLeft from '../atoms/TableCellLeft';
 import TableCellRight from '../atoms/TableCellRight';
 import Tooltip from '../atoms/Tooltip';
 
-const getPlacementIcon = (placement: number | null): ReactNode => {
+const getPlacementColor = (placement: number | null): string => {
   switch (placement) {
     case 1:
-      return <MilitaryTechIcon fontSize="small" htmlColor="#ffd700" />;
+      return '#ffd700';
     case 2:
-      return <MilitaryTechIcon fontSize="small" htmlColor="#c0c0c0" />;
+      return '#c0c0c0';
     case 3:
-      return <MilitaryTechIcon fontSize="small" htmlColor="#CD7F32" />;
+      return '#CD7F32';
+    default:
+      return '';
   }
 };
 
@@ -128,17 +129,15 @@ const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches
         </TableCellRight>
       </Tooltip>
 
-      <TableCellRight>{team.average.point}</TableCellRight>
-      <Tooltip title={`${team.average.placementPoint}ポイント`}>
-        <TableCellRight>{team.average.placement}</TableCellRight>
+      <TableCellRight>{team.average.point.toFixed(1)}</TableCellRight>
+      <Tooltip title={`${team.average.placementPoint.toFixed(1)}ポイント`}>
+        <TableCellRight>{team.average.placement?.toFixed(1) ?? ''}</TableCellRight>
       </Tooltip>
-      <Tooltip title={`${team.average.kill}キル`}>
+      <Tooltip title={`${(team.average.kill ?? 0).toFixed(1)}キル`}>
         <TableCellRight className="border-r">
-          {team.average.kill !== team.average.killPoint ? (
-            <span className="italic">{team.average.killPoint}</span>
-          ) : (
-            team.average.killPoint
-          )}
+          <span className={team.average.kill !== team.average.killPoint ? 'italic' : ''}>
+            {team.average.killPoint.toFixed(1)}
+          </span>
         </TableCellRight>
       </Tooltip>
 
@@ -146,8 +145,7 @@ const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches
         return [
           <TableCellRight key={`${team.name}_${j}_point`}>{match.point}</TableCellRight>,
           <Tooltip key={`${props.index}_${j}_placement`} title={`${match.placementPoint}ポイント`}>
-            <TableCellRight>
-              {getPlacementIcon(match.placement)}
+            <TableCellRight sx={{ backgroundColor: getPlacementColor(match.placement) }}>
               {match.placement}
             </TableCellRight>
           </Tooltip>,

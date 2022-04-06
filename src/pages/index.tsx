@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         statsTitle="テストデータ"
         teamResult={testTeamResult}
         playerResult={testPlayerResult}
-        defaultNumberOfMatches={1}
+        defaultNumberOfMatches={5}
       />
 
       <Toc />

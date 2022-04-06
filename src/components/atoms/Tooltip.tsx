@@ -10,7 +10,7 @@ const Tooltip: VFC<TooltipProps> = ({ children, ...props }) => {
 
   return (
     <ClickAwayListener onClickAway={handleClose}>
-      <MuiTooltip open={open} onOpen={handleOpen} onClose={handleClose} onTouchEndCapture={handleOpen} {...props}>
+      <MuiTooltip open={open} onOpen={handleOpen} onClose={handleClose} onClick={handleOpen} arrow {...props}>
         {children}
       </MuiTooltip>
     </ClickAwayListener>
