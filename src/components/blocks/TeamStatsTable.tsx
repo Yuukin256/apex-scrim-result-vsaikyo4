@@ -142,17 +142,25 @@ const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches
       </Tooltip>
 
       {team.matches.flatMap((match, j) => {
-        return [
-          <TableCellRight key={`${team.name}_${j}_point`}>{match.point}</TableCellRight>,
-          <Tooltip key={`${props.index}_${j}_placement`} title={`${match.placementPoint}ポイント`}>
-            <TableCellRight sx={{ backgroundColor: getPlacementColor(match.placement) }}>
-              {match.placement}
-            </TableCellRight>
-          </Tooltip>,
-          <Tooltip title={`${match.kill}キル`} key={`${props.index}_${j}_kill`}>
-            <TableCellRight className="border-r last:border-r-0">{match.killPoint}</TableCellRight>
-          </Tooltip>,
-        ];
+        if (match.placement || match.kill) {
+          return [
+            <TableCellRight key={`${team.name}_${j}_point`}>{match.point}</TableCellRight>,
+            <Tooltip key={`${props.index}_${j}_placement`} title={`${match.placementPoint}ポイント`}>
+              <TableCellRight sx={{ backgroundColor: getPlacementColor(match.placement) }}>
+                {match.placement}
+              </TableCellRight>
+            </Tooltip>,
+            <Tooltip title={`${match.kill ?? 0}キル`} key={`${props.index}_${j}_kill`}>
+              <TableCellRight className="border-r last:border-r-0">{match.killPoint}</TableCellRight>
+            </Tooltip>,
+          ];
+        } else {
+          return [
+            <TableCellRight key={`${team.name}_${j}_point`}></TableCellRight>,
+            <TableCellRight key={`${props.index}_${j}_placement`}></TableCellRight>,
+            <TableCellRight key={`${props.index}_${j}_kill`} className="border-r last:border-r-0"></TableCellRight>,
+          ];
+        }
       })}
     </TableRow>
   );

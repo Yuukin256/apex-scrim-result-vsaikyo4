@@ -46,9 +46,9 @@ const calculateTotalAndAverage = (stats: Omit<TeamStats, 'total' | 'average'>): 
   // 配列の要素が存在しない場合は早期 return 済みのため initialValue は不要
   const total = stats.matches.reduce((prev, cur) => {
     const placement =
-      prev.placement === null || cur.placement === null ? null : (prev.placement ?? 0) + (cur.placement ?? 0);
+      prev.placement === null && cur.placement === null ? null : (prev.placement ?? 0) + (cur.placement ?? 0);
     const placementPoint = prev.placementPoint + cur.placementPoint;
-    const kill = prev.kill === null || cur.kill === null ? null : (prev.kill ?? 0) + (cur.kill ?? 0);
+    const kill = prev.kill === null && cur.kill === null ? null : (prev.kill ?? 0) + (cur.kill ?? 0);
     const killPoint = prev.killPoint + cur.killPoint;
     const point = placementPoint + killPoint;
     return {
