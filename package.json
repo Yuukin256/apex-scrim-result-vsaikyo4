@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@discordjs/collection": "^0.2.1",
+    "@discordjs/collection": "0.2.1",
     "@emotion/react": "^11.8.2",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
