@@ -1,14 +1,26 @@
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { TeamStats } from '../../hooks/useTeamStatsHook';
 import TableCellCenter from '../atoms/TableCellCenter';
 import TableCellLeft from '../atoms/TableCellLeft';
 import TableCellRight from '../atoms/TableCellRight';
 import Tooltip from '../atoms/Tooltip';
+
+const getPlacementIcon = (placement: number | null): ReactNode => {
+  switch (placement) {
+    case 1:
+      return <MilitaryTechIcon fontSize="small" htmlColor="#ffd700" />;
+    case 2:
+      return <MilitaryTechIcon fontSize="small" htmlColor="#c0c0c0" />;
+    case 3:
+      return <MilitaryTechIcon fontSize="small" htmlColor="#CD7F32" />;
+  }
+};
 
 const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
   return (
@@ -134,7 +146,10 @@ const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches
         return [
           <TableCellRight key={`${team.name}_${j}_point`}>{match.point}</TableCellRight>,
           <Tooltip key={`${props.index}_${j}_placement`} title={`${match.placementPoint}ポイント`}>
-            <TableCellRight>{match.placement}</TableCellRight>
+            <TableCellRight>
+              {getPlacementIcon(match.placement)}
+              {match.placement}
+            </TableCellRight>
           </Tooltip>,
           <Tooltip title={`${match.kill}キル`} key={`${props.index}_${j}_kill`}>
             <TableCellRight className="border-r last:border-r-0">{match.killPoint}</TableCellRight>
