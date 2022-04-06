@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 
 const TableCellLeft = styled(TableCell)({
   textAlign: 'left',
-  padding: '0.4rem 0.75rem',
+  padding: '0.4rem 0.7rem',
   fontSize: '0.875rem',
 });
 

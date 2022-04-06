@@ -29,7 +29,7 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <meta name="twitter:image" content="https://apex-scrim-result-vsaikyo4.vercel.app/ogp.png" />
       </Head>
       <div className="min-h-screen flex flex-col">
-        <div className="bg-orange p-5">
+        <div className="bg-saikyoOrange p-5">
           <Typography variant="h1" align="center" color="white" fontWeight="regular">
             <NextLink href="/">V最協S4 練習カスタム試合結果 (非公式)</NextLink>
           </Typography>

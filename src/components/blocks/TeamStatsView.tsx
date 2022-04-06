@@ -18,14 +18,13 @@ const TeamStatsView: VFC<Props> = (props) => {
   const { stats, numberOfMatches, forForm } = useTeamStats(props);
   return (
     <>
-      <Typography variant="h3" mb={1}>
+      <Typography variant="h3" mb={2}>
         チーム成績
       </Typography>
-      <Accordion square defaultExpanded>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="h5">
-            表の注意事項
-          </Typography>
+
+      <Accordion elevation={0} className="border border-saikyoOrange" square defaultExpanded>
+        <AccordionSummary className="bg-orange-100" expandIcon={<ExpandMoreIcon />}>
+          <Typography variant="h5">表の注意事項</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <ul className="list-disc ml-8">

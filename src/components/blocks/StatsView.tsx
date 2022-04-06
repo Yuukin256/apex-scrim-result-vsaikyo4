@@ -22,11 +22,11 @@ const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNu
       <li>マップはすべてWorld&apos;s Edgeです。</li>
     </ul>
 
-    <Paper className="p-3 my-4 border-orange" variant="outlined" square>
+    <Paper className="p-3 my-4 border-saikyoOrange" variant="outlined" square>
       <TeamStatsView result={teamResult} defaultNumberOfMatches={defaultNumberOfMatches} />
     </Paper>
 
-    <Paper className="p-3 my-4 border-orange" variant="outlined" square>
+    <Paper className="p-3 my-4 border-saikyoOrange" variant="outlined" square>
       <PlayerStatsView result={playerResult} />
     </Paper>
   </>
