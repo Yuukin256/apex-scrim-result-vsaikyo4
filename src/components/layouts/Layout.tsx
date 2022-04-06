@@ -30,7 +30,7 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
       </Head>
       <div className="min-h-screen flex flex-col">
         <div className="bg-saikyoOrange p-5">
-          <Typography variant="h1" align="center" color="white" fontWeight="regular">
+          <Typography variant="h1" align="center" color="white">
             <NextLink href="/">V最協S4 練習カスタム試合結果 (非公式)</NextLink>
           </Typography>
         </div>

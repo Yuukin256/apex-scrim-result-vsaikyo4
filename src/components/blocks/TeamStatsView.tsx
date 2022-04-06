@@ -24,7 +24,7 @@ const TeamStatsView: VFC<Props> = (props) => {
 
       <Accordion square defaultExpanded>
         <AccordionSummary className="bg-orange-100" expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="h5">表の注意事項</Typography>
+          <Typography variant="h5" component="div">表の注意事項</Typography>
         </AccordionSummary>
         <AccordionDetails className="bg-orange-50">
           <ul className="list-disc list-inside ml-4">

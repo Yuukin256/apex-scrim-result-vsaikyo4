@@ -14,7 +14,7 @@ interface Props {
 
 const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNumberOfMatches }) => (
   <>
-    <Typography variant="h2" fontWeight="regular" mt={1}>
+    <Typography variant="h2" mt={1}>
       {statsTitle}
     </Typography>
 
