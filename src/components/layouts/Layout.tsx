@@ -22,7 +22,7 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://vtuber-saikyo.jp/wp-content/themes/theme/static/s4_ogp.png" />
-        <meta name="twitter:card" content="large" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Yuukin256" />
         <meta name="twitter:title" content={title ? `${title} | ${siteTitle}` : `${siteTitle}`} />
         <meta name="twitter:description" content={description} />
