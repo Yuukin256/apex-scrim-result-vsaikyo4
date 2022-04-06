@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { TeamStatsOptionFormProps } from '../components/blocks/TeamStatsOptionForm';
-import { TeamResult } from '../utils/resultData';
+import type { TeamResultCollection } from '../utils/resultData';
 
 interface BaseStats {
   placement: number | null;
@@ -19,9 +19,9 @@ export interface TeamStats {
 }
 
 const calculateTotalAndAverage = (stats: Omit<TeamStats, 'total' | 'average'>): TeamStats => {
-  const numberOfMatches = stats.matches.length;
+  const numberOfMatches = stats.matches.filter((s) => s.placement !== null).length;
 
-  // 試合数ゼロの場合は、平均の計算でゼロ除算が発生することを防止
+  // 順位が入力されている試合数が0の場合は、平均の計算でゼロ除算が発生することを防止
   if (numberOfMatches === 0) {
     return {
       ...stats,
@@ -83,7 +83,7 @@ export interface SortOption {
 }
 
 interface Props {
-  result: TeamResult[];
+  result: TeamResultCollection;
   defaultNumberOfMatches: number;
 }
 
@@ -103,24 +103,14 @@ export const useTeamStats = ({ result, defaultNumberOfMatches }: Props): Result 
 
     return result.map((team) => {
       const matches = team.matches.slice(0, maxNumberOfMatches).map<BaseStats>((match) => {
-        if (enableMaxKill) {
-          const killPoint = match.maxKill < (match.kill ?? 0) ? match.maxKill : match.kill ?? 0;
-          return {
-            placement: match.placement,
-            placementPoint: match.placementPoint,
-            kill: match.kill,
-            killPoint: killPoint,
-            point: match.placementPoint + killPoint,
-          };
-        } else {
-          return {
-            placement: match.placement,
-            placementPoint: match.placementPoint,
-            kill: match.kill,
-            killPoint: match.kill ?? 0,
-            point: match.placementPoint + (match.kill ?? 0),
-          };
-        }
+        const killPoint = enableMaxKill ? match.killPointWithMax : match.killPointWithoutMax;
+        return {
+          placement: match.placement,
+          placementPoint: match.placementPoint,
+          kill: match.kill,
+          killPoint: killPoint,
+          point: match.placementPoint + killPoint,
+        };
       });
 
       return calculateTotalAndAverage({ ...team, matches });

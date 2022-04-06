@@ -5,12 +5,12 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 import { useTeamStats } from '../../hooks/useTeamStatsHook';
-import { TeamResult } from '../../utils/resultData';
+import type { TeamResultCollection } from '../../utils/resultData';
 import TeamStatsOptionForm from './TeamStatsOptionForm';
 import TeamStatsTable from './TeamStatsTable';
 
 interface Props {
-  result: TeamResult[];
+  result: TeamResultCollection;
   defaultNumberOfMatches: number;
 }
 

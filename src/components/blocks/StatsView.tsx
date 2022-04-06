@@ -1,14 +1,14 @@
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
-import { PlayerResult, TeamResult } from '../../utils/resultData';
+import type { PlayerResultCollection, TeamResultCollection } from '../../utils/resultData';
 import PlayerStatsView from './PlayerStatsView';
 import TeamStatsView from './TeamStatsView';
 
 interface Props {
   statsTitle: string;
-  teamResult: TeamResult[];
-  playerResult: PlayerResult[];
+  teamResult: TeamResultCollection;
+  playerResult: PlayerResultCollection;
   defaultNumberOfMatches: number;
 }
 

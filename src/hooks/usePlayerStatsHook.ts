@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useMemo, useState } from 'react';
-import { PlayerResult } from '../utils/resultData';
+import type { PlayerResult, PlayerResultCollection } from '../utils/resultData';
 
 interface BaseStats {
   kill: number | null;
@@ -61,7 +61,7 @@ interface Result {
   sortOptions: SortOption[];
 }
 
-export const usePlayerStats = (result: PlayerResult[]): Result => {
+export const usePlayerStats = (result: PlayerResultCollection): Result => {
   const stats = useMemo(() => result.map((p) => calculateTotalAndAverage(p)), [result]);
   const numberOfMatches = useMemo(
     () => stats.map((v) => v.matches.length).reduce((prev, cur) => (prev > cur ? prev : cur)),

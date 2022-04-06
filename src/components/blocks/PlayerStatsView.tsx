@@ -1,12 +1,12 @@
 import { Typography } from '@mui/material';
 import { VFC } from 'react';
 import { usePlayerStats } from '../../hooks/usePlayerStatsHook';
-import { PlayerResult } from '../../utils/resultData';
+import type { PlayerResultCollection } from '../../utils/resultData';
 import PlayerStatsOptionForm from './PlayerStatsOptionForm';
 import PlayerStatsTable from './PlayerStatsTable';
 
 interface Props {
-  result: PlayerResult[];
+  result: PlayerResultCollection;
 }
 
 const PlayerStatsView: VFC<Props> = (props) => {

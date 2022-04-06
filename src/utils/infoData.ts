@@ -1,3 +1,4 @@
+import { Collection } from '@discordjs/collection';
 import teamData from '../data/team.json';
 
 export interface TeamInfo {
@@ -10,7 +11,7 @@ export interface TeamInfo {
   }[];
 }
 
-export const teams: TeamInfo[] = teamData;
+export const teams: Collection<number, TeamInfo> = new Collection(teamData.map((t) => [t.id, t]));
 
 interface PlayerInfo {
   id: number;
@@ -18,8 +19,10 @@ interface PlayerInfo {
   team: TeamInfo;
 }
 
-export const players: PlayerInfo[] = teamData.flatMap((team) =>
-  team.players.map((player) => {
-    return { ...player, team: team };
-  })
+export const players: Collection<number, PlayerInfo> = new Collection(
+  teamData.flatMap((team) =>
+    team.players.map((player) => {
+      return [player.id, { ...player, team: team }];
+    })
+  )
 );
