@@ -15,7 +15,7 @@ export interface PlayerStats {
 }
 
 const calculateTotalAndAverage = (result: PlayerResult): PlayerStats => {
-  const numberOfMatches = result.matches.length;
+  const numberOfMatches = result.matches.filter((s) => s.kill !== null).length;
 
   const total = result.matches.reduce(
     (prev, cur) => {

@@ -373,7 +373,7 @@
   },
   {
     "match": 3,
-    "6": null,
+    "maxKill": 6,
     "teams": [
       {
         "id": 1,
