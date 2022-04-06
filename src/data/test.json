@@ -1,7 +1,7 @@
 [
   {
     "match": 1,
-    "maxKill": 5,
+    "maxKill": 3,
     "teams": [
       {
         "id": 1,
@@ -187,7 +187,7 @@
   },
   {
     "match": 2,
-    "maxKill": null,
+    "maxKill": 6,
     "teams": [
       {
         "id": 1,
@@ -367,6 +367,750 @@
           { "id": 58, "kill": 5, "damage": 1157, "proxy": null },
           { "id": 59, "kill": 2, "damage": 1228, "proxy": null },
           { "id": 60, "kill": 2, "damage": 1100, "proxy": null }
+        ]
+      }
+    ]
+  },
+  {
+    "match": 3,
+    "6": null,
+    "teams": [
+      {
+        "id": 1,
+        "placement": 1,
+        "players": [
+          { "id": 1, "kill": 5, "damage": 553, "proxy": null },
+          { "id": 2, "kill": 2, "damage": 210, "proxy": null },
+          { "id": 3, "kill": 3, "damage": 1746, "proxy": null }
+        ]
+      },
+      {
+        "id": 2,
+        "placement": 14,
+        "players": [
+          { "id": 4, "kill": 2, "damage": 510, "proxy": null },
+          { "id": 5, "kill": 1, "damage": 914, "proxy": null },
+          { "id": 6, "kill": 1, "damage": 667, "proxy": null }
+        ]
+      },
+      {
+        "id": 3,
+        "placement": 3,
+        "players": [
+          { "id": 7, "kill": 4, "damage": 1228, "proxy": null },
+          { "id": 8, "kill": 5, "damage": 903, "proxy": null },
+          { "id": 9, "kill": 4, "damage": 1498, "proxy": null }
+        ]
+      },
+      {
+        "id": 4,
+        "placement": 10,
+        "players": [
+          { "id": 10, "kill": 5, "damage": 1356, "proxy": null },
+          { "id": 11, "kill": 1, "damage": 1775, "proxy": null },
+          { "id": 12, "kill": 5, "damage": 1692, "proxy": null }
+        ]
+      },
+      {
+        "id": 5,
+        "placement": 11,
+        "players": [
+          { "id": 13, "kill": 5, "damage": 1167, "proxy": null },
+          { "id": 14, "kill": 4, "damage": 1647, "proxy": null },
+          { "id": 15, "kill": 5, "damage": 150, "proxy": null }
+        ]
+      },
+      {
+        "id": 6,
+        "placement": 16,
+        "players": [
+          { "id": 16, "kill": 5, "damage": 1642, "proxy": null },
+          { "id": 17, "kill": 2, "damage": 1239, "proxy": null },
+          { "id": 18, "kill": 2, "damage": 1247, "proxy": null }
+        ]
+      },
+      {
+        "id": 7,
+        "placement": 2,
+        "players": [
+          { "id": 19, "kill": 2, "damage": 861, "proxy": null },
+          { "id": 20, "kill": 5, "damage": 1428, "proxy": null },
+          { "id": 21, "kill": 5, "damage": 431, "proxy": null }
+        ]
+      },
+      {
+        "id": 8,
+        "placement": 7,
+        "players": [
+          { "id": 22, "kill": 1, "damage": 169, "proxy": null },
+          { "id": 23, "kill": 5, "damage": 156, "proxy": null },
+          { "id": 24, "kill": 1, "damage": 969, "proxy": null }
+        ]
+      },
+      {
+        "id": 9,
+        "placement": 18,
+        "players": [
+          { "id": 25, "kill": 1, "damage": 1440, "proxy": null },
+          { "id": 26, "kill": 5, "damage": 1873, "proxy": null },
+          { "id": 27, "kill": 1, "damage": 1606, "proxy": null }
+        ]
+      },
+      {
+        "id": 10,
+        "placement": 14,
+        "players": [
+          { "id": 28, "kill": 4, "damage": 907, "proxy": null },
+          { "id": 29, "kill": 3, "damage": 40, "proxy": null },
+          { "id": 30, "kill": 5, "damage": 110, "proxy": null }
+        ]
+      },
+      {
+        "id": 11,
+        "placement": 20,
+        "players": [
+          { "id": 31, "kill": 1, "damage": 1082, "proxy": null },
+          { "id": 32, "kill": 3, "damage": 1741, "proxy": null },
+          { "id": 33, "kill": 1, "damage": 1518, "proxy": null }
+        ]
+      },
+      {
+        "id": 12,
+        "placement": 4,
+        "players": [
+          { "id": 34, "kill": 5, "damage": 665, "proxy": null },
+          { "id": 35, "kill": 1, "damage": 1365, "proxy": null },
+          { "id": 36, "kill": 2, "damage": 499, "proxy": null }
+        ]
+      },
+      {
+        "id": 13,
+        "placement": 16,
+        "players": [
+          { "id": 37, "kill": 3, "damage": 761, "proxy": null },
+          { "id": 38, "kill": 1, "damage": 1888, "proxy": null },
+          { "id": 39, "kill": 5, "damage": 1658, "proxy": null }
+        ]
+      },
+      {
+        "id": 14,
+        "placement": 1,
+        "players": [
+          { "id": 40, "kill": 2, "damage": 347, "proxy": null },
+          { "id": 41, "kill": 4, "damage": 1387, "proxy": null },
+          { "id": 42, "kill": 3, "damage": 672, "proxy": null }
+        ]
+      },
+      {
+        "id": 15,
+        "placement": 5,
+        "players": [
+          { "id": 43, "kill": 1, "damage": 898, "proxy": null },
+          { "id": 44, "kill": 1, "damage": 1091, "proxy": null },
+          { "id": 45, "kill": 1, "damage": 1916, "proxy": null }
+        ]
+      },
+      {
+        "id": 16,
+        "placement": 10,
+        "players": [
+          { "id": 46, "kill": 4, "damage": 1364, "proxy": null },
+          { "id": 47, "kill": 3, "damage": 1884, "proxy": null },
+          { "id": 48, "kill": 4, "damage": 95, "proxy": null }
+        ]
+      },
+      {
+        "id": 17,
+        "placement": 14,
+        "players": [
+          { "id": 49, "kill": 3, "damage": 1194, "proxy": null },
+          { "id": 50, "kill": 2, "damage": 1997, "proxy": null },
+          { "id": 51, "kill": 5, "damage": 1986, "proxy": null }
+        ]
+      },
+      {
+        "id": 18,
+        "placement": 7,
+        "players": [
+          { "id": 52, "kill": 2, "damage": 1875, "proxy": null },
+          { "id": 53, "kill": 1, "damage": 1012, "proxy": null },
+          { "id": 54, "kill": 4, "damage": 1178, "proxy": null }
+        ]
+      },
+      {
+        "id": 19,
+        "placement": 11,
+        "players": [
+          { "id": 55, "kill": 4, "damage": 1474, "proxy": null },
+          { "id": 56, "kill": 5, "damage": 306, "proxy": null },
+          { "id": 57, "kill": 1, "damage": 1200, "proxy": null }
+        ]
+      },
+      {
+        "id": 20,
+        "placement": 17,
+        "players": [
+          { "id": 58, "kill": 1, "damage": 1982, "proxy": null },
+          { "id": 59, "kill": 1, "damage": 344, "proxy": null },
+          { "id": 60, "kill": 1, "damage": 219, "proxy": null }
+        ]
+      }
+    ]
+  },
+  {
+    "match": 4,
+    "maxKill": null,
+    "teams": [
+      {
+        "id": 1,
+        "placement": 19,
+        "players": [
+          { "id": 1, "kill": 4, "damage": 521, "proxy": null },
+          { "id": 2, "kill": 5, "damage": 218, "proxy": null },
+          { "id": 3, "kill": 2, "damage": 758, "proxy": null }
+        ]
+      },
+      {
+        "id": 2,
+        "placement": 9,
+        "players": [
+          { "id": 4, "kill": 3, "damage": 1242, "proxy": null },
+          { "id": 5, "kill": 3, "damage": 915, "proxy": null },
+          { "id": 6, "kill": 1, "damage": 284, "proxy": null }
+        ]
+      },
+      {
+        "id": 3,
+        "placement": 3,
+        "players": [
+          { "id": 7, "kill": 5, "damage": 1564, "proxy": null },
+          { "id": 8, "kill": 2, "damage": 1256, "proxy": null },
+          { "id": 9, "kill": 5, "damage": 1151, "proxy": null }
+        ]
+      },
+      {
+        "id": 4,
+        "placement": 13,
+        "players": [
+          { "id": 10, "kill": 4, "damage": 884, "proxy": null },
+          { "id": 11, "kill": 4, "damage": 71, "proxy": null },
+          { "id": 12, "kill": 1, "damage": 1759, "proxy": null }
+        ]
+      },
+      {
+        "id": 5,
+        "placement": 10,
+        "players": [
+          { "id": 13, "kill": 4, "damage": 80, "proxy": null },
+          { "id": 14, "kill": 3, "damage": 1837, "proxy": null },
+          { "id": 15, "kill": 4, "damage": 15, "proxy": null }
+        ]
+      },
+      {
+        "id": 6,
+        "placement": 2,
+        "players": [
+          { "id": 16, "kill": 1, "damage": 46, "proxy": null },
+          { "id": 17, "kill": 2, "damage": 874, "proxy": null },
+          { "id": 18, "kill": 3, "damage": 1692, "proxy": null }
+        ]
+      },
+      {
+        "id": 7,
+        "placement": 3,
+        "players": [
+          { "id": 19, "kill": 1, "damage": 503, "proxy": null },
+          { "id": 20, "kill": 5, "damage": 1709, "proxy": null },
+          { "id": 21, "kill": 5, "damage": 1714, "proxy": null }
+        ]
+      },
+      {
+        "id": 8,
+        "placement": 12,
+        "players": [
+          { "id": 22, "kill": 5, "damage": 1327, "proxy": null },
+          { "id": 23, "kill": 5, "damage": 214, "proxy": null },
+          { "id": 24, "kill": 3, "damage": 1726, "proxy": null }
+        ]
+      },
+      {
+        "id": 9,
+        "placement": 13,
+        "players": [
+          { "id": 25, "kill": 1, "damage": 400, "proxy": null },
+          { "id": 26, "kill": 3, "damage": 1152, "proxy": null },
+          { "id": 27, "kill": 2, "damage": 608, "proxy": null }
+        ]
+      },
+      {
+        "id": 10,
+        "placement": 19,
+        "players": [
+          { "id": 28, "kill": 4, "damage": 1595, "proxy": null },
+          { "id": 29, "kill": 1, "damage": 70, "proxy": null },
+          { "id": 30, "kill": 5, "damage": 1544, "proxy": null }
+        ]
+      },
+      {
+        "id": 11,
+        "placement": 20,
+        "players": [
+          { "id": 31, "kill": 4, "damage": 277, "proxy": null },
+          { "id": 32, "kill": 5, "damage": 868, "proxy": null },
+          { "id": 33, "kill": 3, "damage": 122, "proxy": null }
+        ]
+      },
+      {
+        "id": 12,
+        "placement": 15,
+        "players": [
+          { "id": 34, "kill": 2, "damage": 173, "proxy": null },
+          { "id": 35, "kill": 4, "damage": 1802, "proxy": null },
+          { "id": 36, "kill": 1, "damage": 924, "proxy": null }
+        ]
+      },
+      {
+        "id": 13,
+        "placement": 7,
+        "players": [
+          { "id": 37, "kill": 5, "damage": 455, "proxy": null },
+          { "id": 38, "kill": 4, "damage": 1431, "proxy": null },
+          { "id": 39, "kill": 1, "damage": 1701, "proxy": null }
+        ]
+      },
+      {
+        "id": 14,
+        "placement": 17,
+        "players": [
+          { "id": 40, "kill": 2, "damage": 948, "proxy": null },
+          { "id": 41, "kill": 2, "damage": 152, "proxy": null },
+          { "id": 42, "kill": 3, "damage": 288, "proxy": null }
+        ]
+      },
+      {
+        "id": 15,
+        "placement": 20,
+        "players": [
+          { "id": 43, "kill": 1, "damage": 1434, "proxy": null },
+          { "id": 44, "kill": 2, "damage": 723, "proxy": null },
+          { "id": 45, "kill": 1, "damage": 1885, "proxy": null }
+        ]
+      },
+      {
+        "id": 16,
+        "placement": 8,
+        "players": [
+          { "id": 46, "kill": 5, "damage": 1622, "proxy": null },
+          { "id": 47, "kill": 5, "damage": 792, "proxy": null },
+          { "id": 48, "kill": 5, "damage": 65, "proxy": null }
+        ]
+      },
+      {
+        "id": 17,
+        "placement": 5,
+        "players": [
+          { "id": 49, "kill": 1, "damage": 451, "proxy": null },
+          { "id": 50, "kill": 5, "damage": 289, "proxy": null },
+          { "id": 51, "kill": 5, "damage": 451, "proxy": null }
+        ]
+      },
+      {
+        "id": 18,
+        "placement": 1,
+        "players": [
+          { "id": 52, "kill": 3, "damage": 533, "proxy": null },
+          { "id": 53, "kill": 3, "damage": 113, "proxy": null },
+          { "id": 54, "kill": 3, "damage": 1038, "proxy": null }
+        ]
+      },
+      {
+        "id": 19,
+        "placement": 6,
+        "players": [
+          { "id": 55, "kill": 3, "damage": 12, "proxy": null },
+          { "id": 56, "kill": 2, "damage": 1354, "proxy": null },
+          { "id": 57, "kill": 4, "damage": 715, "proxy": null }
+        ]
+      },
+      {
+        "id": 20,
+        "placement": 20,
+        "players": [
+          { "id": 58, "kill": 1, "damage": 727, "proxy": null },
+          { "id": 59, "kill": 3, "damage": 1416, "proxy": null },
+          { "id": 60, "kill": 1, "damage": 454, "proxy": null }
+        ]
+      }
+    ]
+  },
+  {
+    "match": 5,
+    "maxKill": null,
+    "teams": [
+      {
+        "id": 1,
+        "placement": null,
+        "players": [
+          { "id": 1, "kill": null, "damage": null, "proxy": null },
+          { "id": 2, "kill": null, "damage": null, "proxy": null },
+          { "id": 3, "kill": null, "damage": null, "proxy": null }
+        ]
+      },
+      {
+        "id": 2,
+        "placement": 18,
+        "players": [
+          { "id": 4, "kill": 5, "damage": 513, "proxy": null },
+          { "id": 5, "kill": 2, "damage": 992, "proxy": null },
+          { "id": 6, "kill": 3, "damage": 445, "proxy": null }
+        ]
+      },
+      {
+        "id": 3,
+        "placement": 7,
+        "players": [
+          { "id": 7, "kill": 5, "damage": 1416, "proxy": null },
+          { "id": 8, "kill": 2, "damage": 526, "proxy": null },
+          { "id": 9, "kill": 5, "damage": 1216, "proxy": null }
+        ]
+      },
+      {
+        "id": 4,
+        "placement": 14,
+        "players": [
+          { "id": 10, "kill": 3, "damage": 1963, "proxy": null },
+          { "id": 11, "kill": 5, "damage": 1239, "proxy": null },
+          { "id": 12, "kill": 5, "damage": 1651, "proxy": null }
+        ]
+      },
+      {
+        "id": 5,
+        "placement": 12,
+        "players": [
+          { "id": 13, "kill": 1, "damage": 465, "proxy": null },
+          { "id": 14, "kill": 5, "damage": 1101, "proxy": null },
+          { "id": 15, "kill": 5, "damage": 253, "proxy": null }
+        ]
+      },
+      {
+        "id": 6,
+        "placement": 10,
+        "players": [
+          { "id": 16, "kill": 5, "damage": 125, "proxy": null },
+          { "id": 17, "kill": 5, "damage": 1246, "proxy": null },
+          { "id": 18, "kill": 2, "damage": 416, "proxy": null }
+        ]
+      },
+      {
+        "id": 7,
+        "placement": null,
+        "players": [
+          { "id": 19, "kill": null, "damage": null, "proxy": null },
+          { "id": 20, "kill": null, "damage": null, "proxy": null },
+          { "id": 21, "kill": null, "damage": null, "proxy": null }
+        ]
+      },
+      {
+        "id": 8,
+        "placement": 4,
+        "players": [
+          { "id": 22, "kill": 3, "damage": 1432, "proxy": null },
+          { "id": 23, "kill": 4, "damage": 621, "proxy": null },
+          { "id": 24, "kill": 3, "damage": 147, "proxy": null }
+        ]
+      },
+      {
+        "id": 9,
+        "placement": 10,
+        "players": [
+          { "id": 25, "kill": 1, "damage": 1205, "proxy": null },
+          { "id": 26, "kill": 3, "damage": 1325, "proxy": null },
+          { "id": 27, "kill": 3, "damage": 959, "proxy": null }
+        ]
+      },
+      {
+        "id": 10,
+        "placement": 16,
+        "players": [
+          { "id": 28, "kill": 2, "damage": 889, "proxy": null },
+          { "id": 29, "kill": 5, "damage": 1313, "proxy": null },
+          { "id": 30, "kill": 1, "damage": 99, "proxy": null }
+        ]
+      },
+      {
+        "id": 11,
+        "placement": 3,
+        "players": [
+          { "id": 31, "kill": 4, "damage": 756, "proxy": null },
+          { "id": 32, "kill": 5, "damage": 921, "proxy": null },
+          { "id": 33, "kill": 2, "damage": 372, "proxy": null }
+        ]
+      },
+      {
+        "id": 12,
+        "placement": 4,
+        "players": [
+          { "id": 34, "kill": 1, "damage": 1693, "proxy": null },
+          { "id": 35, "kill": 2, "damage": 213, "proxy": null },
+          { "id": 36, "kill": 2, "damage": 1113, "proxy": null }
+        ]
+      },
+      {
+        "id": 13,
+        "placement": 16,
+        "players": [
+          { "id": 37, "kill": 2, "damage": 1697, "proxy": null },
+          { "id": 38, "kill": 1, "damage": 875, "proxy": null },
+          { "id": 39, "kill": 1, "damage": 1614, "proxy": null }
+        ]
+      },
+      {
+        "id": 14,
+        "placement": 4,
+        "players": [
+          { "id": 40, "kill": 4, "damage": 1945, "proxy": null },
+          { "id": 41, "kill": 4, "damage": 416, "proxy": null },
+          { "id": 42, "kill": 2, "damage": 980, "proxy": null }
+        ]
+      },
+      {
+        "id": 15,
+        "placement": 10,
+        "players": [
+          { "id": 43, "kill": 2, "damage": 979, "proxy": "ウォッカ" },
+          { "id": 44, "kill": 2, "damage": 125, "proxy": null },
+          { "id": 45, "kill": 3, "damage": 1426, "proxy": null }
+        ]
+      },
+      {
+        "id": 16,
+        "placement": 5,
+        "players": [
+          { "id": 46, "kill": 5, "damage": 1807, "proxy": null },
+          { "id": 47, "kill": 1, "damage": 893, "proxy": null },
+          { "id": 48, "kill": 5, "damage": 1224, "proxy": null }
+        ]
+      },
+      {
+        "id": 17,
+        "placement": 20,
+        "players": [
+          { "id": 49, "kill": 3, "damage": 1223, "proxy": null },
+          { "id": 50, "kill": 4, "damage": 1372, "proxy": null },
+          { "id": 51, "kill": 4, "damage": 643, "proxy": null }
+        ]
+      },
+      {
+        "id": 18,
+        "placement": 18,
+        "players": [
+          { "id": 52, "kill": 5, "damage": 485, "proxy": null },
+          { "id": 53, "kill": 3, "damage": 1830, "proxy": null },
+          { "id": 54, "kill": 5, "damage": 1777, "proxy": null }
+        ]
+      },
+      {
+        "id": 19,
+        "placement": 1,
+        "players": [
+          { "id": 55, "kill": 4, "damage": 873, "proxy": null },
+          { "id": 56, "kill": 5, "damage": 1151, "proxy": null },
+          { "id": 57, "kill": 2, "damage": 1102, "proxy": null }
+        ]
+      },
+      {
+        "id": 20,
+        "placement": 16,
+        "players": [
+          { "id": 58, "kill": 5, "damage": 1868, "proxy": null },
+          { "id": 59, "kill": 3, "damage": 1357, "proxy": null },
+          { "id": 60, "kill": 3, "damage": 1716, "proxy": null }
+        ]
+      }
+    ]
+  },
+  {
+    "match": 6,
+    "maxKill": null,
+    "teams": [
+      {
+        "id": 1,
+        "placement": null,
+        "players": [
+          { "id": 1, "kill": null, "damage": null, "proxy": null },
+          { "id": 2, "kill": null, "damage": null, "proxy": null },
+          { "id": 3, "kill": null, "damage": null, "proxy": null }
+        ]
+      },
+      {
+        "id": 2,
+        "placement": 5,
+        "players": [
+          { "id": 4, "kill": 1, "damage": 756, "proxy": null },
+          { "id": 5, "kill": 5, "damage": 1288, "proxy": null },
+          { "id": 6, "kill": 5, "damage": 1579, "proxy": null }
+        ]
+      },
+      {
+        "id": 3,
+        "placement": 15,
+        "players": [
+          { "id": 7, "kill": 2, "damage": 31, "proxy": null },
+          { "id": 8, "kill": 1, "damage": 1812, "proxy": null },
+          { "id": 9, "kill": 5, "damage": 1453, "proxy": null }
+        ]
+      },
+      {
+        "id": 4,
+        "placement": 8,
+        "players": [
+          { "id": 10, "kill": 4, "damage": 1785, "proxy": null },
+          { "id": 11, "kill": 5, "damage": 681, "proxy": null },
+          { "id": 12, "kill": 2, "damage": 1944, "proxy": null }
+        ]
+      },
+      {
+        "id": 5,
+        "placement": 20,
+        "players": [
+          { "id": 13, "kill": 1, "damage": 1940, "proxy": null },
+          { "id": 14, "kill": 5, "damage": 1979, "proxy": null },
+          { "id": 15, "kill": 2, "damage": 70, "proxy": null }
+        ]
+      },
+      {
+        "id": 6,
+        "placement": 18,
+        "players": [
+          { "id": 16, "kill": 3, "damage": 224, "proxy": null },
+          { "id": 17, "kill": 5, "damage": 466, "proxy": null },
+          { "id": 18, "kill": 1, "damage": 599, "proxy": null }
+        ]
+      },
+      {
+        "id": 7,
+        "placement": null,
+        "players": [
+          { "id": 19, "kill": null, "damage": null, "proxy": null },
+          { "id": 20, "kill": null, "damage": null, "proxy": null },
+          { "id": 21, "kill": null, "damage": null, "proxy": null }
+        ]
+      },
+      {
+        "id": 8,
+        "placement": 3,
+        "players": [
+          { "id": 22, "kill": 1, "damage": 1230, "proxy": null },
+          { "id": 23, "kill": 1, "damage": 1614, "proxy": null },
+          { "id": 24, "kill": 4, "damage": 523, "proxy": null }
+        ]
+      },
+      {
+        "id": 9,
+        "placement": null,
+        "players": [
+          { "id": 25, "kill": null, "damage": null, "proxy": null },
+          { "id": 26, "kill": null, "damage": null, "proxy": null },
+          { "id": 27, "kill": null, "damage": null, "proxy": null }
+        ]
+      },
+      {
+        "id": 10,
+        "placement": 16,
+        "players": [
+          { "id": 28, "kill": 1, "damage": 116, "proxy": null },
+          { "id": 29, "kill": 4, "damage": 1992, "proxy": null },
+          { "id": 30, "kill": 2, "damage": 1220, "proxy": null }
+        ]
+      },
+      {
+        "id": 11,
+        "placement": 13,
+        "players": [
+          { "id": 31, "kill": 5, "damage": 1074, "proxy": null },
+          { "id": 32, "kill": 3, "damage": 64, "proxy": null },
+          { "id": 33, "kill": 3, "damage": 892, "proxy": null }
+        ]
+      },
+      {
+        "id": 12,
+        "placement": 3,
+        "players": [
+          { "id": 34, "kill": 5, "damage": 1949, "proxy": null },
+          { "id": 35, "kill": 4, "damage": 999, "proxy": null },
+          { "id": 36, "kill": 2, "damage": 833, "proxy": null }
+        ]
+      },
+      {
+        "id": 13,
+        "placement": 15,
+        "players": [
+          { "id": 37, "kill": 2, "damage": 79, "proxy": null },
+          { "id": 38, "kill": 3, "damage": 233, "proxy": null },
+          { "id": 39, "kill": 4, "damage": 1226, "proxy": null }
+        ]
+      },
+      {
+        "id": 14,
+        "placement": 11,
+        "players": [
+          { "id": 40, "kill": 2, "damage": 174, "proxy": null },
+          { "id": 41, "kill": 4, "damage": 1575, "proxy": null },
+          { "id": 42, "kill": 1, "damage": 1652, "proxy": null }
+        ]
+      },
+      {
+        "id": 15,
+        "placement": null,
+        "players": [
+          { "id": 43, "kill": null, "damage": null, "proxy": null },
+          { "id": 44, "kill": null, "damage": null, "proxy": null },
+          { "id": 45, "kill": null, "damage": null, "proxy": null }
+        ]
+      },
+      {
+        "id": 16,
+        "placement": 13,
+        "players": [
+          { "id": 46, "kill": 1, "damage": 1422, "proxy": null },
+          { "id": 47, "kill": 4, "damage": 1042, "proxy": null },
+          { "id": 48, "kill": 1, "damage": 1843, "proxy": null }
+        ]
+      },
+      {
+        "id": 17,
+        "placement": 9,
+        "players": [
+          { "id": 49, "kill": 4, "damage": 957, "proxy": null },
+          { "id": 50, "kill": 5, "damage": 1440, "proxy": null },
+          { "id": 51, "kill": 3, "damage": 366, "proxy": null }
+        ]
+      },
+      {
+        "id": 18,
+        "placement": 19,
+        "players": [
+          { "id": 52, "kill": 2, "damage": 437, "proxy": null },
+          { "id": 53, "kill": 1, "damage": 1454, "proxy": null },
+          { "id": 54, "kill": 4, "damage": 384, "proxy": null }
+        ]
+      },
+      {
+        "id": 19,
+        "placement": 10,
+        "players": [
+          { "id": 55, "kill": 4, "damage": 1379, "proxy": null },
+          { "id": 56, "kill": 5, "damage": 112, "proxy": null },
+          { "id": 57, "kill": 3, "damage": 1187, "proxy": null }
+        ]
+      },
+      {
+        "id": 20,
+        "placement": 7,
+        "players": [
+          { "id": 58, "kill": 3, "damage": 556, "proxy": null },
+          { "id": 59, "kill": 1, "damage": 55, "proxy": null },
+          { "id": 60, "kill": 2, "damage": 709, "proxy": null }
         ]
       }
     ]
