@@ -21,12 +21,12 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <meta property="og:site_name" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://vtuber-saikyo.jp/wp-content/themes/theme/static/s4_ogp.png" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content="" />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@Yuukin256" />
         <meta name="twitter:title" content={title ? `${title} | ${siteTitle}` : `${siteTitle}`} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="https://vtuber-saikyo.jp/wp-content/themes/theme/static/s4_ogp.png" />
+        <meta name="twitter:image" content="" />
       </Head>
       <div className="min-h-screen flex flex-col">
         <div className="bg-saikyoOrange p-5">
