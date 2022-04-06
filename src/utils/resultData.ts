@@ -21,6 +21,7 @@ export interface TeamResult {
   id: number;
   name: string;
   tag: string;
+  members: string[];
   matches: {
     placement: number | null;
     placementPoint: number;
@@ -33,7 +34,7 @@ export interface TeamResult {
 export interface PlayerResult {
   id: number;
   name: string;
-  team: TeamInfo;
+  team: Omit<TeamInfo, 'members'>;
   matches: {
     kill: number | null;
     damage: number | null;
@@ -49,12 +50,7 @@ interface Result {
 }
 
 export const formatData = (data: MatchData[]): Result => {
-  const teamResults: TeamResultCollection = teams.mapValues((t) => ({
-    id: t.id,
-    name: t.name,
-    tag: t.tag,
-    matches: [],
-  }));
+  const teamResults: TeamResultCollection = teams.mapValues((t) => ({ ...t, matches: [] }));
 
   const playerResults: PlayerResultCollection = players.mapValues((p) => ({
     id: p.id,

@@ -22,12 +22,12 @@ const TeamStatsView: VFC<Props> = (props) => {
         チーム成績
       </Typography>
 
-      <Accordion elevation={0} className="border border-saikyoOrange" square defaultExpanded>
+      <Accordion square defaultExpanded>
         <AccordionSummary className="bg-orange-100" expandIcon={<ExpandMoreIcon />}>
           <Typography variant="h5">表の注意事項</Typography>
         </AccordionSummary>
-        <AccordionDetails>
-          <ul className="list-disc ml-8">
+        <AccordionDetails className="bg-orange-50">
+          <ul className="list-disc list-inside ml-4">
             {/* <li>
             本番は全5試合のうち、1試合目3ポイント、2,3試合目6ポイントのキルポイント上限があります。練習カスタムでは全チームが各マッチのキルポイント上限を意識して動いているわけではないため、キルポイント上限の有無を切り替えて結果を見られるようにしています。
             </li>

@@ -88,7 +88,19 @@ const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches
       <TableCellRight className="border-r">{props.index + 1}</TableCellRight>
 
       <TableCellRight className="whitespace-nowrap">{team.tag}</TableCellRight>
-      <TableCellLeft className="whitespace-nowrap border-r">{team.name}</TableCellLeft>
+      <Tooltip
+        title={
+          <ul className="list-none">
+            {team.members.map((m, i) => (
+              <li className="inline  after:content-['_/_'] last:after:content-none" key={i}>
+                {m}
+              </li>
+            ))}
+          </ul>
+        }
+      >
+        <TableCellLeft className="whitespace-nowrap border-r">{team.name}</TableCellLeft>
+      </Tooltip>
 
       <TableCellRight>
         <span className="font-bold">{team.total.point}</span>
@@ -120,7 +132,7 @@ const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches
 
       {team.matches.flatMap((match, j) => {
         return [
-          <TableCellRight key={`${props.index}_${j}_point`}>{match.point}</TableCellRight>,
+          <TableCellRight key={`${team.name}_${j}_point`}>{match.point}</TableCellRight>,
           <Tooltip key={`${props.index}_${j}_placement`} title={`${match.placementPoint}ポイント`}>
             <TableCellRight>{match.placement}</TableCellRight>
           </Tooltip>,

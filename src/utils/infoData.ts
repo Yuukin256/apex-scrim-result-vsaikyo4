@@ -5,24 +5,41 @@ export interface TeamInfo {
   id: number;
   name: string;
   tag: string;
-  players: {
-    id: number;
-    name: string;
-  }[];
+  members: string[];
 }
 
-export const teams: Collection<number, TeamInfo> = new Collection(teamData.map((t) => [t.id, t]));
+export const teams: Collection<number, TeamInfo> = new Collection(
+  teamData.map((t) => [
+    t.id,
+    {
+      id: t.id,
+      name: t.name,
+      tag: t.tag,
+      members: t.players.map((p) => p.name),
+    },
+  ])
+);
 
-interface PlayerInfo {
+export interface PlayerInfo {
   id: number;
   name: string;
-  team: TeamInfo;
+  team: Omit<TeamInfo, 'members'>;
 }
 
 export const players: Collection<number, PlayerInfo> = new Collection(
   teamData.flatMap((team) =>
     team.players.map((player) => {
-      return [player.id, { ...player, team: team }];
+      return [
+        player.id,
+        {
+          ...player,
+          team: {
+            id: team.id,
+            name: team.name,
+            tag: team.tag,
+          },
+        },
+      ];
     })
   )
 );

@@ -7,7 +7,7 @@ const RelatedLinks: VFC = () => (
     <Typography variant="h2" fontWeight="regular" mt={4}>
       関連リンク集
     </Typography>
-    <ul className="list-disc ml-8">
+    <ul className="list-disc list-inside ml-4">
       <li>
         <Link href="https://vtuber-saikyo.jp/">大会公式サイト</Link>
       </li>

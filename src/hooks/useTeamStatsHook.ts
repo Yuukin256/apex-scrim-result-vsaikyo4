@@ -13,6 +13,7 @@ interface BaseStats {
 export interface TeamStats {
   name: string;
   tag: string;
+  members: string[];
   total: BaseStats;
   average: BaseStats;
   matches: BaseStats[];
