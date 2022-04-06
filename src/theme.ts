@@ -21,13 +21,6 @@ const theme = createTheme({
     body1: { fontSize: 15 },
     button: { textTransform: 'none' },
   },
-  components: {
-    MuiTableCell: {
-      defaultProps: {
-        sx: { fontSize: '0.875rem' },
-      },
-    },
-  },
 });
 
 export default theme;

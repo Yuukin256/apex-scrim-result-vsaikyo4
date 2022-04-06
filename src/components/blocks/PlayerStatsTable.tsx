@@ -45,7 +45,8 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
             キル
           </TableCellCenter>,
           <TableCellCenter className="font-bold w-20 border-r last:border-r-0" key={2 * i + 1}>
-            ダメージ
+            <span className="inline-block">ダメ</span>
+            <span className="inline-block">ージ</span>
           </TableCellCenter>,
         ])}
       </TableRow>
