@@ -76,29 +76,30 @@ const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfM
         <span className="inline-block">ント</span>
       </TableCellCenter>
 
-      {[...new Array(numberOfMatches)].flatMap((_, i) => [
-        <TableCellCenter className="font-bold w-16" key={3 * i}>
-          <span className="inline-block">ポイ</span>
-          <span className="inline-block">ント</span>
-        </TableCellCenter>,
-        <TableCellCenter className="font-bold w-16" key={3 * i + 1}>
-          順位
-        </TableCellCenter>,
-        <TableCellCenter className="font-bold w-16 border-r last:border-r-0" key={3 * i + 2}>
-          <span className="inline-block">キル</span>
-          <span className="inline-block">ポイ</span>
-          <span className="inline-block">ント</span>
-        </TableCellCenter>,
-      ])}
+      {[...new Array(numberOfMatches)].map((_, i) => (
+        <>
+          <TableCellCenter className="font-bold w-16" key={`${i}_point`}>
+            <span className="inline-block">ポイ</span>
+            <span className="inline-block">ント</span>
+          </TableCellCenter>
+          <TableCellCenter className="font-bold w-16" key={`${i}_placement`}>
+            順位
+          </TableCellCenter>
+          <TableCellCenter className="font-bold w-16 border-r last:border-r-0" key={`${i}_killPoint`}>
+            <span className="inline-block">キル</span>
+            <span className="inline-block">ポイ</span>
+            <span className="inline-block">ント</span>
+          </TableCellCenter>
+        </>
+      ))}
     </TableRow>
   );
 });
 
-const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches: number }> = (props) => {
-  const team = props.team;
+const TeamResultRow = memo<{ team: TeamStats; index: number }>(function TeamResultRow({ team, index }) {
   return (
-    <TableRow hover key={props.index}>
-      <TableCellRight className="border-r">{props.index + 1}</TableCellRight>
+    <TableRow hover>
+      <TableCellRight className="border-r">{index + 1}</TableCellRight>
 
       <TableCellRight className="whitespace-nowrap">{team.tag}</TableCellRight>
       <Tooltip
@@ -141,32 +142,35 @@ const TeamResultRow: React.VFC<{ team: TeamStats; index: number; numberOfMatches
         </TableCellRight>
       </Tooltip>
 
-      {team.matches.flatMap((match, j) => {
+      {team.matches.map((match, i) => {
         if (match.placement || match.kill) {
-          return [
-            <TableCellRight key={`${team.name}_${j}_point`}>{match.point}</TableCellRight>,
-            <Tooltip key={`${props.index}_${j}_placement`} title={`${match.placementPoint}ポイント`}>
-              <TableCellRight sx={{ backgroundColor: getPlacementColor(match.placement) }}>
-                {match.placement}
-              </TableCellRight>
-            </Tooltip>,
-            <Tooltip title={`${match.kill ?? 0}キル`} key={`${props.index}_${j}_kill`}>
-              <TableCellRight className="border-r last:border-r-0">{match.killPoint}</TableCellRight>
-            </Tooltip>,
-          ];
+          return (
+            <>
+              <TableCellRight key={`${i}_point`}>{match.point}</TableCellRight>
+              <Tooltip title={`${match.placementPoint}ポイント`} key={`${i}_placement`}>
+                <TableCellRight sx={{ backgroundColor: getPlacementColor(match.placement) }}>
+                  {match.placement}
+                </TableCellRight>
+              </Tooltip>
+              <Tooltip title={`${match.kill ?? 0}キル`} key={`${i}_kill`}>
+                <TableCellRight className="border-r last:border-r-0">{match.killPoint}</TableCellRight>
+              </Tooltip>
+            </>
+          );
         } else {
-          return [
-            <TableCellRight key={`${team.name}_${j}_point`}></TableCellRight>,
-            <TableCellRight key={`${props.index}_${j}_placement`}></TableCellRight>,
-            <TableCellRight key={`${props.index}_${j}_kill`} className="border-r last:border-r-0"></TableCellRight>,
-          ];
+          return (
+            <>
+              <TableCellRight key={`${i}_point`}></TableCellRight>
+              <TableCellRight key={`${i}_placement`}></TableCellRight>
+              <TableCellRight className="border-r last:border-r-0" key={`${i}_kill`}></TableCellRight>
+            </>
+          );
         }
       })}
     </TableRow>
   );
-};
+});
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props {
   teams: TeamStats[];
   numberOfMatches: number;
@@ -183,7 +187,7 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches }) => {
 
         <TableBody>
           {teams.map((team, i) => (
-            <TeamResultRow team={team} index={i} numberOfMatches={numberOfMatches} key={i} />
+            <TeamResultRow team={team} index={i} key={team.id} />
           ))}
         </TableBody>
 

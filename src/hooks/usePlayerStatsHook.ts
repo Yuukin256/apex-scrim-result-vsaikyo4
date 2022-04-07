@@ -7,6 +7,7 @@ interface BaseStats {
 }
 
 export interface PlayerStats {
+  id: number;
   name: string;
   team: string;
   total: BaseStats;

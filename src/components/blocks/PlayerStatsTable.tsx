@@ -63,7 +63,7 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
 
         <TableBody>
           {players.map((player, i) => (
-            <TableRow hover key={i}>
+            <TableRow hover key={player.id}>
               <TableCellRight className="border-r">{i + 1}</TableCellRight>
 
               <Tooltip title={player.team}>
@@ -76,12 +76,14 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
               <TableCellRight>{player.average.kill?.toFixed(1) ?? ''}</TableCellRight>
               <TableCellRight className="border-r">{player.average.damage?.toFixed(1) ?? 0}</TableCellRight>
 
-              {player.matches.flatMap((match, j) => [
-                <TableCellRight key={2 * j}>{match.kill}</TableCellRight>,
-                <TableCellRight className="border-r last:border-r-0" key={2 * j + 1}>
-                  {match.damage}
-                </TableCellRight>,
-              ])}
+              {player.matches.map((match, j) => (
+                <>
+                  <TableCellRight key={`${j}_kill`}>{match.kill}</TableCellRight>
+                  <TableCellRight className="border-r last:border-r-0" key={`${j}_damage`}>
+                    {match.damage}
+                  </TableCellRight>
+                </>
+              ))}
             </TableRow>
           ))}
         </TableBody>

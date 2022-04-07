@@ -11,6 +11,7 @@ interface BaseStats {
 }
 
 export interface TeamStats {
+  id: number;
   name: string;
   tag: string;
   members: string[];
@@ -119,7 +120,7 @@ export const useTeamStats = ({ result, defaultNumberOfMatches }: Props): Result 
   }, [defaultNumberOfMatches, enableMaxKill, includeAdditionalMatch, result]);
 
   const numberOfMatches = useMemo(
-    () => stats.map((v) => v.matches.length).reduce((prev, cur) => (prev > cur ? prev : cur), 0),
+    () => stats.map((v) => v.matches.length).reduce((prev, cur) => Math.max(prev, cur), 0),
     [stats]
   );
 
