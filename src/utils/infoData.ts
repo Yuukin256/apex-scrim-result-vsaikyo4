@@ -1,5 +1,5 @@
 import { Collection } from '@discordjs/collection';
-import teamData from '../data/team.json';
+import teamData from 'data/team.json';
 
 export interface TeamInfo {
   id: number;

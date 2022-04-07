@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       colors: {
         saikyoOrange: '#dc8f00',
-      }
+      },
     },
   },
   plugins: [],

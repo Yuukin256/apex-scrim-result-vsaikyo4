@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useMemo, useState } from 'react';
-import type { PlayerResult, PlayerResultCollection } from '../utils/resultData';
+import type { PlayerResult, PlayerResultCollection } from 'utils/resultData';
 
 interface BaseStats {
   kill: number | null;

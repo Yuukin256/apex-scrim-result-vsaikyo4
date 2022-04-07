@@ -3,10 +3,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import GoogleAnalytics from '../components/atoms/GoogleAnalytics';
-import createEmotionCache from '../createEmotionCache';
-import theme from '../theme';
-import '../styles/globals.css';
+import GoogleAnalytics from 'components/atoms/GoogleAnalytics';
+import createEmotionCache from 'lib/createEmotionCache';
+import theme from 'lib/theme';
+import 'styles/globals.css';
 
 const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
@@ -18,7 +18,7 @@ function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       <GoogleAnalytics />
       <ThemeProvider theme={theme}>

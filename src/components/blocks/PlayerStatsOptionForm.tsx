@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import { Dispatch, SetStateAction, memo } from 'react';
-import type { SortOption } from '../../hooks/usePlayerStatsHook';
+import type { SortOption } from 'hooks/usePlayerStatsHook';
 
 interface Props {
   sortKey: string;
@@ -21,15 +21,15 @@ const PlayerStatsOptionForm = memo<Props>(function PlayerStatsOptionForm({ sortK
 
   return (
     <Stack
-      className="m-6"
+      className='m-6'
       direction={{ xs: 'column', sm: 'row' }}
       spacing={{ xs: 0, sm: 2, md: 4 }}
-      divider={<Divider orientation="vertical" flexItem />}
+      divider={<Divider orientation='vertical' flexItem />}
     >
       <Box sx={{ width: '16rem' }}>
-        <FormControl fullWidth variant="filled">
+        <FormControl fullWidth variant='filled'>
           <InputLabel>並べ替え</InputLabel>
-          <Select value={sortKey} onChange={handleChange} label="並べ替え">
+          <Select value={sortKey} onChange={handleChange} label='並べ替え'>
             {options.map((v, i) => (
               <MenuItem value={v.value} key={i}>
                 {v.text}

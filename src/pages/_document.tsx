@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import createEmotionServer from '@emotion/server/create-instance';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import createEmotionCache from '../createEmotionCache';
-import theme from '../theme';
+import createEmotionCache from 'lib/createEmotionCache';
+import theme from 'lib/theme';
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="ja">
+      <Html lang='ja'>
         <Head>
-          <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+          <meta name='theme-color' content={theme.palette.primary.main} />
+          <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' />
+          <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' />
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>

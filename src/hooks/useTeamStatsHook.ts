@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { TeamStatsOptionFormProps } from '../components/blocks/TeamStatsOptionForm';
-import type { TeamResultCollection } from '../utils/resultData';
+import type { TeamResultCollection } from 'utils/resultData';
 
 interface BaseStats {
   placement: number | null;

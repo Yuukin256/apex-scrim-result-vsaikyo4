@@ -17,7 +17,7 @@ const Toc: VFC = () => {
 
   return (
     <>
-      <Typography variant="h2" mt={4}>
+      <Typography variant='h2' mt={4}>
         以前の試合結果
       </Typography>
       <Box m={2}>
@@ -26,10 +26,10 @@ const Toc: VFC = () => {
             <Card elevation={1} square key={i}>
               <CardActionArea href={value.url}>
                 <CardContent>
-                  <Typography gutterBottom variant="h4" component="div">
+                  <Typography gutterBottom variant='h4' component='div'>
                     {value.name}
                   </Typography>
-                  <ol className="list-decimal list-inside ml-2">
+                  <ol className='list-decimal list-inside ml-2'>
                     <li>{value.top3[0]}</li>
                     <li>{value.top3[1]}</li>
                     <li>{value.top3[2]}</li>
