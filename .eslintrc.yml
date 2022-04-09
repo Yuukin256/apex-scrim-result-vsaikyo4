@@ -20,6 +20,10 @@ rules:
     - 2
     - alphabetize:
         order: 'asc'
+  react/jsx-key:
+    - 'error'
+    - checkFragmentShorthand: true
+      warnOnDuplicates: true
 
 settings:
   import/resolver:
