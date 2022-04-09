@@ -31,14 +31,14 @@ const TeamStatsOptionForm = memo<TeamStatsOptionFormProps>(function TeamStatsOpt
 
   return (
     <Stack
-      className='m-6'
+      m={2}
+      ml={4}
       direction={{ xs: 'column', sm: 'row' }}
       spacing={{ xs: 0, sm: 2, md: 4 }}
       divider={<Divider orientation='vertical' flexItem />}
     >
       <Box>
         <FormControlLabel
-          className='ml-0'
           onChange={handleMaxKill}
           control={<Checkbox color='primary' checked={props.enableMaxKill} />}
           label='キルポイント上限を適用する'
@@ -47,7 +47,6 @@ const TeamStatsOptionForm = memo<TeamStatsOptionFormProps>(function TeamStatsOpt
 
       <Box>
         <FormControlLabel
-          className='ml-0'
           onChange={handleIncludeAdditionalMatch}
           control={<Checkbox color='primary' checked={props.includeAdditionalMatch} />}
           label={`${props.defaultNumberOfMatches + 1}試合目以降を含める`}

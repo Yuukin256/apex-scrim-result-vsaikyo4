@@ -100,17 +100,7 @@ const TeamResultRow = memo<{ team: TeamStats; index: number }>(function TeamResu
       <TableCellRight className='border-r'>{index + 1}</TableCellRight>
 
       <TableCellRight className='whitespace-nowrap'>{team.tag}</TableCellRight>
-      <Tooltip
-        title={
-          <ul className='list-none'>
-            {team.members.map((m, i) => (
-              <li className="inline  after:content-['_/_'] last:after:content-none" key={i}>
-                {m}
-              </li>
-            ))}
-          </ul>
-        }
-      >
+      <Tooltip title={team.members.join(' / ')}>
         <TableCellLeft className='whitespace-nowrap border-r'>{team.name}</TableCellLeft>
       </Tooltip>
 

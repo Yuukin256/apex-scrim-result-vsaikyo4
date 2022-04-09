@@ -18,7 +18,7 @@ const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNu
       {statsTitle}
     </Typography>
 
-    <ul className='list-disc list-inside ml-4'>
+    <ul>
       <li>マップはすべてWorld&apos;s Edgeです。</li>
     </ul>
 

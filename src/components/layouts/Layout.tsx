@@ -1,7 +1,6 @@
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Head from 'next/head';
-import NextLink from 'next/link';
 import React from 'react';
 import FabToTop from 'components/atoms/FabToTop';
 
@@ -30,13 +29,15 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
       </Head>
       <div className='min-h-screen flex flex-col'>
         <div className='bg-saikyoOrange p-5'>
-          <Typography variant='h1' align='center' color='white'>
-            <NextLink href='/'>V最協S4 練習カスタム試合結果 (非公式)</NextLink>
+          <Typography variant='h1' align='center'>
+            <Link href='/' color='#fff' underline='none'>
+              V最協S4 練習カスタム試合結果 (非公式)
+            </Link>
           </Typography>
         </div>
         <FabToTop />
-        <main className='m-4'>{children}</main>
-        <footer className='w-full mt-2 p-2'>
+        <main className='mx-4'>{children}</main>
+        <footer className='w-full px-2'>
           <p>
             このサイトはGoogle Analyticsを使用しています。
             <Link href='https://policies.google.com/technologies/partner-sites?hl=ja'>詳しく見る</Link>
