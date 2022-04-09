@@ -1,9 +1,9 @@
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
-import type { PlayerResultCollection, TeamResultCollection } from 'utils/resultData';
 import PlayerStatsView from './PlayerStatsView';
 import TeamStatsView from './TeamStatsView';
+import type { PlayerResultCollection, TeamResultCollection } from 'utils/resultData';
 
 interface Props {
   statsTitle: string;

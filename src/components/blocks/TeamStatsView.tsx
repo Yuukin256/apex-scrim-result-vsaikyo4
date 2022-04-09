@@ -4,10 +4,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
-import { useTeamStats } from 'hooks/useTeamStatsHook';
-import type { TeamResultCollection } from 'utils/resultData';
 import TeamStatsOptionForm from './TeamStatsOptionForm';
 import TeamStatsTable from './TeamStatsTable';
+import { useTeamStats } from 'hooks/useTeamStatsHook';
+import type { TeamResultCollection } from 'utils/resultData';
 
 interface Props {
   result: TeamResultCollection;

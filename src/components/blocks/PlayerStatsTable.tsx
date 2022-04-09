@@ -3,12 +3,12 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { memo, VFC } from 'react';
-import type { PlayerStats } from 'hooks/usePlayerStatsHook';
+import { Fragment, memo, VFC } from 'react';
 import TableCellCenter from 'components/atoms/TableCellCenter';
 import TableCellLeft from 'components/atoms/TableCellLeft';
 import TableCellRight from 'components/atoms/TableCellRight';
 import Tooltip from 'components/atoms/Tooltip';
+import type { PlayerStats } from 'hooks/usePlayerStatsHook';
 
 interface Props {
   players: PlayerStats[];
@@ -77,12 +77,10 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
               <TableCellRight className='border-r'>{player.average.damage?.toFixed(1) ?? 0}</TableCellRight>
 
               {player.matches.map((match, j) => (
-                <>
-                  <TableCellRight key={`${j}_kill`}>{match.kill}</TableCellRight>
-                  <TableCellRight className='border-r last:border-r-0' key={`${j}_damage`}>
-                    {match.damage}
-                  </TableCellRight>
-                </>
+                <Fragment key={j}>
+                  <TableCellRight>{match.kill}</TableCellRight>
+                  <TableCellRight className='border-r last:border-r-0'>{match.damage}</TableCellRight>
+                </Fragment>
               ))}
             </TableRow>
           ))}

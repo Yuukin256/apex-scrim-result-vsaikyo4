@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint **.{ts,tsx} && tsc --noEmit",
-    "lint:fix": "eslint **.{ts,tsx} --fix",
+    "lint": "eslint src/**/*.{ts,tsx} && tsc --noEmit",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
     "format": "prettier --write  .",
     "prepare": "husky install"
   },

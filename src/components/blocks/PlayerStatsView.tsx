@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material';
 import { VFC } from 'react';
-import { usePlayerStats } from 'hooks/usePlayerStatsHook';
-import type { PlayerResultCollection } from 'utils/resultData';
 import PlayerStatsOptionForm from './PlayerStatsOptionForm';
 import PlayerStatsTable from './PlayerStatsTable';
+import { usePlayerStats } from 'hooks/usePlayerStatsHook';
+import type { PlayerResultCollection } from 'utils/resultData';
 
 interface Props {
   result: PlayerResultCollection;
