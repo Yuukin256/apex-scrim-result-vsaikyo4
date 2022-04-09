@@ -1,4 +1,4 @@
-import { Collection } from '@discordjs/collection';
+import { Collection } from 'functional-collection';
 import { getPlacementPoint } from './getPlacementPoint';
 import { players, TeamInfo, teams } from './infoData';
 
@@ -63,49 +63,47 @@ export const formatData = (data: MatchData[]): Result => {
     const maxKill = match.maxKill ?? Infinity;
 
     match.teams.forEach((team) => {
-      const prev = teamResults.get(team.id);
-      if (!prev) return;
+      teamResults.update(team.id, (prev) => {
+        const kill = team.players
+          .map((p) => p.kill)
+          .reduce((prev, cur) => (prev === null && cur === null ? null : (prev ?? 0) + (cur ?? 0)), null);
+        const newResult = {
+          placement: team.placement,
+          placementPoint: getPlacementPoint(team.placement),
+          kill: kill,
+          killPointWithoutMax: kill ?? 0,
+          killPointWithMax: Math.min(kill ?? 0, maxKill),
+        };
+        const newMatches = prev.matches.concat(newResult);
 
-      const kill = team.players
-        .map((p) => p.kill)
-        .reduce((prev, cur) => (prev === null && cur === null ? null : (prev ?? 0) + (cur ?? 0)), null);
-      const newResult = {
-        placement: team.placement,
-        placementPoint: getPlacementPoint(team.placement),
-        kill: kill,
-        killPointWithoutMax: kill ?? 0,
-        killPointWithMax: Math.min(kill ?? 0, maxKill),
-      };
-      const newMatches = prev.matches.concat(newResult);
-
-      teamResults.set(team.id, {
-        ...prev,
-        matches: newMatches,
+        return {
+          ...prev,
+          matches: newMatches,
+        };
       });
 
       team.players.forEach((player) => {
-        const prev = playerResults.get(player.id);
-        if (!prev) return;
-
-        if (player.proxy) {
-          const newMatches = prev.matches.concat({
-            kill: null,
-            damage: null,
-          });
-          playerResults.set(player.id, {
-            ...prev,
-            matches: newMatches,
-          });
-        } else {
-          const newMatches = prev.matches.concat({
-            kill: player.kill,
-            damage: player.damage,
-          });
-          playerResults.set(player.id, {
-            ...prev,
-            matches: newMatches,
-          });
-        }
+        playerResults.update(player.id, (prev) => {
+          if (player.proxy) {
+            const newMatches = prev.matches.concat({
+              kill: null,
+              damage: null,
+            });
+            return {
+              ...prev,
+              matches: newMatches,
+            };
+          } else {
+            const newMatches = prev.matches.concat({
+              kill: player.kill,
+              damage: player.damage,
+            });
+            return {
+              ...prev,
+              matches: newMatches,
+            };
+          }
+        });
       });
     });
   });

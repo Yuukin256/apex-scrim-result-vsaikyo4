@@ -1,4 +1,4 @@
-import { Collection } from '@discordjs/collection';
+import { Collection } from 'functional-collection';
 import teamData from 'data/team.json';
 
 export interface TeamInfo {

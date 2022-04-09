@@ -3,12 +3,12 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { memo } from 'react';
-import { TeamStats } from 'hooks/useTeamStatsHook';
+import { Fragment, memo } from 'react';
 import TableCellCenter from 'components/atoms/TableCellCenter';
 import TableCellLeft from 'components/atoms/TableCellLeft';
 import TableCellRight from 'components/atoms/TableCellRight';
 import Tooltip from 'components/atoms/Tooltip';
+import { TeamStats } from 'hooks/useTeamStatsHook';
 
 const getPlacementColor = (placement: number | null): string => {
   switch (placement) {
@@ -77,20 +77,18 @@ const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfM
       </TableCellCenter>
 
       {[...new Array(numberOfMatches)].map((_, i) => (
-        <>
-          <TableCellCenter className='font-bold w-16' key={`${i}_point`}>
+        <Fragment key={i}>
+          <TableCellCenter className='font-bold w-16'>
             <span className='inline-block'>ポイ</span>
             <span className='inline-block'>ント</span>
           </TableCellCenter>
-          <TableCellCenter className='font-bold w-16' key={`${i}_placement`}>
-            順位
-          </TableCellCenter>
-          <TableCellCenter className='font-bold w-16 border-r last:border-r-0' key={`${i}_killPoint`}>
+          <TableCellCenter className='font-bold w-16'>順位</TableCellCenter>
+          <TableCellCenter className='font-bold w-16 border-r last:border-r-0'>
             <span className='inline-block'>キル</span>
             <span className='inline-block'>ポイ</span>
             <span className='inline-block'>ント</span>
           </TableCellCenter>
-        </>
+        </Fragment>
       ))}
     </TableRow>
   );
