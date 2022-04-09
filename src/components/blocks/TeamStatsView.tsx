@@ -5,6 +5,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 import TeamStatsOptionForm from './TeamStatsOptionForm';
+import TeamStatsShortText from './TeamStatsShortText';
 import TeamStatsTable from './TeamStatsTable';
 import { useTeamStats } from 'hooks/useTeamStatsHook';
 import type { TeamResultCollection } from 'utils/resultData';
@@ -53,6 +54,7 @@ const TeamStatsView: VFC<Props> = (props) => {
 
       <TeamStatsOptionForm {...forForm}></TeamStatsOptionForm>
       <TeamStatsTable teams={stats} numberOfMatches={numberOfMatches} />
+      <TeamStatsShortText teams={stats} numberOfMatches={numberOfMatches} enableMaxKill={forForm.enableMaxKill} />
     </>
   );
 };
