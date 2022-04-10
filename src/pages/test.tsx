@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   const { team: testTeamResult, player: testPlayerResult } = formatData(testData);
   return (
     <Layout title='テスト'>
-      <Breadcrumbs aria-label='breadcrumb'>
+      <Breadcrumbs aria-label='breadcrumb' className='my-2'>
         <Link underline='hover' color='inherit' href='/'>
           トップ
         </Link>
