@@ -9,22 +9,22 @@ const RelatedLinks: VFC = () => (
     </Typography>
     <ul>
       <li>
-        <Link href='https://vtuber-saikyo.jp/' target='_blank'>
+        <Link href='https://vtuber-saikyo.jp/' target='_blank' rel='noopener'>
           大会公式サイト
         </Link>
       </li>
       <li>
-        <Link href='https://vtuber-saikyo.jp/season4/rule/' target='_blank'>
+        <Link href='https://vtuber-saikyo.jp/season4/rule/' target='_blank' rel='noopener'>
           大会ルール
         </Link>
       </li>
       <li>
-        <Link href='https://twitter.com/ShibuyaHAL' target='_blank'>
+        <Link href='https://twitter.com/ShibuyaHAL' target='_blank' rel='noopener'>
           渋谷ハルさん Twitter
         </Link>
       </li>
       <li>
-        <Link href='https://youtube.com/c/HALchannel' target='_blank'>
+        <Link href='https://youtube.com/c/HALchannel' target='_blank' rel='noopener'>
           渋谷ハルさん YouTube (大会配信チャンネル)
         </Link>
       </li>

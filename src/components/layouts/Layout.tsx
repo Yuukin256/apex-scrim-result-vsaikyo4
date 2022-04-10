@@ -40,18 +40,18 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <footer className='w-full px-2'>
           <p>
             このサイトはGoogle Analyticsを使用しています (
-            <Link href='https://policies.google.com/technologies/partner-sites?hl=ja' target='_blank'>
+            <Link href='https://policies.google.com/technologies/partner-sites?hl=ja' target='_blank' rel='noopener'>
               詳細
             </Link>
             )。
           </p>
           <p>
             © 2022 Yuukin256 (
-            <Link href='https://twitter.com/Yuukin256' target='_blank'>
+            <Link href='https://twitter.com/Yuukin256' target='_blank' rel='noopener'>
               @Yuukin256
             </Link>
             ), Built with{' '}
-            <Link href='https://nextjs.org/' target='_blank'>
+            <Link href='https://nextjs.org/' target='_blank' rel='noopener'>
               Next.js
             </Link>
             .
