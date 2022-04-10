@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         defaultNumberOfMatches={5}
       />
 
-      <Toc />
+      <Toc id='toc' />
 
       <RelatedLinks />
     </Layout>

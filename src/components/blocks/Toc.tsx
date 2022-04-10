@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box';
+import Box, {BoxProps} from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
@@ -6,17 +6,17 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 
-const Toc: VFC = () => {
+const Toc: VFC<BoxProps> = (props) => {
   const data = [
     {
-      name: 'テストデータ',
-      url: '/test',
-      top3: ['胡桃のあチーム', '歌衣メイカチーム', '星川サラチーム'],
+      name: '1日目',
+      url: '/day1',
+      top3: ['？？？', '？？？', '？？？'],
     },
   ];
 
   return (
-    <>
+    <Box {...props}>
       <Typography variant='h2' mt={4}>
         以前の試合結果
       </Typography>
@@ -40,7 +40,7 @@ const Toc: VFC = () => {
           ))}
         </Stack>
       </Box>
-    </>
+    </Box>
   );
 };
 
