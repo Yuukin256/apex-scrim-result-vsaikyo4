@@ -18,3 +18,8 @@ body {
   border-style: solid;
   border-color: rgb(224, 224, 224);
 }
+
+ol,
+ul {
+  padding: 0 10px 0 25px
+}

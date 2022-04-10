@@ -37,7 +37,7 @@ const TeamStatsOptionForm = memo<TeamStatsOptionFormProps>(function TeamStatsOpt
       spacing={{ xs: 0, sm: 2, md: 4 }}
       divider={<Divider orientation='vertical' flexItem />}
     >
-      <Box alignSelf='center'>
+      <Box>
         <FormControlLabel
           onChange={handleMaxKill}
           control={<Checkbox color='primary' checked={props.enableMaxKill} />}
@@ -45,7 +45,7 @@ const TeamStatsOptionForm = memo<TeamStatsOptionFormProps>(function TeamStatsOpt
         />
       </Box>
 
-      <Box alignSelf='center'>
+      <Box>
         <FormControlLabel
           onChange={handleIncludeAdditionalMatch}
           control={<Checkbox color='primary' checked={props.includeAdditionalMatch} />}
@@ -53,7 +53,7 @@ const TeamStatsOptionForm = memo<TeamStatsOptionFormProps>(function TeamStatsOpt
         />
       </Box>
 
-      <Box alignSelf='center' width='16rem'>
+      <Box width='16rem'>
         <FormControl fullWidth variant='filled'>
           <InputLabel>並べ替え</InputLabel>
           <Select value={props.sortKey} onChange={handleSort} label='並べ替え'>
