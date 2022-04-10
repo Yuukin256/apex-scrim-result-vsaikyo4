@@ -59,11 +59,11 @@
       },
       {
         "id": 7,
-        "placement": 12,
+        "placement": null,
         "players": [
-          { "id": 19, "kill": 5, "damage": 1238, "proxy": null },
-          { "id": 20, "kill": 3, "damage": 42, "proxy": null },
-          { "id": 21, "kill": 1, "damage": 643, "proxy": null }
+          { "id": 19, "kill": null, "damage": null, "proxy": null },
+          { "id": 20, "kill": null, "damage": null, "proxy": null },
+          { "id": 21, "kill": null, "damage": null, "proxy": null }
         ]
       },
       {
@@ -245,11 +245,11 @@
       },
       {
         "id": 7,
-        "placement": 19,
+        "placement": null,
         "players": [
-          { "id": 19, "kill": 5, "damage": 358, "proxy": null },
-          { "id": 20, "kill": 5, "damage": 379, "proxy": null },
-          { "id": 21, "kill": 2, "damage": 90, "proxy": null }
+          { "id": 19, "kill": null, "damage": null, "proxy": null },
+          { "id": 20, "kill": null, "damage": null, "proxy": null },
+          { "id": 21, "kill": null, "damage": null, "proxy": null }
         ]
       },
       {
@@ -431,11 +431,11 @@
       },
       {
         "id": 7,
-        "placement": 2,
+        "placement": null,
         "players": [
-          { "id": 19, "kill": 2, "damage": 861, "proxy": null },
-          { "id": 20, "kill": 5, "damage": 1428, "proxy": null },
-          { "id": 21, "kill": 5, "damage": 431, "proxy": null }
+          { "id": 19, "kill": null, "damage": null, "proxy": null },
+          { "id": 20, "kill": null, "damage": null, "proxy": null },
+          { "id": 21, "kill": null, "damage": null, "proxy": null }
         ]
       },
       {
@@ -617,11 +617,11 @@
       },
       {
         "id": 7,
-        "placement": 3,
+        "placement": null,
         "players": [
-          { "id": 19, "kill": 1, "damage": 503, "proxy": null },
-          { "id": 20, "kill": 5, "damage": 1709, "proxy": null },
-          { "id": 21, "kill": 5, "damage": 1714, "proxy": null }
+          { "id": 19, "kill": null, "damage": null, "proxy": null },
+          { "id": 20, "kill": null, "damage": null, "proxy": null },
+          { "id": 21, "kill": null, "damage": null, "proxy": null }
         ]
       },
       {
