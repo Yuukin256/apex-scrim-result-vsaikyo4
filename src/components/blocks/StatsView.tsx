@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 import PlayerStatsView from './PlayerStatsView';
@@ -22,9 +23,13 @@ const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNu
         <li>マップはすべてWorld&apos;s Edgeです。</li>
       </ul>
 
-      <TeamStatsView result={teamResult} defaultNumberOfMatches={defaultNumberOfMatches} />
+      <Box mt={1} mb={5}>
+        <TeamStatsView result={teamResult} defaultNumberOfMatches={defaultNumberOfMatches} />
+      </Box>
 
-      <PlayerStatsView result={playerResult} />
+      <Box mt={5} mb={2}>
+        <PlayerStatsView result={playerResult} />
+      </Box>
     </>
   );
 };
