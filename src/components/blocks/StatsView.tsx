@@ -1,6 +1,12 @@
+import GroupsIcon from '@mui/icons-material/Groups';
+import PersonIcon from '@mui/icons-material/Person';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
-import { VFC } from 'react';
+import { useState, VFC } from 'react';
 import PlayerStatsView from './PlayerStatsView';
 import TeamStatsView from './TeamStatsView';
 import type { PlayerResultCollection, TeamResultCollection } from 'utils/resultData';
@@ -13,9 +19,15 @@ interface Props {
 }
 
 const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNumberOfMatches }) => {
+  const [tabValue, setTabValue] = useState('1');
+
+  const handleChange = (_: unknown, newValue: string) => {
+    setTabValue(newValue);
+  };
+
   return (
     <>
-      <Typography variant='h2' mt={1}>
+      <Typography variant='h2' mt={4}>
         {statsTitle}
       </Typography>
 
@@ -23,13 +35,20 @@ const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNu
         <li>マップはすべてWorld&apos;s Edgeです。</li>
       </ul>
 
-      <Box mt={1} mb={5}>
-        <TeamStatsView result={teamResult} defaultNumberOfMatches={defaultNumberOfMatches} />
-      </Box>
-
-      <Box mt={5} mb={2}>
-        <PlayerStatsView result={playerResult} />
-      </Box>
+      <TabContext value={tabValue}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <TabList onChange={handleChange}>
+            <Tab icon={<GroupsIcon />} iconPosition='start' label='チーム成績' value='1' />
+            <Tab icon={<PersonIcon />} iconPosition='start' label='個人成績' value='2' />
+          </TabList>
+        </Box>
+        <TabPanel value='1' sx={{ padding: '20px 8px 0' }}>
+          <TeamStatsView result={teamResult} defaultNumberOfMatches={defaultNumberOfMatches} />
+        </TabPanel>
+        <TabPanel value='2' sx={{ padding: '20px 8px 0' }}>
+          <PlayerStatsView result={playerResult} />
+        </TabPanel>
+      </TabContext>
     </>
   );
 };

@@ -19,10 +19,6 @@ const TeamStatsView: VFC<Props> = (props) => {
   const { stats, numberOfMatches, forForm } = useTeamStats(props);
   return (
     <>
-      <Typography variant='h3' mb={2}>
-        チーム成績
-      </Typography>
-
       <Accordion square defaultExpanded>
         <AccordionSummary className='bg-orange-100' expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h5' component='div'>
