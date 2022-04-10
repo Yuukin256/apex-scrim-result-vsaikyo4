@@ -9,9 +9,9 @@ import { VFC } from 'react';
 const Toc: VFC<BoxProps> = (props) => {
   const data = [
     {
-      name: '1日目',
-      url: '/day1',
-      top3: ['？？？', '？？？', '？？？'],
+      name: 'テストデータ',
+      url: '/test',
+      top3: ['胡桃のあチーム', '歌衣メイカチーム', '星川サラチーム'],
     },
   ];
 
