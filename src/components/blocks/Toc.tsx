@@ -29,7 +29,7 @@ const Toc: VFC = () => {
                   <Typography gutterBottom variant='h4' component='div'>
                     {value.name}
                   </Typography>
-                  <ol>
+                  <ol className='pr-4'>
                     <li>{value.top3[0]}</li>
                     <li>{value.top3[1]}</li>
                     <li>{value.top3[2]}</li>

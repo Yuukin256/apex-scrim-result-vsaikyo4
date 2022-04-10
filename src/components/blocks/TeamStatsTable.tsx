@@ -133,25 +133,25 @@ const TeamResultRow = memo<{ team: TeamStats; index: number }>(function TeamResu
       {team.matches.map((match, i) => {
         if (match.placement || match.kill) {
           return (
-            <>
-              <TableCellRight key={`${i}_point`}>{match.point}</TableCellRight>
-              <Tooltip title={`${match.placementPoint}ポイント`} key={`${i}_placement`}>
+            <Fragment key={i}>
+              <TableCellRight>{match.point}</TableCellRight>
+              <Tooltip title={`${match.placementPoint}ポイント`}>
                 <TableCellRight sx={{ backgroundColor: getPlacementColor(match.placement) }}>
                   {match.placement}
                 </TableCellRight>
               </Tooltip>
-              <Tooltip title={`${match.kill ?? 0}キル`} key={`${i}_kill`}>
+              <Tooltip title={`${match.kill ?? 0}キル`}>
                 <TableCellRight className='border-r last:border-r-0'>{match.killPoint}</TableCellRight>
               </Tooltip>
-            </>
+            </Fragment>
           );
         } else {
           return (
-            <>
-              <TableCellRight key={`${i}_point`}></TableCellRight>
-              <TableCellRight key={`${i}_placement`}></TableCellRight>
-              <TableCellRight className='border-r last:border-r-0' key={`${i}_kill`}></TableCellRight>
-            </>
+            <Fragment key={i}>
+              <TableCellRight></TableCellRight>
+              <TableCellRight></TableCellRight>
+              <TableCellRight className='border-r last:border-r-0'></TableCellRight>
+            </Fragment>
           );
         }
       })}

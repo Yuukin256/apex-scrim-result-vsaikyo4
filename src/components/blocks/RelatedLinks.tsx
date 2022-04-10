@@ -4,7 +4,7 @@ import { VFC } from 'react';
 
 const RelatedLinks: VFC = () => (
   <>
-    <Typography variant='h2' fontWeight='regular' mt={4}>
+    <Typography variant='h2' mt={4}>
       関連リンク集
     </Typography>
     <ul>

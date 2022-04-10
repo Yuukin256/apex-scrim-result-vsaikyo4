@@ -11,6 +11,7 @@ const palette = {
     light: '#64b1ff',
     main: '#0082ed',
     dark: '#0056ba',
+    contrastText: '#fff',
   },
 };
 
@@ -21,10 +22,10 @@ const theme = createTheme({
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 700,
-    h1: { fontSize: 48, fontWeight: 'bolder' },
-    h2: { fontSize: 32, fontWeight: 'regular' },
-    h3: { fontSize: 24, fontWeight: 'regular' },
-    h4: { fontSize: 20, fontWeight: 'regular' },
+    h1: { fontSize: 48, fontWeight: 700 },
+    h2: { fontSize: 32, fontWeight: 400 },
+    h3: { fontSize: 24, fontWeight: 400 },
+    h4: { fontSize: 20, fontWeight: 400 },
     h5: { fontSize: 18 },
     h6: { fontSize: 16 },
     subtitle1: { fontSize: 16 },
@@ -39,6 +40,13 @@ const theme = createTheme({
           '&.MuiTableRow-hover:hover': {
             backgroundColor: 'rgba(219,141,0,0.1)',
           },
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          borderBottom: '1px solid inherit',
         },
       },
     },
