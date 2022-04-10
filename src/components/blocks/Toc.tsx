@@ -1,4 +1,4 @@
-import Box, {BoxProps} from '@mui/material/Box';
+import Box, { BoxProps } from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';

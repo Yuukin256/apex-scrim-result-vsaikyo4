@@ -26,7 +26,7 @@ const getPlacementColor = (placement: number | null): string => {
 const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
   return (
     <TableRow>
-      <TableCellCenter colSpan={3} className='font-bold border-r' />
+      <TableCellCenter colSpan={3} className='font-bold border-x' />
       <TableCellCenter colSpan={3} className='font-bold border-r'>
         合計
       </TableCellCenter>
@@ -34,7 +34,7 @@ const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfM
         平均
       </TableCellCenter>
       {[...new Array(numberOfMatches)].map((_, i) => (
-        <TableCellCenter className='font-bold border-r last:border-r-0' colSpan={3} key={i + 1}>
+        <TableCellCenter className='font-bold border-r' colSpan={3} key={i + 1}>
           {i + 1}試合目
         </TableCellCenter>
       ))}
@@ -45,7 +45,7 @@ const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfM
 const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfMatches }) {
   return (
     <TableRow>
-      <TableCellCenter className='font-bold w-8 border-r'>#</TableCellCenter>
+      <TableCellCenter className='font-bold w-8 border-x'>#</TableCellCenter>
       <TableCellCenter className='font-bold w-80 border-r' colSpan={2}>
         チーム
       </TableCellCenter>
@@ -83,7 +83,7 @@ const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfM
             <span className='inline-block'>ント</span>
           </TableCellCenter>
           <TableCellCenter className='font-bold w-16'>順位</TableCellCenter>
-          <TableCellCenter className='font-bold w-16 border-r last:border-r-0'>
+          <TableCellCenter className='font-bold w-16 border-r'>
             <span className='inline-block'>キル</span>
             <span className='inline-block'>ポイ</span>
             <span className='inline-block'>ント</span>
@@ -97,7 +97,7 @@ const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfM
 const TeamResultRow = memo<{ team: TeamStats; index: number }>(function TeamResultRow({ team, index }) {
   return (
     <TableRow hover>
-      <TableCellRight className='border-r'>{index + 1}</TableCellRight>
+      <TableCellRight className='border-x'>{index + 1}</TableCellRight>
 
       <TableCellRight className='whitespace-nowrap'>{team.tag}</TableCellRight>
       <Tooltip title={team.members.join(' / ')}>
@@ -141,7 +141,7 @@ const TeamResultRow = memo<{ team: TeamStats; index: number }>(function TeamResu
                 </TableCellRight>
               </Tooltip>
               <Tooltip title={`${match.kill ?? 0}キル`}>
-                <TableCellRight className='border-r last:border-r-0'>{match.killPoint}</TableCellRight>
+                <TableCellRight className='border-r'>{match.killPoint}</TableCellRight>
               </Tooltip>
             </Fragment>
           );
@@ -150,7 +150,7 @@ const TeamResultRow = memo<{ team: TeamStats; index: number }>(function TeamResu
             <Fragment key={i}>
               <TableCellRight></TableCellRight>
               <TableCellRight></TableCellRight>
-              <TableCellRight className='border-r last:border-r-0'></TableCellRight>
+              <TableCellRight className='border-r'></TableCellRight>
             </Fragment>
           );
         }
