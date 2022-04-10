@@ -36,7 +36,7 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
           </Typography>
         </div>
         <FabToTop />
-        <main className='mx-4'>{children}</main>
+        <main className='mx-4 my-2'>{children}</main>
         <footer className='w-full px-2'>
           <p>
             このサイトはGoogle Analyticsを使用しています。
