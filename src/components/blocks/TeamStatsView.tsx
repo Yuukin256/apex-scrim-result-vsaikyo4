@@ -2,6 +2,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 import TeamStatsOptionForm from './TeamStatsOptionForm';
@@ -22,14 +23,18 @@ const TeamStatsView: VFC<Props> = (props) => {
       <Accordion square defaultExpanded>
         <AccordionSummary className='bg-orange-100' expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h5' component='div'>
-            表の注意事項
+            注意事項
           </Typography>
         </AccordionSummary>
         <AccordionDetails className='bg-orange-50'>
           <ul>
             <li>
               本番は全5試合のうち、{/* 1試合目3ポイント、2,3試合目6ポイントの*/}
-              キルポイント上限があります。練習カスタムでは全チームが各マッチのキルポイント上限を意識して動いているわけではないため、キルポイント上限の有無を切り替えて結果を見られるようにしています。
+              キルポイント上限があります。練習カスタムでは全チームが各マッチのキルポイント上限を意識して動いているわけではないため、キルポイント上限の有無を切り替えて結果を見られるようにしています。なお、現時点で公式ルールが公開されていないため
+              <Link href='https://vtuber-saikyo.jp/season3/rule/' target='_black' rel='noopener'>
+                Season 3 のルール
+              </Link>
+              を参照し、キルポイント上限は1試合目3ポイント、2,3試合目6ポイントとして集計しています。
             </li>
             <li>{props.defaultNumberOfMatches + 1}試合目以降の延長戦はキルポイント上限無しとして集計しています。</li>
             <li>
@@ -41,8 +46,15 @@ const TeamStatsView: VFC<Props> = (props) => {
               「順位」の項目は、ホバー (タップ) すると順位ポイントが出ます (「平均順位」の場合は平均の順位ポイント)。
             </li>
             <li>
+              「チーム」の項目のチーム名をホバー (タップ) するとチームメンバーが出ます。コーチや助っ人
+              (代理で出場しているプレイヤー) は考慮していません。
+            </li>
+            <li>
               タイブレークの処理は「合計ポイント」で並べ替えた場合のみ公式ルールに準拠しています。それ以外の場合のタイブレーク処理は適当です。なお、現時点で公式ルールが公開されていないため
-              Season 3 のルールを参照しています。
+              <Link href='https://vtuber-saikyo.jp/season3/rule/' target='_black' rel='noopener'>
+                Season 3 のルール
+              </Link>
+              を参照しています。
             </li>
           </ul>
         </AccordionDetails>

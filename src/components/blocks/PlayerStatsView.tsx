@@ -1,3 +1,8 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 import PlayerStatsOptionForm from './PlayerStatsOptionForm';
 import PlayerStatsTable from './PlayerStatsTable';
@@ -13,6 +18,23 @@ const PlayerStatsView: VFC<Props> = (props) => {
 
   return (
     <>
+      <Accordion square defaultExpanded>
+        <AccordionSummary className='bg-orange-100' expandIcon={<ExpandMoreIcon />}>
+          <Typography variant='h5' component='div'>
+            注意事項
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails className='bg-orange-50'>
+          <ul>
+            <li>
+              助っ人 (代理で出場しているプレイヤー)
+              の成績は集計対象外です。本来の選手の成績として扱うこともしていません。
+            </li>
+            <li>キル数はキルポイント上限無しとして集計しています。</li>
+          </ul>
+        </AccordionDetails>
+      </Accordion>
+
       <PlayerStatsOptionForm sortKey={sortKey} setSortKey={setSortKey} options={sortOptions} />
       <PlayerStatsTable players={stats} numberOfMatches={numberOfMatches} />
     </>
