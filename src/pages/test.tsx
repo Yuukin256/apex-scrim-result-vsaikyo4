@@ -26,7 +26,15 @@ const Page: NextPage = () => {
       <SiteDescription />
 
       <Alert className='my-4' severity='warning'>
-        以下に表示しているのはテストデータです。実際の練習カスタムの結果ではありません。
+        このページではテストデータを表示しています。実際の練習カスタムの結果ではありません。最新の結果は「
+        <Link href='/' color='secondary.main'>
+          トップページ
+        </Link>
+        」から、他の日の結果は「
+        <Link href='/#toc' color='secondary.main'>
+          過去の試合結果
+        </Link>
+        」からご覧いただけます。
       </Alert>
 
       <StatsView
@@ -41,4 +49,4 @@ const Page: NextPage = () => {
   );
 };
 
-export default Home;
+export default Page;

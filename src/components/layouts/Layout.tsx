@@ -39,11 +39,22 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <main className='mx-4 my-2'>{children}</main>
         <footer className='w-full px-2'>
           <p>
-            このサイトはGoogle Analyticsを使用しています (<Link href='https://policies.google.com/technologies/partner-sites?hl=ja' target='_blank'>詳細</Link>)。
+            このサイトはGoogle Analyticsを使用しています (
+            <Link href='https://policies.google.com/technologies/partner-sites?hl=ja' target='_blank'>
+              詳細
+            </Link>
+            )。
           </p>
           <p>
-            © 2022 Yuukin256 (<Link href='https://twitter.com/Yuukin256' target='_blank'>@Yuukin256</Link>
-            ), Built with <Link href='https://nextjs.org/' target='_blank'>Next.js</Link>.
+            © 2022 Yuukin256 (
+            <Link href='https://twitter.com/Yuukin256' target='_blank'>
+              @Yuukin256
+            </Link>
+            ), Built with{' '}
+            <Link href='https://nextjs.org/' target='_blank'>
+              Next.js
+            </Link>
+            .
           </p>
         </footer>
       </div>
