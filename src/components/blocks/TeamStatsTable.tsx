@@ -8,7 +8,7 @@ import TableCellCenter from 'components/atoms/TableCellCenter';
 import TableCellLeft from 'components/atoms/TableCellLeft';
 import TableCellRight from 'components/atoms/TableCellRight';
 import Tooltip from 'components/atoms/Tooltip';
-import { TeamStats } from 'hooks/useTeamStatsHook';
+import { TeamStats, BaseTeamStats } from 'hooks/useTeamStatsHook';
 
 const getPlacementColor = (placement: number | null): string => {
   switch (placement) {
@@ -94,77 +94,92 @@ const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfM
   );
 });
 
-const TeamResultRow = memo<{ team: TeamStats; index: number }>(function TeamResultRow({ team, index }) {
-  return (
-    <TableRow hover>
-      <TableCellRight className='border-x'>{index + 1}</TableCellRight>
-
-      <TableCellRight className='whitespace-nowrap'>{team.tag}</TableCellRight>
-      <Tooltip title={team.members.join(' / ')}>
-        <TableCellLeft className='whitespace-nowrap border-r'>{team.name}</TableCellLeft>
-      </Tooltip>
-
-      <TableCellRight>
-        <span className='font-bold'>{team.total.point}</span>
-      </TableCellRight>
-      <TableCellRight>{team.total.placementPoint}</TableCellRight>
-      <Tooltip title={`${team.total.kill}キル`}>
-        <TableCellRight className='border-r'>
-          {team.total.kill !== team.total.killPoint ? (
-            <span className='italic'>{team.total.killPoint}</span>
-          ) : (
-            team.total.killPoint
-          )}
-        </TableCellRight>
-      </Tooltip>
-
-      <TableCellRight>{team.average.point.toFixed(1)}</TableCellRight>
-      <Tooltip title={`${team.average.placementPoint.toFixed(1)}ポイント`}>
-        <TableCellRight>{team.average.placement?.toFixed(1) ?? ''}</TableCellRight>
-      </Tooltip>
-      <Tooltip title={`${(team.average.kill ?? 0).toFixed(1)}キル`}>
-        <TableCellRight className='border-r'>
-          <span className={team.average.kill !== team.average.killPoint ? 'italic' : ''}>
-            {team.average.killPoint.toFixed(1)}
-          </span>
-        </TableCellRight>
-      </Tooltip>
-
-      {team.matches.map((match, i) => {
-        if (match.placement || match.kill) {
-          return (
-            <Fragment key={i}>
-              <TableCellRight>{match.point}</TableCellRight>
-              <Tooltip title={`${match.placementPoint}ポイント`}>
-                <TableCellRight sx={{ backgroundColor: getPlacementColor(match.placement) }}>
-                  {match.placement}
-                </TableCellRight>
-              </Tooltip>
-              <Tooltip title={`${match.kill ?? 0}キル`}>
-                <TableCellRight className='border-r'>{match.killPoint}</TableCellRight>
-              </Tooltip>
-            </Fragment>
-          );
-        } else {
-          return (
-            <Fragment key={i}>
-              <TableCellRight></TableCellRight>
-              <TableCellRight></TableCellRight>
-              <TableCellRight className='border-r'></TableCellRight>
-            </Fragment>
-          );
-        }
-      })}
-    </TableRow>
-  );
-});
-
 interface Props {
   teams: TeamStats[];
   numberOfMatches: number;
+  enableMaxKill: boolean;
 }
 
-const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches }) => {
+const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKill }) => {
+  const TotalStatsCells = memo<BaseTeamStats>(function TotalStatsCells(props) {
+    const isDifferentKillPointFromKill = enableMaxKill && props.kill !== props.killPoint;
+    if (props.placement && props.kill) {
+      return (
+        <>
+          <TableCellRight>{props.point}</TableCellRight>
+          <TableCellRight>{props.placementPoint}</TableCellRight>
+          <Tooltip title={`${props.kill}キル`}>
+            <TableCellRight className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+              {props.killPoint}
+            </TableCellRight>
+          </Tooltip>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <TableCellRight></TableCellRight>
+          <TableCellRight></TableCellRight>
+          <TableCellRight className='border-r'></TableCellRight>
+        </>
+      );
+    }
+  });
+
+  const AverageStatsCells = memo<BaseTeamStats>(function TotalStatsCells(props) {
+    const isDifferentKillPointFromKill = enableMaxKill && props.kill !== props.killPoint;
+    if (props.placement && props.kill) {
+      return (
+        <>
+          <TableCellRight>{props.point.toFixed(1)}</TableCellRight>
+          <TableCellRight>{props.placementPoint.toFixed(1)}</TableCellRight>
+          <Tooltip title={`${props.kill.toFixed(1)}キル`}>
+            <TableCellRight className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+              {props.killPoint.toFixed(1)}
+            </TableCellRight>
+          </Tooltip>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <TableCellRight></TableCellRight>
+          <TableCellRight></TableCellRight>
+          <TableCellRight className='border-r'></TableCellRight>
+        </>
+      );
+    }
+  });
+
+  const MatchStatsCells = memo<BaseTeamStats>(function MatchStatsCells(props) {
+    if (props.placement && props.kill) {
+      const isDifferentKillPointFromKill = enableMaxKill && props.kill !== props.killPoint;
+      return (
+        <>
+          <TableCellRight>{props.point}</TableCellRight>
+          <Tooltip title={`${props.placementPoint}ポイント`}>
+            <TableCellRight sx={{ backgroundColor: getPlacementColor(props.placement) }}>
+              {props.placement}
+            </TableCellRight>
+          </Tooltip>
+          <Tooltip title={`${props.kill}キル`}>
+            <TableCellRight className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+              {props.killPoint}
+            </TableCellRight>
+          </Tooltip>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <TableCellRight></TableCellRight>
+          <TableCellRight></TableCellRight>
+          <TableCellRight className='border-r'></TableCellRight>
+        </>
+      );
+    }
+  });
+
   return (
     <TableContainer>
       <Table size='small' className='border-collapse w-auto'>
@@ -174,8 +189,23 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches }) => {
         </TableHead>
 
         <TableBody>
-          {teams.map((team, i) => (
-            <TeamResultRow team={team} index={i} key={team.id} />
+          {teams.map((team, index) => (
+            <TableRow hover key={team.id}>
+              <TableCellRight className='border-x'>{index + 1}</TableCellRight>
+
+              <TableCellRight className='whitespace-nowrap'>{team.tag}</TableCellRight>
+              <Tooltip title={team.members.join(' / ')}>
+                <TableCellLeft className='whitespace-nowrap border-r'>{team.name}</TableCellLeft>
+              </Tooltip>
+
+              <TotalStatsCells {...team.total} />
+
+              <AverageStatsCells {...team.average} />
+
+              {team.matches.map((match, i) => (
+                <MatchStatsCells {...match} key={i} />
+              ))}
+            </TableRow>
           ))}
         </TableBody>
 

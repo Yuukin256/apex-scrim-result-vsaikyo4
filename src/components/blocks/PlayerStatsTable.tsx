@@ -74,9 +74,7 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
               <TableCellRight className='border-r'>{player.total.damage}</TableCellRight>
 
               <TableCellRight>{player.average.kill?.toFixed(1) ?? ''}</TableCellRight>
-              <TableCellRight className='border-r'>
-                {player.average.damage?.toFixed(1) ?? ''}
-              </TableCellRight>
+              <TableCellRight className='border-r'>{player.average.damage?.toFixed(1) ?? ''}</TableCellRight>
 
               {player.matches.map((match, j) => (
                 <Fragment key={j}>

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { TeamStatsOptionFormProps } from '../components/blocks/TeamStatsOptionForm';
 import type { TeamResultCollection } from 'utils/resultData';
 
-interface BaseStats {
+export interface BaseTeamStats {
   placement: number | null;
   placementPoint: number;
   kill: number | null;
@@ -15,9 +15,9 @@ export interface TeamStats {
   name: string;
   tag: string;
   members: string[];
-  total: BaseStats;
-  average: BaseStats;
-  matches: BaseStats[];
+  total: BaseTeamStats;
+  average: BaseTeamStats;
+  matches: BaseTeamStats[];
 }
 
 const calculateTotalAndAverage = (stats: Omit<TeamStats, 'total' | 'average'>): TeamStats => {
@@ -104,7 +104,7 @@ export const useTeamStats = ({ result, defaultNumberOfMatches }: Props): Result 
     const maxNumberOfMatches = includeAdditionalMatch ? Infinity : defaultNumberOfMatches;
 
     return result.map((team) => {
-      const matches = team.matches.slice(0, maxNumberOfMatches).map<BaseStats>((match) => {
+      const matches = team.matches.slice(0, maxNumberOfMatches).map<BaseTeamStats>((match) => {
         const killPoint = enableMaxKill ? match.killPointWithMax : match.killPointWithoutMax;
         return {
           placement: match.placement,

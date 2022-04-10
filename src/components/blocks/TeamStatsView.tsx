@@ -53,7 +53,7 @@ const TeamStatsView: VFC<Props> = (props) => {
       </Accordion>
 
       <TeamStatsOptionForm {...forForm}></TeamStatsOptionForm>
-      <TeamStatsTable teams={stats} numberOfMatches={numberOfMatches} />
+      <TeamStatsTable teams={stats} numberOfMatches={numberOfMatches} enableMaxKill={forForm.enableMaxKill} />
       <TeamStatsShortText teams={stats} numberOfMatches={numberOfMatches} enableMaxKill={forForm.enableMaxKill} />
     </>
   );
