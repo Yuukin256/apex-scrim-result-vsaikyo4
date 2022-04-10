@@ -18,7 +18,7 @@ const Toc: VFC<BoxProps> = (props) => {
   return (
     <Box {...props}>
       <Typography variant='h2' mt={4}>
-        以前の試合結果
+        過去の試合結果
       </Typography>
       <Box m={2}>
         <Stack spacing={2} direction={{ xs: 'column', sm: 'row' }}>

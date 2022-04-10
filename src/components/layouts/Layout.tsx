@@ -12,18 +12,18 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
   return (
     <>
       <Head>
-        <title>{title ? `${title} | ${siteTitle}` : `${siteTitle}`}</title>
+        <title>{title ? `${title} - ${siteTitle}` : `${siteTitle}`}</title>
         <meta name='viewport' content='width=device-width,initial-scale=1.0' />
         <meta name='description' content={description} />
         <meta property='og:url' content='https://apex-scrim-result-vsaikyo4.vercel.app/' />
-        <meta property='og:title' content={title ? `${title} | ${siteTitle}` : `${siteTitle}`} />
+        <meta property='og:title' content={title ? `${title} - ${siteTitle}` : `${siteTitle}`} />
         <meta property='og:site_name' content={title} />
         <meta property='og:description' content={description} />
         <meta property='og:type' content='website' />
         <meta property='og:image' content='' />
         <meta name='twitter:card' content='summary' />
         <meta name='twitter:site' content='@Yuukin256' />
-        <meta name='twitter:title' content={title ? `${title} | ${siteTitle}` : `${siteTitle}`} />
+        <meta name='twitter:title' content={title ? `${title} - ${siteTitle}` : `${siteTitle}`} />
         <meta name='twitter:description' content={description} />
         <meta name='twitter:image' content='' />
       </Head>
