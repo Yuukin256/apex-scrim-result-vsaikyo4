@@ -27,7 +27,7 @@ const Page: NextPage = () => {
 
       <Alert className='my-4' severity='info'>
         このページにはカスタム1日目の結果を表示しています。最新の結果は「<Link href='/'>トップページ</Link>
-        」から、他の日の結果は「<Link href='/#toc'>過去の試合結果</Link>」からご覧いただけます。
+        」から、他の日の結果は「<Link href='/#toc'>過去の試合結果</Link>」からご覧いただけます。なお、この日の7試合目はリザルト画面のバグのため集計できませんでした。
       </Alert>
 
       <StatsView

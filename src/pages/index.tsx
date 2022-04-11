@@ -16,7 +16,7 @@ const Page: NextPage = () => {
       <SiteDescription />
 
       <Alert className='my-4' severity='info'>
-        カスタム1日目の結果を表示しています。データは随時更新中です (試合終了後15分程度で反映されます)。
+        カスタム1日目の結果を表示しています。なお、7試合目はリザルト画面のバグのため集計できませんでした。
         {/*過去の結果は「<Link href='#toc'>過去の試合結果</Link>」からご覧いただけます。*/}
       </Alert>
 
