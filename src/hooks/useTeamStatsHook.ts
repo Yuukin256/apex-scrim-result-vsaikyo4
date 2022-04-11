@@ -153,45 +153,11 @@ export const useTeamStats = ({ result, defaultNumberOfMatches }: Props): Result 
             return teamB.total.point - teamA.total.point;
           }
 
-          // タイブレーク ①シングルマッチスコア
-          {
-            const teamASortedSingleMatch = teamA.matches.map((m) => m.point).sort();
-            const teamBSortedSingleMatch = teamB.matches.map((m) => m.point).sort();
-            for (let _ = 0; _ < Math.max(teamASortedSingleMatch.length, teamBSortedSingleMatch.length); _++) {
-              const teamAPoint = teamASortedSingleMatch.pop() ?? 0;
-              const teamBPoint = teamBSortedSingleMatch.pop() ?? 0;
-              if (teamAPoint !== teamBPoint) {
-                return teamBPoint - teamAPoint;
-              }
-            }
-          }
-
-          // タイブレーク ②最高順位
-          const teamAHighestPlacement = Math.min(...teamA.matches.map((m) => m.placement ?? 20));
-          const teamBHighestPlacement = Math.min(...teamB.matches.map((m) => m.placement ?? 20));
-          if (teamAHighestPlacement !== teamBHighestPlacement) {
-            return teamAHighestPlacement - teamBHighestPlacement;
-          }
-
-          // タイブレーク ③最高キル数
-          {
-            const teamAMostKill = Math.max(...teamA.matches.map((m) => m.kill ?? 0));
-            const teamBMostKill = Math.max(...teamB.matches.map((m) => m.kill ?? 0));
-            if (teamAMostKill !== teamBMostKill) {
-              return teamBMostKill - teamAMostKill;
-            }
-          }
-
-          // タイブレーク ④最高順位をより早いラウンドで獲得
-          {
-            // index がない場合は -1 を返すので、+1 し、
-            // 0 (False) のときは Infinity になる
-            const teamAHighestPlacementRound =
-              teamA.matches.findIndex((v) => v.placement === teamAHighestPlacement) + 1 || Infinity;
-            const teamBHighestPlacementRound =
-              teamB.matches.findIndex((v) => v.placement === teamBHighestPlacement) + 1 || Infinity;
-            return teamAHighestPlacementRound - teamBHighestPlacementRound;
-          }
+          // タイブレーク 最終試合の順位
+          return (
+            (teamA.matches[numberOfMatches - 1]?.placement ?? 20) -
+            (teamB.matches[numberOfMatches - 1]?.placement ?? 20)
+          );
         },
       },
       {
