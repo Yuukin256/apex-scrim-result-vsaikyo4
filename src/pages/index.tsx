@@ -1,27 +1,29 @@
 import Alert from '@mui/material/Alert';
+// import Link from '@mui/material/Link';
 import type { NextPage } from 'next';
 import RelatedLinks from 'components/blocks/RelatedLinks';
 import SiteDescription from 'components/blocks/SiteDescription';
 import StatsView from 'components/blocks/StatsView';
 import Toc from 'components/blocks/Toc';
 import Layout from 'components/layouts/Layout';
-import testData from 'data/test.json';
+import data from 'data/day1.json';
 import { formatData } from 'utils/resultData';
 
-const Home: NextPage = () => {
-  const { team: testTeamResult, player: testPlayerResult } = formatData(testData);
+const Page: NextPage = () => {
+  const { team: teamResult, player: playerResult } = formatData(data);
   return (
     <Layout title='トップ'>
       <SiteDescription />
 
-      <Alert className='my-4' severity='warning'>
-        ほぼ完成しました！カスタムが始まるまでの間、テストデータを表示しています。データの不整合などの不具合を発見した場合は、ページ下部に表示したTwitterアカウントからご連絡ください。カスタムは4月11日から開始予定です。
+      <Alert className='my-4' severity='info'>
+        カスタム1日目の結果を表示しています。データは随時更新中です (試合終了後15分程度で反映されます)。
+        {/*過去の結果は「<Link href='#toc'>過去の試合結果</Link>」からご覧いただけます。*/}
       </Alert>
 
       <StatsView
-        statsTitle='テストデータ'
-        teamResult={testTeamResult}
-        playerResult={testPlayerResult}
+        statsTitle='1日目 (4月11日)'
+        teamResult={teamResult}
+        playerResult={playerResult}
         defaultNumberOfMatches={5}
       />
 
@@ -32,4 +34,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Page;
