@@ -103,7 +103,7 @@ interface Props {
 const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKill }) => {
   const TotalStatsCells = memo<BaseTeamStats>(function TotalStatsCells(props) {
     const isDifferentKillPointFromKill = enableMaxKill && props.kill !== props.killPoint;
-    if (props.placement && props.kill) {
+    if (props.placement !== null && props.kill !== null) {
       return (
         <>
           <TableCellRight>{props.point}</TableCellRight>
@@ -128,7 +128,7 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
 
   const AverageStatsCells = memo<BaseTeamStats>(function TotalStatsCells(props) {
     const isDifferentKillPointFromKill = enableMaxKill && props.kill !== props.killPoint;
-    if (props.placement && props.kill) {
+    if (props.placement !== null && props.kill !== null) {
       return (
         <>
           <TableCellRight>{props.point.toFixed(1)}</TableCellRight>
@@ -152,7 +152,7 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
   });
 
   const MatchStatsCells = memo<BaseTeamStats>(function MatchStatsCells(props) {
-    if (props.placement && props.kill) {
+    if (props.placement !== null && props.kill !== null) {
       const isDifferentKillPointFromKill = enableMaxKill && props.kill !== props.killPoint;
       return (
         <>
