@@ -1,22 +1,25 @@
+import { PaletteMode } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 
-const palette = {
-  primary: {
-    light: '#ffbd43',
-    main: '#db8d00',
-    dark: '#a46000',
-    contrastText: '#fff',
+export const modeTheme = (mode: PaletteMode) => createTheme({
+  palette: {
+    mode: mode,
+    primary: {
+      light: '#ffbd43',
+      main: '#db8d00',
+      dark: '#a46000',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#64b1ff',
+      main: '#0082ed',
+      dark: '#0056ba',
+      contrastText: '#fff',
+    },
+    action: {
+      hover: 'rgba(219,141,0,0.1)',
+    },
   },
-  secondary: {
-    light: '#64b1ff',
-    main: '#0082ed',
-    dark: '#0056ba',
-    contrastText: '#fff',
-  },
-};
-
-const theme = createTheme({
-  palette: palette,
   typography: {
     fontSize: 15,
     fontWeightLight: 300,
@@ -34,15 +37,6 @@ const theme = createTheme({
     button: { textTransform: 'none' },
   },
   components: {
-    MuiTableRow: {
-      styleOverrides: {
-        root: {
-          '&.MuiTableRow-hover:hover': {
-            backgroundColor: 'rgba(219,141,0,0.1)',
-          },
-        },
-      },
-    },
     MuiTableCell: {
       styleOverrides: {
         root: {
@@ -53,11 +47,9 @@ const theme = createTheme({
     MuiCardActionArea: {
       styleOverrides: {
         focusHighlight: {
-          backgroundColor: palette.primary.main,
+          backgroundColor: '#db8d00',
         },
       },
     },
   },
 });
-
-export default theme;
