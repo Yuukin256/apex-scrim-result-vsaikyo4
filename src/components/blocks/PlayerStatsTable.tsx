@@ -1,12 +1,10 @@
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Fragment, memo, VFC } from 'react';
-import TableCellCenter from 'components/atoms/TableCellCenter';
-import TableCellLeft from 'components/atoms/TableCellLeft';
-import TableCellRight from 'components/atoms/TableCellRight';
 import Tooltip from 'components/atoms/Tooltip';
 import type { PlayerStats } from 'hooks/usePlayerStatsHook';
 
@@ -19,17 +17,17 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
   const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
     return (
       <TableRow>
-        <TableCellCenter className='font-bold border-x' colSpan={2}></TableCellCenter>
-        <TableCellCenter className='font-bold border-r' colSpan={2}>
+        <TableCell align='center' className='font-bold border-x' colSpan={2}></TableCell>
+        <TableCell align='center' className='font-bold border-r' colSpan={2}>
           合計
-        </TableCellCenter>
-        <TableCellCenter className='font-bold border-r' colSpan={2}>
+        </TableCell>
+        <TableCell align='center' className='font-bold border-r' colSpan={2}>
           平均
-        </TableCellCenter>
+        </TableCell>
         {[...new Array(numberOfMatches)].map((_, i) => (
-          <TableCellCenter className='font-bold border-r' colSpan={2} key={i + 1}>
+          <TableCell align='center' className='font-bold border-r' colSpan={2} key={i + 1}>
             {i + 1}試合目
-          </TableCellCenter>
+          </TableCell>
         ))}
       </TableRow>
     );
@@ -38,16 +36,20 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
   const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfMatches }) {
     return (
       <TableRow>
-        <TableCellCenter className='font-bold w-8 border-x'>#</TableCellCenter>
-        <TableCellCenter className='font-bold w-48 border-r'>選手名</TableCellCenter>
+        <TableCell align='center' className='font-bold w-8 border-x'>
+          #
+        </TableCell>
+        <TableCell align='center' className='font-bold w-48 border-r'>
+          選手名
+        </TableCell>
         {[...new Array(numberOfMatches + 2)].flatMap((_, i) => [
-          <TableCellCenter className='font-bold w-16' key={2 * i}>
+          <TableCell align='center' className='font-bold w-16' key={2 * i}>
             キル
-          </TableCellCenter>,
-          <TableCellCenter className='font-bold w-20 border-r' key={2 * i + 1}>
+          </TableCell>,
+          <TableCell align='center' className='font-bold w-20 border-r' key={2 * i + 1}>
             <span className='inline-block'>ダメ</span>
             <span className='inline-block'>ージ</span>
-          </TableCellCenter>,
+          </TableCell>,
         ])}
       </TableRow>
     );
@@ -64,22 +66,32 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
         <TableBody>
           {players.map((player, i) => (
             <TableRow hover key={player.id}>
-              <TableCellRight className='border-x'>{i + 1}</TableCellRight>
+              <TableCell align='right' className='border-x'>
+                {i + 1}
+              </TableCell>
 
               <Tooltip title={player.team}>
-                <TableCellLeft className='whitespace-nowrap border-r'>{player.name}</TableCellLeft>
+                <TableCell align='left' className='whitespace-nowrap border-r'>
+                  {player.name}
+                </TableCell>
               </Tooltip>
 
-              <TableCellRight>{player.total.kill}</TableCellRight>
-              <TableCellRight className='border-r'>{player.total.damage}</TableCellRight>
+              <TableCell align='right'>{player.total.kill}</TableCell>
+              <TableCell align='right' className='border-r'>
+                {player.total.damage}
+              </TableCell>
 
-              <TableCellRight>{player.average.kill?.toFixed(1) ?? ''}</TableCellRight>
-              <TableCellRight className='border-r'>{player.average.damage?.toFixed(1) ?? ''}</TableCellRight>
+              <TableCell align='right'>{player.average.kill?.toFixed(1) ?? ''}</TableCell>
+              <TableCell align='right' className='border-r'>
+                {player.average.damage?.toFixed(1) ?? ''}
+              </TableCell>
 
               {player.matches.map((match, j) => (
                 <Fragment key={j}>
-                  <TableCellRight>{match.kill}</TableCellRight>
-                  <TableCellRight className='border-r'>{match.damage}</TableCellRight>
+                  <TableCell align='right'>{match.kill}</TableCell>
+                  <TableCell align='right' className='border-r'>
+                    {match.damage}
+                  </TableCell>
                 </Fragment>
               ))}
             </TableRow>

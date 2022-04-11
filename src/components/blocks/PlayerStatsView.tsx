@@ -19,12 +19,12 @@ const PlayerStatsView: VFC<Props> = (props) => {
   return (
     <>
       <Accordion square defaultExpanded>
-        <AccordionSummary className='bg-orange-100' expandIcon={<ExpandMoreIcon />}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h5' component='div'>
             注意事項
           </Typography>
         </AccordionSummary>
-        <AccordionDetails className='bg-orange-50'>
+        <AccordionDetails>
           <ul>
             <li>
               助っ人 (代理で出場しているプレイヤー)

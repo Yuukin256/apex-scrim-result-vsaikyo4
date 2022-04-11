@@ -2,10 +2,11 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import PersonIcon from '@mui/icons-material/Person';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+import MuiTabPanel from '@mui/lab/TabPanel';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
 import { useState, VFC } from 'react';
 import PlayerStatsView from './PlayerStatsView';
 import TeamStatsView from './TeamStatsView';
@@ -17,6 +18,15 @@ interface Props {
   playerResult: PlayerResultCollection;
   defaultNumberOfMatches: number;
 }
+
+const TabPanel = styled(MuiTabPanel)(({ theme }) => ({
+  [theme.breakpoints.up('sm')]: {
+    padding: '20px 8px 0',
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: '20px 0 0',
+  },
+}));
 
 const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNumberOfMatches }) => {
   const [tabValue, setTabValue] = useState('1');
@@ -42,10 +52,10 @@ const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNu
             <Tab icon={<PersonIcon />} iconPosition='start' label='個人成績' value='2' />
           </TabList>
         </Box>
-        <TabPanel value='1' sx={{ padding: '20px 8px 0' }}>
+        <TabPanel value='1'>
           <TeamStatsView result={teamResult} defaultNumberOfMatches={defaultNumberOfMatches} />
         </TabPanel>
-        <TabPanel value='2' sx={{ padding: '20px 8px 0' }}>
+        <TabPanel value='2'>
           <PlayerStatsView result={playerResult} />
         </TabPanel>
       </TabContext>

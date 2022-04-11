@@ -1,4 +1,5 @@
 import { PaletteMode } from '@mui/material';
+import { orange } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 export const modeTheme = (mode: PaletteMode) =>
@@ -42,6 +43,8 @@ export const modeTheme = (mode: PaletteMode) =>
         styleOverrides: {
           root: {
             borderBottom: '1px solid inherit',
+            padding: '0.4rem 0.7rem',
+            fontSize: '0.875rem',
           },
         },
       },
@@ -49,6 +52,20 @@ export const modeTheme = (mode: PaletteMode) =>
         styleOverrides: {
           focusHighlight: {
             backgroundColor: '#db8d00',
+          },
+        },
+      },
+      MuiAccordionSummary: {
+        styleOverrides: {
+          root: {
+            backgroundColor: orange[100],
+          },
+        },
+      },
+      MuiAccordionDetails: {
+        styleOverrides: {
+          root: {
+            backgroundColor: orange[50],
           },
         },
       },

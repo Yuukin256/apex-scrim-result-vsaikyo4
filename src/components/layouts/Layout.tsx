@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Head from 'next/head';
@@ -27,37 +28,49 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <meta name='twitter:description' content={description} />
         <meta name='twitter:image' content='' />
       </Head>
-      <div className='min-h-screen flex flex-col'>
-        <div className='bg-saikyoOrange p-5'>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ backgroundColor: 'primary.main', p: 2 }}>
           <Typography variant='h1' align='center'>
             <Link href='/' color='#fff' underline='none'>
               V最協S4 練習カスタム試合結果 (非公式)
             </Link>
           </Typography>
-        </div>
+        </Box>
         <FabToTop />
-        <main className='mx-4 my-2'>{children}</main>
-        <footer className='w-full px-2'>
-          <p>
-            このサイトはGoogle Analyticsを使用しています (
-            <Link href='https://policies.google.com/technologies/partner-sites?hl=ja' target='_blank' rel='noopener'>
-              詳細
-            </Link>
-            )。
-          </p>
-          <p>
-            © 2022 Yuukin256 (
-            <Link href='https://twitter.com/Yuukin256' target='_blank' rel='noopener'>
-              @Yuukin256
-            </Link>
-            ), Built with{' '}
-            <Link href='https://nextjs.org/' target='_blank' rel='noopener'>
-              Next.js
-            </Link>
-            .
-          </p>
-        </footer>
-      </div>
+        <Box
+          sx={(theme) => ({
+            [theme.breakpoints.up('sm')]: {
+              mx: 2,
+            },
+            [theme.breakpoints.down('sm')]: {
+              mx: 1,
+            },
+          })}
+        >
+          <main>{children}</main>
+        </Box>
+        <Box sx={{ width: '100%', px: 1 }}>
+          <footer>
+            <p>
+              このサイトはGoogle Analyticsを使用しています (
+              <Link href='https://policies.google.com/technologies/partner-sites?hl=ja' target='_blank' rel='noopener'>
+                詳細
+              </Link>
+              )。
+            </p>
+            <p>
+              © 2022 Yuukin256 (
+              <Link href='https://twitter.com/Yuukin256' target='_blank' rel='noopener'>
+                @Yuukin256
+              </Link>
+              ), Built with{' '}
+              <Link href='https://nextjs.org/' target='_blank' rel='noopener'>
+                Next.js
+              </Link>
+            </p>
+          </footer>
+        </Box>
+      </Box>
     </>
   );
 };

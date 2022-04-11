@@ -1,12 +1,10 @@
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Fragment, memo } from 'react';
-import TableCellCenter from 'components/atoms/TableCellCenter';
-import TableCellLeft from 'components/atoms/TableCellLeft';
-import TableCellRight from 'components/atoms/TableCellRight';
 import Tooltip from 'components/atoms/Tooltip';
 import { TeamStats, BaseTeamStats } from 'hooks/useTeamStatsHook';
 
@@ -26,17 +24,17 @@ const getPlacementColor = (placement: number | null): string => {
 const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
   return (
     <TableRow>
-      <TableCellCenter colSpan={3} className='font-bold border-x' />
-      <TableCellCenter colSpan={3} className='font-bold border-r'>
+      <TableCell align='center' colSpan={3} className='font-bold border-x' />
+      <TableCell align='center' colSpan={3} className='font-bold border-r'>
         合計
-      </TableCellCenter>
-      <TableCellCenter colSpan={3} className='font-bold border-r'>
+      </TableCell>
+      <TableCell align='center' colSpan={3} className='font-bold border-r'>
         平均
-      </TableCellCenter>
+      </TableCell>
       {[...new Array(numberOfMatches)].map((_, i) => (
-        <TableCellCenter className='font-bold border-r' colSpan={3} key={i + 1}>
+        <TableCell align='center' className='font-bold border-r' colSpan={3} key={i + 1}>
           {i + 1}試合目
-        </TableCellCenter>
+        </TableCell>
       ))}
     </TableRow>
   );
@@ -45,49 +43,55 @@ const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfM
 const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfMatches }) {
   return (
     <TableRow>
-      <TableCellCenter className='font-bold w-8 border-x'>#</TableCellCenter>
-      <TableCellCenter className='font-bold w-80 border-r' colSpan={2}>
+      <TableCell align='center' className='font-bold w-8 border-x'>
+        #
+      </TableCell>
+      <TableCell align='center' className='font-bold w-80 border-r' colSpan={2}>
         チーム
-      </TableCellCenter>
+      </TableCell>
 
-      <TableCellCenter className='font-bold w-16'>
+      <TableCell align='center' className='font-bold w-16'>
         <span className='inline-block'>ポイ</span>
         <span className='inline-block'>ント</span>
-      </TableCellCenter>
-      <TableCellCenter className='font-bold w-16'>
+      </TableCell>
+      <TableCell align='center' className='font-bold w-16'>
         <span className='inline-block'>順位</span>
         <span className='inline-block'>ポイ</span>
         <span className='inline-block'>ント</span>
-      </TableCellCenter>
-      <TableCellCenter className='font-bold w-16 border-r'>
+      </TableCell>
+      <TableCell align='center' className='font-bold w-16 border-r'>
         <span className='inline-block'>キル</span>
         <span className='inline-block'>ポイ</span>
         <span className='inline-block'>ント</span>
-      </TableCellCenter>
+      </TableCell>
 
-      <TableCellCenter className='font-bold w-16'>
+      <TableCell align='center' className='font-bold w-16'>
         <span className='inline-block'>ポイ</span>
         <span className='inline-block'>ント</span>
-      </TableCellCenter>
-      <TableCellCenter className='font-bold w-16'>順位</TableCellCenter>
-      <TableCellCenter className='font-bold w-16 border-r'>
+      </TableCell>
+      <TableCell align='center' className='font-bold w-16'>
+        順位
+      </TableCell>
+      <TableCell align='center' className='font-bold w-16 border-r'>
         <span className='inline-block'>キル</span>
         <span className='inline-block'>ポイ</span>
         <span className='inline-block'>ント</span>
-      </TableCellCenter>
+      </TableCell>
 
       {[...new Array(numberOfMatches)].map((_, i) => (
         <Fragment key={i}>
-          <TableCellCenter className='font-bold w-16'>
+          <TableCell align='center' className='font-bold w-16'>
             <span className='inline-block'>ポイ</span>
             <span className='inline-block'>ント</span>
-          </TableCellCenter>
-          <TableCellCenter className='font-bold w-16'>順位</TableCellCenter>
-          <TableCellCenter className='font-bold w-16 border-r'>
+          </TableCell>
+          <TableCell align='center' className='font-bold w-16'>
+            順位
+          </TableCell>
+          <TableCell align='center' className='font-bold w-16 border-r'>
             <span className='inline-block'>キル</span>
             <span className='inline-block'>ポイ</span>
             <span className='inline-block'>ント</span>
-          </TableCellCenter>
+          </TableCell>
         </Fragment>
       ))}
     </TableRow>
@@ -106,21 +110,21 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
     if (props.placement !== null && props.kill !== null) {
       return (
         <>
-          <TableCellRight>{props.point}</TableCellRight>
-          <TableCellRight>{props.placementPoint}</TableCellRight>
+          <TableCell align='right'>{props.point}</TableCell>
+          <TableCell align='right'>{props.placementPoint}</TableCell>
           <Tooltip title={`${props.kill}キル`}>
-            <TableCellRight className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+            <TableCell align='right' className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
               {props.killPoint}
-            </TableCellRight>
+            </TableCell>
           </Tooltip>
         </>
       );
     } else {
       return (
         <>
-          <TableCellRight></TableCellRight>
-          <TableCellRight></TableCellRight>
-          <TableCellRight className='border-r'></TableCellRight>
+          <TableCell align='right'></TableCell>
+          <TableCell align='right'></TableCell>
+          <TableCell align='right' className='border-r'></TableCell>
         </>
       );
     }
@@ -131,21 +135,21 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
     if (props.placement !== null && props.kill !== null) {
       return (
         <>
-          <TableCellRight>{props.point.toFixed(1)}</TableCellRight>
-          <TableCellRight>{props.placementPoint.toFixed(1)}</TableCellRight>
+          <TableCell align='right'>{props.point.toFixed(1)}</TableCell>
+          <TableCell align='right'>{props.placementPoint.toFixed(1)}</TableCell>
           <Tooltip title={`${props.kill.toFixed(1)}キル`}>
-            <TableCellRight className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+            <TableCell align='right' className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
               {props.killPoint.toFixed(1)}
-            </TableCellRight>
+            </TableCell>
           </Tooltip>
         </>
       );
     } else {
       return (
         <>
-          <TableCellRight></TableCellRight>
-          <TableCellRight></TableCellRight>
-          <TableCellRight className='border-r'></TableCellRight>
+          <TableCell align='right'></TableCell>
+          <TableCell align='right'></TableCell>
+          <TableCell align='right' className='border-r'></TableCell>
         </>
       );
     }
@@ -156,25 +160,25 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
       const isDifferentKillPointFromKill = enableMaxKill && props.kill !== props.killPoint;
       return (
         <>
-          <TableCellRight>{props.point}</TableCellRight>
+          <TableCell align='right'>{props.point}</TableCell>
           <Tooltip title={`${props.placementPoint}ポイント`}>
-            <TableCellRight sx={{ backgroundColor: getPlacementColor(props.placement) }}>
+            <TableCell align='right' sx={{ backgroundColor: getPlacementColor(props.placement) }}>
               {props.placement}
-            </TableCellRight>
+            </TableCell>
           </Tooltip>
           <Tooltip title={`${props.kill}キル`}>
-            <TableCellRight className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+            <TableCell align='right' className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
               {props.killPoint}
-            </TableCellRight>
+            </TableCell>
           </Tooltip>
         </>
       );
     } else {
       return (
         <>
-          <TableCellRight></TableCellRight>
-          <TableCellRight></TableCellRight>
-          <TableCellRight className='border-r'></TableCellRight>
+          <TableCell align='right'></TableCell>
+          <TableCell align='right'></TableCell>
+          <TableCell align='right' className='border-r'></TableCell>
         </>
       );
     }
@@ -191,11 +195,17 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
         <TableBody>
           {teams.map((team, index) => (
             <TableRow hover key={team.id}>
-              <TableCellRight className='border-x'>{index + 1}</TableCellRight>
+              <TableCell align='right' className='border-x'>
+                {index + 1}
+              </TableCell>
 
-              <TableCellRight className='whitespace-nowrap'>{team.tag}</TableCellRight>
+              <TableCell align='right' className='whitespace-nowrap'>
+                {team.tag}
+              </TableCell>
               <Tooltip title={team.members.join(' / ')}>
-                <TableCellLeft className='whitespace-nowrap border-r'>{team.name}</TableCellLeft>
+                <TableCell align='left' className='whitespace-nowrap border-r'>
+                  {team.name}
+                </TableCell>
               </Tooltip>
 
               <TotalStatsCells {...team.total} />

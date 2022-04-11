@@ -2,7 +2,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
 import TeamStatsOptionForm from './TeamStatsOptionForm';
@@ -21,12 +20,12 @@ const TeamStatsView: VFC<Props> = (props) => {
   return (
     <>
       <Accordion square defaultExpanded>
-        <AccordionSummary className='bg-orange-100' expandIcon={<ExpandMoreIcon />}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h5' component='div'>
             注意事項
           </Typography>
         </AccordionSummary>
-        <AccordionDetails className='bg-orange-50'>
+        <AccordionDetails>
           <ul>
             <li>
               本番は全5試合のうち、1試合目6ポイント、2,3試合目9ポイントのキルポイント上限があります。練習カスタムでは全チームが各マッチのキルポイント上限を意識して動いているわけではないため、キルポイント上限の有無を切り替えて結果を見られるようにしています。
