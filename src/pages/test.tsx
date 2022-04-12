@@ -1,8 +1,4 @@
 import Alert from '@mui/material/Alert';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Divider from '@mui/material/Divider';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
 import type { NextPage } from 'next';
 import InlineMenuIcon from 'components/atoms/InlineMenuIcon';
 import SiteDescription from 'components/blocks/SiteDescription';
@@ -15,14 +11,6 @@ const Page: NextPage = () => {
   const { team: testTeamResult, player: testPlayerResult } = formatData(testData);
   return (
     <Layout title='テスト'>
-      <Breadcrumbs aria-label='breadcrumb' className='my-2'>
-        <Link underline='hover' color='inherit' href='/'>
-          トップ
-        </Link>
-        <Typography color='text.primary'>テスト</Typography>
-      </Breadcrumbs>
-      <Divider className='my-2' />
-
       <SiteDescription />
 
       <Alert className='my-4' severity='warning'>
