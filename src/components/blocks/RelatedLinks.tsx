@@ -1,6 +1,6 @@
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { VFC } from 'react';
+import ExternalLink from 'components/atoms/ExternalLink';
 
 const RelatedLinks: VFC = () => (
   <>
@@ -9,24 +9,16 @@ const RelatedLinks: VFC = () => (
     </Typography>
     <ul>
       <li>
-        <Link href='https://vtuber-saikyo.jp/' target='_blank' rel='noopener'>
-          大会公式サイト
-        </Link>
+        <ExternalLink href='https://vtuber-saikyo.jp/'>大会公式サイト</ExternalLink>
       </li>
       <li>
-        <Link href='https://vtuber-saikyo.jp/season4/rule/' target='_blank' rel='noopener'>
-          大会ルール
-        </Link>
+        <ExternalLink href='https://vtuber-saikyo.jp/season4/rule/'>大会ルール</ExternalLink>
       </li>
       <li>
-        <Link href='https://twitter.com/ShibuyaHAL' target='_blank' rel='noopener'>
-          渋谷ハルさん Twitter
-        </Link>
+        <ExternalLink href='https://twitter.com/ShibuyaHAL'>渋谷ハルさん Twitter</ExternalLink>
       </li>
       <li>
-        <Link href='https://youtube.com/c/HALchannel' target='_blank' rel='noopener'>
-          渋谷ハルさん YouTube (大会配信チャンネル)
-        </Link>
+        <ExternalLink href='https://youtube.com/c/HALchannel'>渋谷ハルさん YouTube (大会配信チャンネル)</ExternalLink>
       </li>
     </ul>
   </>

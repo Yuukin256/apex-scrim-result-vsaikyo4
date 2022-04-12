@@ -3,6 +3,7 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Head from 'next/head';
 import React from 'react';
+import Footer from './Footer';
 import FabToTop from 'components/atoms/FabToTop';
 
 const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ children, title }) => {
@@ -36,7 +37,6 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
             </Link>
           </Typography>
         </Box>
-        <FabToTop />
         <Box
           sx={(theme) => ({
             [theme.breakpoints.up('sm')]: {
@@ -50,26 +50,9 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
           <main>{children}</main>
         </Box>
         <Box sx={{ width: '100%', px: 1 }}>
-          <footer>
-            <p>
-              このサイトはGoogle Analyticsを使用しています (
-              <Link href='https://policies.google.com/technologies/partner-sites?hl=ja' target='_blank' rel='noopener'>
-                詳細
-              </Link>
-              )。
-            </p>
-            <p>
-              © 2022 Yuukin256 (
-              <Link href='https://twitter.com/Yuukin256' target='_blank' rel='noopener'>
-                @Yuukin256
-              </Link>
-              ), Built with{' '}
-              <Link href='https://nextjs.org/' target='_blank' rel='noopener'>
-                Next.js
-              </Link>
-            </p>
-          </footer>
+          <Footer />
         </Box>
+        <FabToTop />
       </Box>
     </>
   );
