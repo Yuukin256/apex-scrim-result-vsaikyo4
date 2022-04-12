@@ -5,7 +5,7 @@ import Link, { LinkProps } from './Link';
 const ExternalLink: VFC<LinkProps> = ({ children, ...props }) => (
   <Link target='_blank' rel='noopener' {...props}>
     {children}
-    <LaunchIcon sx={{fontSize: '0.8rem', verticalAlign: 'middle'}} />
+    <LaunchIcon sx={{ fontSize: '0.8em', verticalAlign: 'middle' }} />
   </Link>
 );
 
