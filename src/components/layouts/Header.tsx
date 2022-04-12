@@ -71,7 +71,7 @@ const Header = () => {
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary='トップページ' />
+            <ListItemText primary='トップページ' secondary='最新の試合結果' />
           </ListItemButton>
         </List>
         <Divider />
