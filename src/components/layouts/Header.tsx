@@ -84,6 +84,11 @@ const Header = () => {
               url: '/day1',
               date: '4月11日',
             },
+            {
+              name: '2日目',
+              url: '/day2',
+              date: '4月12日',
+            },
           ].map((value) => (
             <ListItemButton component={NextLinkComposed} to={{ pathname: value.url }} key={value.name}>
               <ListItemText primary={value.name} secondary={value.date} />
