@@ -4,7 +4,7 @@ import ExternalLink from 'components/atoms/ExternalLink';
 
 const RelatedLinks: VFC = () => (
   <>
-    <Typography variant='h2' mt={4}>
+    <Typography variant='h3' component='h2' mt={4}>
       関連リンク集
     </Typography>
     <ul>

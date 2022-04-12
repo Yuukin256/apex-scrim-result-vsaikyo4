@@ -37,7 +37,7 @@ const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNu
 
   return (
     <>
-      <Typography variant='h2' mt={4}>
+      <Typography variant='h3' component='h2' mt={4}>
         {statsTitle}
       </Typography>
 

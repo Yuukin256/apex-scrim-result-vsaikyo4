@@ -18,7 +18,7 @@ const Toc: VFC<BoxProps> = (props) => {
 
   return (
     <Box {...props}>
-      <Typography variant='h2' mt={4}>
+      <Typography variant='h3' component='h2' mt={4}>
         過去の試合結果
       </Typography>
       <Box m={2}>
