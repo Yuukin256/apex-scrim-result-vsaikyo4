@@ -1,9 +1,8 @@
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
 import Head from 'next/head';
 import React from 'react';
 import Footer from './Footer';
+import Header from './Header';
 import FabToTop from 'components/atoms/FabToTop';
 
 const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ children, title }) => {
@@ -30,13 +29,7 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <meta name='twitter:image' content='' />
       </Head>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Box sx={{ backgroundColor: 'primary.main', p: 2 }}>
-          <Typography variant='h1' align='center'>
-            <Link href='/' color='#fff' underline='none'>
-              V最協S4 練習カスタム試合結果 (非公式)
-            </Link>
-          </Typography>
-        </Box>
+        <Header />
         <Box
           sx={(theme) => ({
             [theme.breakpoints.up('sm')]: {

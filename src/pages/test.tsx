@@ -4,7 +4,7 @@ import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import type { NextPage } from 'next';
-import RelatedLinks from 'components/blocks/RelatedLinks';
+import InlineMenuIcon from 'components/atoms/InlineMenuIcon';
 import SiteDescription from 'components/blocks/SiteDescription';
 import StatsView from 'components/blocks/StatsView';
 import Layout from 'components/layouts/Layout';
@@ -26,15 +26,9 @@ const Page: NextPage = () => {
       <SiteDescription />
 
       <Alert className='my-4' severity='warning'>
-        このページではテストデータを表示しています。実際の練習カスタムの結果ではありません。最新の結果は「
-        <Link href='/' color='secondary.main'>
-          トップページ
-        </Link>
-        」から、他の日の結果は「
-        <Link href='/#toc' color='secondary.main'>
-          過去の試合結果
-        </Link>
-        」からご覧いただけます。
+        このページではテストデータを表示しています。実際の練習カスタムの結果ではありません。他の日の試合結果は左上のメニュー
+        <InlineMenuIcon />
+        からご覧いただけます。
       </Alert>
 
       <StatsView
@@ -43,8 +37,6 @@ const Page: NextPage = () => {
         playerResult={testPlayerResult}
         defaultNumberOfMatches={5}
       />
-
-      <RelatedLinks />
     </Layout>
   );
 };
