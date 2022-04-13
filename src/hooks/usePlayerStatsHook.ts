@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
+import { PlayerStatsOptionFormProps } from 'components/blocks/PlayerStatsOptionForm';
 import type { PlayerResult, PlayerResultCollection } from 'utils/resultData';
 
 interface BaseStats {
@@ -57,9 +58,7 @@ export interface SortOption {
 interface Result {
   stats: PlayerStats[];
   numberOfMatches: number;
-  sortKey: string;
-  setSortKey: Dispatch<SetStateAction<string>>;
-  sortOptions: SortOption[];
+  forForm: PlayerStatsOptionFormProps;
 }
 
 export const usePlayerStats = (result: PlayerResultCollection): Result => {
@@ -121,17 +120,21 @@ export const usePlayerStats = (result: PlayerResultCollection): Result => {
     return {
       stats: sortedStats,
       numberOfMatches,
-      sortKey: 'total_kill',
-      setSortKey,
-      sortOptions,
+      forForm: {
+        sortKey: 'total_kill',
+        setSortKey,
+        sortOptions,
+      },
     };
   }
 
   return {
     stats: sortedStats,
     numberOfMatches,
-    sortKey,
-    setSortKey,
-    sortOptions,
+    forForm: {
+      sortKey,
+      setSortKey,
+      sortOptions,
+    },
   };
 };

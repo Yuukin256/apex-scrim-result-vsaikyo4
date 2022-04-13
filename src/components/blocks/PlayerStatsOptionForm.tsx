@@ -8,13 +8,17 @@ import Stack from '@mui/material/Stack';
 import { Dispatch, SetStateAction, memo } from 'react';
 import type { SortOption } from 'hooks/usePlayerStatsHook';
 
-interface Props {
+export interface PlayerStatsOptionFormProps {
   sortKey: string;
   setSortKey: Dispatch<SetStateAction<string>>;
-  options: SortOption[];
+  sortOptions: SortOption[];
 }
 
-const PlayerStatsOptionForm = memo<Props>(function PlayerStatsOptionForm({ sortKey, setSortKey, options }) {
+const PlayerStatsOptionForm = memo<PlayerStatsOptionFormProps>(function PlayerStatsOptionForm({
+  sortKey,
+  setSortKey,
+  sortOptions: options,
+}) {
   const handleChange = (event: SelectChangeEvent) => {
     setSortKey(event.target.value);
   };

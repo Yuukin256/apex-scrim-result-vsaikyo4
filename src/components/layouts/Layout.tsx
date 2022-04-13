@@ -1,6 +1,6 @@
+import { useDisclosure } from '@mantine/hooks';
 import Box from '@mui/material/Box';
 import Head from 'next/head';
-import React, { useState } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import Side from './Side';
@@ -11,15 +11,7 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
   const description =
     'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト';
 
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleMenuOpen = () => {
-    setMenuOpen(true);
-  };
-
-  const handleMenuClose = () => {
-    setMenuOpen(false);
-  };
+  const [opened, menuHandlers] = useDisclosure(false);
 
   return (
     <>
@@ -40,8 +32,8 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <meta name='twitter:image' content='' />
       </Head>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Header handleMenuOpen={handleMenuOpen} />
-        <Side open={menuOpen} handleClose={handleMenuClose} />
+        <Header handleMenuOpen={menuHandlers.open} />
+        <Side open={opened} handleClose={menuHandlers.close} />
         <Box
           sx={(theme) => ({
             [theme.breakpoints.up('sm')]: { mx: 2 },
