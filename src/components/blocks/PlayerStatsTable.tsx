@@ -5,6 +5,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Fragment, memo, VFC } from 'react';
+import InlineBlockSpan from 'components/atoms/InlineBlockSpan';
 import Tooltip from 'components/atoms/Tooltip';
 import type { PlayerStats } from 'hooks/usePlayerStatsHook';
 
@@ -17,15 +18,15 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
   const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
     return (
       <TableRow>
-        <TableCell align='center' className='font-bold border-x' colSpan={2}></TableCell>
-        <TableCell align='center' className='font-bold border-r' colSpan={2}>
+        <TableCell align='center' colSpan={2} sx={{ borderRightWidth: '1px', borderLeftWidth: '1px' }}></TableCell>
+        <TableCell align='center' colSpan={2} sx={{ borderRightWidth: '1px' }}>
           合計
         </TableCell>
-        <TableCell align='center' className='font-bold border-r' colSpan={2}>
+        <TableCell align='center' colSpan={2} sx={{ borderRightWidth: '1px' }}>
           平均
         </TableCell>
         {[...new Array(numberOfMatches)].map((_, i) => (
-          <TableCell align='center' className='font-bold border-r' colSpan={2} key={i + 1}>
+          <TableCell align='center' colSpan={2} key={i + 1} sx={{ borderRightWidth: '1px' }}>
             {i + 1}試合目
           </TableCell>
         ))}
@@ -36,19 +37,19 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
   const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfMatches }) {
     return (
       <TableRow>
-        <TableCell align='center' className='font-bold w-8 border-x'>
+        <TableCell align='center' sx={{ width: '2rem', borderRightWidth: '1px', borderLeftWidth: '1px' }}>
           #
         </TableCell>
-        <TableCell align='center' className='font-bold w-48 border-r'>
+        <TableCell align='center' sx={{ width: '12rem', borderRightWidth: '1px' }}>
           選手名
         </TableCell>
         {[...new Array(numberOfMatches + 2)].flatMap((_, i) => [
-          <TableCell align='center' className='font-bold w-16' key={2 * i}>
+          <TableCell align='center' sx={{ width: '4rem' }} key={2 * i}>
             キル
           </TableCell>,
-          <TableCell align='center' className='font-bold w-20 border-r' key={2 * i + 1}>
-            <span className='inline-block'>ダメ</span>
-            <span className='inline-block'>ージ</span>
+          <TableCell align='center' sx={{ width: '5rem', borderRightWidth: '1px' }} key={2 * i + 1}>
+            <InlineBlockSpan>ダメ</InlineBlockSpan>
+            <InlineBlockSpan>ージ</InlineBlockSpan>
           </TableCell>,
         ])}
       </TableRow>
@@ -57,8 +58,8 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
 
   return (
     <TableContainer>
-      <Table size='small' className='border-collapse w-auto'>
-        <TableHead className='bg-gray-50 text-center border-t'>
+      <Table size='small' sx={{ width: 'auto', borderCollapse: 'collapse' }}>
+        <TableHead>
           <HeadRow1 numberOfMatches={numberOfMatches} />
           <HeadRow2 numberOfMatches={numberOfMatches} />
         </TableHead>
@@ -66,30 +67,30 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
         <TableBody>
           {players.map((player, i) => (
             <TableRow hover key={player.id}>
-              <TableCell align='right' className='border-x'>
+              <TableCell align='right' sx={{ borderRightWidth: '1px', borderLeftWidth: '1px' }}>
                 {i + 1}
               </TableCell>
 
               <Tooltip title={player.team}>
-                <TableCell align='left' className='whitespace-nowrap border-r'>
+                <TableCell align='left' sx={{ borderRightWidth: '1px', whiteSpace: 'nowrap' }}>
                   {player.name}
                 </TableCell>
               </Tooltip>
 
               <TableCell align='right'>{player.total.kill}</TableCell>
-              <TableCell align='right' className='border-r'>
+              <TableCell align='right' sx={{ borderRightWidth: '1px' }}>
                 {player.total.damage}
               </TableCell>
 
               <TableCell align='right'>{player.average.kill?.toFixed(1) ?? ''}</TableCell>
-              <TableCell align='right' className='border-r'>
+              <TableCell align='right' sx={{ borderRightWidth: '1px' }}>
                 {player.average.damage?.toFixed(1) ?? ''}
               </TableCell>
 
               {player.matches.map((match, j) => (
                 <Fragment key={j}>
                   <TableCell align='right'>{match.kill}</TableCell>
-                  <TableCell align='right' className='border-r'>
+                  <TableCell align='right' sx={{ borderRightWidth: '1px' }}>
                     {match.damage}
                   </TableCell>
                 </Fragment>
@@ -98,7 +99,7 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
           ))}
         </TableBody>
 
-        <TableHead className='bg-gray-50 text-center border-b'>
+        <TableHead>
           <HeadRow2 numberOfMatches={numberOfMatches} />
           <HeadRow1 numberOfMatches={numberOfMatches} />
         </TableHead>

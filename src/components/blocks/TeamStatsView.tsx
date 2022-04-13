@@ -19,7 +19,7 @@ const TeamStatsView: VFC<Props> = (props) => {
   const { stats, numberOfMatches, forForm } = useTeamStats(props);
   return (
     <>
-      <Accordion square defaultExpanded>
+      <Accordion square>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h5' component='div'>
             注意事項
@@ -32,7 +32,8 @@ const TeamStatsView: VFC<Props> = (props) => {
             </li>
             <li>{props.defaultNumberOfMatches + 1}試合目以降の延長戦はキルポイント上限無しとして集計しています。</li>
             <li>
-              キルポイント上限を適用しているときに「キルポイント」の項目が<span className='italic'>斜体</span>
+              キルポイント上限を適用しているときに「キルポイント」の項目が
+              <span style={{ fontStyle: 'italic' }}>斜体</span>
               で表示されているものは上限を超えていることを意味します。ホバー (タップ)
               すると、上限適用前のキル数が出ます。
             </li>

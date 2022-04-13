@@ -4,35 +4,37 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { SxProps } from '@mui/material/styles';
 import { Fragment, memo } from 'react';
+import InlineBlockSpan from 'components/atoms/InlineBlockSpan';
 import Tooltip from 'components/atoms/Tooltip';
 import { TeamStats, BaseTeamStats } from 'hooks/useTeamStatsHook';
 
-const getPlacementColor = (placement: number | null): string => {
+const getPlacementStyle = (placement: number | null): SxProps => {
   switch (placement) {
     case 1:
-      return '#ffd700';
+      return { backgroundColor: 'rgb(255, 215, 0, 0.5)' };
     case 2:
-      return '#c0c0c0';
+      return { backgroundColor: 'rgb(192, 192, 192, 0.5)' };
     case 3:
-      return '#CD7F32';
+      return { backgroundColor: 'rgb(205, 127, 50, 0.5)' };
     default:
-      return '';
+      return {};
   }
 };
 
 const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfMatches }) {
   return (
     <TableRow>
-      <TableCell align='center' colSpan={3} className='font-bold border-x' />
-      <TableCell align='center' colSpan={3} className='font-bold border-r'>
+      <TableCell align='center' colSpan={3} sx={{ borderRightWidth: '1px', borderLeftWidth: '1px' }} />
+      <TableCell align='center' colSpan={3} sx={{ borderRightWidth: '1px' }}>
         合計
       </TableCell>
-      <TableCell align='center' colSpan={3} className='font-bold border-r'>
+      <TableCell align='center' colSpan={3} sx={{ borderRightWidth: '1px' }}>
         平均
       </TableCell>
       {[...new Array(numberOfMatches)].map((_, i) => (
-        <TableCell align='center' className='font-bold border-r' colSpan={3} key={i + 1}>
+        <TableCell align='center' colSpan={3} sx={{ borderRightWidth: '1px' }} key={i + 1}>
           {i + 1}試合目
         </TableCell>
       ))}
@@ -43,54 +45,54 @@ const HeadRow1 = memo<{ numberOfMatches: number }>(function HeadRow1({ numberOfM
 const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfMatches }) {
   return (
     <TableRow>
-      <TableCell align='center' className='font-bold w-8 border-x'>
+      <TableCell align='center' sx={{ width: '2rem', borderRightWidth: '1px', borderLeftWidth: '1px' }}>
         #
       </TableCell>
-      <TableCell align='center' className='font-bold w-80 border-r' colSpan={2}>
+      <TableCell align='center' colSpan={2} sx={{ width: '25rem', borderRightWidth: '1px' }}>
         チーム
       </TableCell>
 
-      <TableCell align='center' className='font-bold w-16'>
-        <span className='inline-block'>ポイ</span>
-        <span className='inline-block'>ント</span>
+      <TableCell align='center' sx={{ width: '3.5rem' }}>
+        <InlineBlockSpan>ポイ</InlineBlockSpan>
+        <InlineBlockSpan>ント</InlineBlockSpan>
       </TableCell>
-      <TableCell align='center' className='font-bold w-16'>
-        <span className='inline-block'>順位</span>
-        <span className='inline-block'>ポイ</span>
-        <span className='inline-block'>ント</span>
+      <TableCell align='center' sx={{ width: '3.5rem' }}>
+        <InlineBlockSpan>順位</InlineBlockSpan>
+        <InlineBlockSpan>ポイ</InlineBlockSpan>
+        <InlineBlockSpan>ント</InlineBlockSpan>
       </TableCell>
-      <TableCell align='center' className='font-bold w-16 border-r'>
-        <span className='inline-block'>キル</span>
-        <span className='inline-block'>ポイ</span>
-        <span className='inline-block'>ント</span>
+      <TableCell align='center' sx={{ width: '3.5rem', borderRightWidth: '1px' }}>
+        <InlineBlockSpan>キル</InlineBlockSpan>
+        <InlineBlockSpan>ポイ</InlineBlockSpan>
+        <InlineBlockSpan>ント</InlineBlockSpan>
       </TableCell>
 
-      <TableCell align='center' className='font-bold w-16'>
-        <span className='inline-block'>ポイ</span>
-        <span className='inline-block'>ント</span>
+      <TableCell align='center' sx={{ width: '3.5rem' }}>
+        <InlineBlockSpan>ポイ</InlineBlockSpan>
+        <InlineBlockSpan>ント</InlineBlockSpan>
       </TableCell>
-      <TableCell align='center' className='font-bold w-16'>
+      <TableCell align='center' sx={{ width: '3.5rem' }}>
         順位
       </TableCell>
-      <TableCell align='center' className='font-bold w-16 border-r'>
-        <span className='inline-block'>キル</span>
-        <span className='inline-block'>ポイ</span>
-        <span className='inline-block'>ント</span>
+      <TableCell align='center' sx={{ width: '3.5rem', borderRightWidth: '1px' }}>
+        <InlineBlockSpan>キル</InlineBlockSpan>
+        <InlineBlockSpan>ポイ</InlineBlockSpan>
+        <InlineBlockSpan>ント</InlineBlockSpan>
       </TableCell>
 
       {[...new Array(numberOfMatches)].map((_, i) => (
         <Fragment key={i}>
-          <TableCell align='center' className='font-bold w-16'>
-            <span className='inline-block'>ポイ</span>
-            <span className='inline-block'>ント</span>
+          <TableCell align='center' sx={{ width: '3.5rem' }}>
+            <InlineBlockSpan>ポイ</InlineBlockSpan>
+            <InlineBlockSpan>ント</InlineBlockSpan>
           </TableCell>
-          <TableCell align='center' className='font-bold w-16'>
+          <TableCell align='center' sx={{ width: '3.5rem' }}>
             順位
           </TableCell>
-          <TableCell align='center' className='font-bold w-16 border-r'>
-            <span className='inline-block'>キル</span>
-            <span className='inline-block'>ポイ</span>
-            <span className='inline-block'>ント</span>
+          <TableCell align='center' sx={{ width: '3.5rem', borderRightWidth: '1px' }}>
+            <InlineBlockSpan>キル</InlineBlockSpan>
+            <InlineBlockSpan>ポイ</InlineBlockSpan>
+            <InlineBlockSpan>ント</InlineBlockSpan>
           </TableCell>
         </Fragment>
       ))}
@@ -113,7 +115,10 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
           <TableCell align='right'>{props.point}</TableCell>
           <TableCell align='right'>{props.placementPoint}</TableCell>
           <Tooltip title={`${props.kill}キル`}>
-            <TableCell align='right' className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+            <TableCell
+              align='right'
+              sx={{ borderRightWidth: '1px', fontStyle: isDifferentKillPointFromKill ? 'italic' : null }}
+            >
               {props.killPoint}
             </TableCell>
           </Tooltip>
@@ -124,7 +129,7 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
         <>
           <TableCell align='right'></TableCell>
           <TableCell align='right'></TableCell>
-          <TableCell align='right' className='border-r'></TableCell>
+          <TableCell align='right' sx={{ borderRightWidth: '1px' }}></TableCell>
         </>
       );
     }
@@ -138,7 +143,10 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
           <TableCell align='right'>{props.point.toFixed(1)}</TableCell>
           <TableCell align='right'>{props.placementPoint.toFixed(1)}</TableCell>
           <Tooltip title={`${props.kill.toFixed(1)}キル`}>
-            <TableCell align='right' className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+            <TableCell
+              align='right'
+              sx={{ borderRightWidth: '1px', fontStyle: isDifferentKillPointFromKill ? 'italic' : null }}
+            >
               {props.killPoint.toFixed(1)}
             </TableCell>
           </Tooltip>
@@ -149,7 +157,7 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
         <>
           <TableCell align='right'></TableCell>
           <TableCell align='right'></TableCell>
-          <TableCell align='right' className='border-r'></TableCell>
+          <TableCell align='right' sx={{ borderRightWidth: '1px' }}></TableCell>
         </>
       );
     }
@@ -162,12 +170,15 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
         <>
           <TableCell align='right'>{props.point}</TableCell>
           <Tooltip title={`${props.placementPoint}ポイント`}>
-            <TableCell align='right' sx={{ backgroundColor: getPlacementColor(props.placement) }}>
+            <TableCell align='right' sx={getPlacementStyle(props.placement)}>
               {props.placement}
             </TableCell>
           </Tooltip>
           <Tooltip title={`${props.kill}キル`}>
-            <TableCell align='right' className={isDifferentKillPointFromKill ? 'italic border-r' : 'border-r'}>
+            <TableCell
+              align='right'
+              sx={{ borderRightWidth: '1px', fontStyle: isDifferentKillPointFromKill ? 'italic' : null }}
+            >
               {props.killPoint}
             </TableCell>
           </Tooltip>
@@ -178,7 +189,7 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
         <>
           <TableCell align='right'></TableCell>
           <TableCell align='right'></TableCell>
-          <TableCell align='right' className='border-r'></TableCell>
+          <TableCell align='right' sx={{ borderRightWidth: '1px' }}></TableCell>
         </>
       );
     }
@@ -186,8 +197,8 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
 
   return (
     <TableContainer>
-      <Table size='small' className='border-collapse w-auto'>
-        <TableHead className='bg-gray-50 text-center border-t'>
+      <Table size='small' sx={{ width: 'auto', borderCollapse: 'collapse' }}>
+        <TableHead>
           <HeadRow1 numberOfMatches={numberOfMatches} />
           <HeadRow2 numberOfMatches={numberOfMatches} />
         </TableHead>
@@ -195,15 +206,13 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
         <TableBody>
           {teams.map((team, index) => (
             <TableRow hover key={team.id}>
-              <TableCell align='right' className='border-x'>
+              <TableCell align='right' sx={{ borderRightWidth: '1px', borderLeftWidth: '1px' }}>
                 {index + 1}
               </TableCell>
 
-              <TableCell align='right' className='whitespace-nowrap'>
-                {team.tag}
-              </TableCell>
+              <TableCell align='right'>{team.tag}</TableCell>
               <Tooltip title={team.members.join(' / ')}>
-                <TableCell align='left' className='whitespace-nowrap border-r'>
+                <TableCell align='left' sx={{ borderRightWidth: '1px', whiteSpace: 'nowrap' }}>
                   {team.name}
                 </TableCell>
               </Tooltip>
@@ -219,7 +228,7 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
           ))}
         </TableBody>
 
-        <TableHead className='bg-gray-50 text-center border-b'>
+        <TableHead>
           <HeadRow2 numberOfMatches={numberOfMatches} />
           <HeadRow1 numberOfMatches={numberOfMatches} />
         </TableHead>

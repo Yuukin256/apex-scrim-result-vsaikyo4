@@ -1,26 +1,22 @@
+import { useWindowScroll } from '@mantine/hooks';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 interface Props {
   window?: () => Window;
 }
 
-const FabToTop: React.VFC<Props> = ({ window }) => {
-  const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
-    disableHysteresis: true,
-    threshold: 100,
-  });
+const FabToTop: React.VFC<Props> = () => {
+  const [scroll, scrollTo] = useWindowScroll();
 
   const handleClick = () => {
-    scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    scrollTo({ y: 0 });
   };
 
   return (
-    <Zoom in={trigger}>
-      <Fab className='bottom-5 right-5 fixed' color='primary' onClick={handleClick}>
+    <Zoom in={scroll.y > 100}>
+      <Fab onClick={handleClick} sx={{ position: 'fixed', bottom: 10, right: 10 }} color='primary' size='small'>
         <ArrowUpwardIcon htmlColor='white' />
       </Fab>
     </Zoom>
