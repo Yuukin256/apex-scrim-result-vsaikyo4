@@ -50,7 +50,7 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         >
           <main>{children}</main>
         </Box>
-        <Box sx={{ width: '100%', px: 1 }}>
+        <Box sx={{ width: '100%', px: 1, mt: 2 }}>
           <Footer />
         </Box>
         <FabToTop />
