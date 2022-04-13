@@ -1,14 +1,25 @@
 import Box from '@mui/material/Box';
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from './Footer';
 import Header from './Header';
+import Side from './Side';
 import FabToTop from 'components/atoms/FabToTop';
 
 const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ children, title }) => {
   const siteTitle = 'V最協S4 練習カスタム試合結果 (非公式)';
   const description =
     'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト';
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuOpen = () => {
+    setMenuOpen(true);
+  };
+
+  const handleMenuClose = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <>
@@ -29,15 +40,12 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <meta name='twitter:image' content='' />
       </Head>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Header />
+        <Header handleMenuOpen={handleMenuOpen} />
+        <Side open={menuOpen} handleClose={handleMenuClose} />
         <Box
           sx={(theme) => ({
-            [theme.breakpoints.up('sm')]: {
-              mx: 2,
-            },
-            [theme.breakpoints.down('sm')]: {
-              mx: 1,
-            },
+            [theme.breakpoints.up('sm')]: { mx: 2 },
+            [theme.breakpoints.down('sm')]: { mx: 1 },
           })}
         >
           <main>{children}</main>

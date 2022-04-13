@@ -1,13 +1,15 @@
 import { CacheProvider, EmotionCache } from '@emotion/react';
+import { useColorScheme, useLocalStorage } from '@mantine/hooks';
+import { PaletteMode } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-// import useMediaQuery from '@mui/material/useMediaQuery';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import GoogleAnalytics from 'components/atoms/GoogleAnalytics';
+import ColorModeContext from 'context/ColorModeContext';
 import createEmotionCache from 'lib/createEmotionCache';
-import { modeTheme } from 'lib/theme';
+import { getTheme } from 'lib/theme';
 import 'styles/globals.css';
 
 const clientSideEmotionCache = createEmotionCache();
@@ -18,8 +20,15 @@ interface MyAppProps extends AppProps {
 function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const theme = useMemo(() => modeTheme('light'), []);
+  const [mode, setMode] = useLocalStorage<PaletteMode>({ key: 'color-scheme', defaultValue: useColorScheme() });
+
+  const theme = useMemo(() => getTheme(mode), [mode]);
+
+  const colorMode = {
+    toggleColorMode: () => {
+      setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+    },
+  };
 
   return (
     <CacheProvider value={emotionCache}>
@@ -27,10 +36,12 @@ function MyApp(props: MyAppProps) {
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       <GoogleAnalytics />
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </ColorModeContext.Provider>
     </CacheProvider>
   );
 }

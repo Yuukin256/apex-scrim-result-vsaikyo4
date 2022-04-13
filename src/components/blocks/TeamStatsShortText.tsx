@@ -1,10 +1,8 @@
+import { useClipboard } from '@mantine/hooks';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import { memo, useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { memo } from 'react';
 import { TeamStats } from 'hooks/useTeamStatsHook';
 
 interface Props {
@@ -17,26 +15,22 @@ const TeamStatsShortText = memo<Props>(function TeamStatsShortText({ teams, numb
   const points = teams.map((t) => `${t.tag || t.members[0]}${t.total.point}`).join('/');
   const text = `【集計 ${numberOfMatches}試合】${points} (キルポ上限${enableMaxKill ? 'あり' : 'なし'})`;
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const clipboard = useClipboard({ timeout: 2000 });
+
+  const handleClick = () => clipboard.copy(text);
 
   return (
-    <>
-      <Box m={2}>
-        <CopyToClipboard text={text}>
-          <Button variant='contained' color='primary' startIcon={<ContentCopyIcon />} onClick={handleOpen}>
-            総合ポイントのテキストをコピーする
-          </Button>
-        </CopyToClipboard>
-      </Box>
-
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity='success'>
-          クリップボードにコピーしました！
-        </Alert>
-      </Snackbar>
-    </>
+    <Box m={2} width={350}>
+      <Button
+        variant='contained'
+        color={clipboard.copied ? 'success' : 'primary'}
+        startIcon={<ContentCopyIcon />}
+        onClick={handleClick}
+        fullWidth
+      >
+        {clipboard.copied ? 'コピーしました！' : '総合ポイントのテキストをコピーする'}
+      </Button>
+    </Box>
   );
 });
 

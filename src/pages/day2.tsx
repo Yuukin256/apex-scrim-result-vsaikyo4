@@ -13,7 +13,7 @@ const Page: NextPage = () => {
     <Layout title='2日目'>
       <SiteDescription />
 
-      <Alert className='my-4' severity='info'>
+      <Alert severity='info'>
         このページにはカスタム2日目の結果を表示しています。他の日の試合結果は左上のメニュー
         <InlineMenuIcon />
         からご覧いただけます。

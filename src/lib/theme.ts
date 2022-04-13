@@ -1,69 +1,87 @@
 import { PaletteMode } from '@mui/material';
-import { orange } from '@mui/material/colors';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
-export const modeTheme = (mode: PaletteMode) =>
-  responsiveFontSizes(
-    createTheme({
-      palette: {
-        mode: mode,
-        primary: {
-          light: '#ffbd43',
-          main: '#db8d00',
-          dark: '#a46000',
-          contrastText: '#fff',
-        },
-        secondary: {
-          light: '#64b1ff',
-          main: '#0082ed',
-          dark: '#0056ba',
-          contrastText: '#fff',
-        },
-        action: {
-          hover: 'rgba(219,141,0,0.1)',
+const primaryColorRgb = (opacity = 1) => `rgb(219,141,0,${opacity})`;
+
+export const getTheme = (mode: PaletteMode) => {
+  const modeAssignedTheme = createTheme({
+    palette: {
+      mode: mode,
+      primary: {
+        main: primaryColorRgb(),
+        contrastText: '#fff',
+      },
+      secondary: {
+        main: '#0082ed',
+        contrastText: '#fff',
+      },
+      action: {
+        hover: primaryColorRgb(0.1),
+      },
+    },
+    typography: {
+      htmlFontSize: 15,
+    },
+    components: {
+      MuiList: {
+        defaultProps: {
+          dense: true,
         },
       },
-      typography: {
-        fontWeightLight: 300,
-        fontWeightRegular: 400,
-        fontWeightMedium: 700,
-        h1: { fontWeight: 700 },
-        h2: { fontWeight: 400 },
-        h3: { fontWeight: 400 },
-        h4: { fontWeight: 400 },
-        button: { textTransform: 'none' },
+      MuiMenuItem: {
+        defaultProps: {
+          dense: true,
+        },
       },
-      components: {
-        MuiTableCell: {
-          styleOverrides: {
-            root: {
-              borderBottom: '1px solid inherit',
-              padding: '0.4rem 0.7rem',
-              fontSize: '0.875rem',
-            },
-          },
+      MuiTable: {
+        defaultProps: {
+          size: 'small',
         },
-        MuiCardActionArea: {
-          styleOverrides: {
-            focusHighlight: {
-              backgroundColor: '#db8d00',
-            },
-          },
+      },
+      MuiAlert: {
+        defaultProps: {
+          variant: mode === 'dark' ? 'outlined' : 'standard',
         },
-        MuiAccordionSummary: {
-          styleOverrides: {
-            root: {
-              backgroundColor: orange[100],
-            },
-          },
-        },
-        MuiAccordionDetails: {
-          styleOverrides: {
-            root: {
-              backgroundColor: orange[50],
-            },
+      },
+      MuiAccordionSummary: {
+        styleOverrides: {
+          root: {
+            backgroundColor: primaryColorRgb(0.2),
           },
         },
       },
-    })
-  );
+      MuiAccordionDetails: {
+        styleOverrides: {
+          root: {
+            backgroundColor: primaryColorRgb(0.1),
+          },
+        },
+      },
+    },
+  });
+
+  const modifiedTheme = createTheme(modeAssignedTheme, {
+    components: {
+      MuiTableCell: {
+        styleOverrides: {
+          root: {
+            borderWidth: 0,
+            borderStyle: 'solid',
+            borderColor: modeAssignedTheme.palette.divider,
+            borderBottomWidth: '1px',
+            borderTopWidth: '1px',
+            padding: '0.4rem 0.7rem',
+            fontSize: '0.875rem',
+          },
+          head: {
+            fontWeight: 'bold',
+            backgroundColor:
+              mode === 'dark' ? modeAssignedTheme.palette.common.black : modeAssignedTheme.palette.grey[100],
+          },
+        },
+      },
+    },
+  });
+
+  return responsiveFontSizes(modifiedTheme);
+};
