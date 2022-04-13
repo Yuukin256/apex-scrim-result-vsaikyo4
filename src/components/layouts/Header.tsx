@@ -1,24 +1,24 @@
-import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+// import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
+// import DarkModeIcon from '@mui/icons-material/DarkMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
-import { MouseEventHandler, useContext, VFC } from 'react';
-import Tooltip from 'components/atoms/Tooltip';
-import ColorModeContext from 'context/ColorModeContext';
+// import { useTheme } from '@mui/material/styles';
+import { MouseEventHandler, /* useContext, */ VFC } from 'react';
+// import Tooltip from 'components/atoms/Tooltip';
+// import ColorModeContext from 'context/ColorModeContext';
 
 interface Props {
   handleMenuOpen: MouseEventHandler<HTMLButtonElement>;
 }
 
 const Header: VFC<Props> = ({ handleMenuOpen }) => {
-  const theme = useTheme();
-  const isDarkMode = theme.palette.mode === 'dark';
+  // const theme = useTheme();
+  // const isDarkMode = theme.palette.mode === 'dark';
 
-  const colorMode = useContext(ColorModeContext);
+  // const colorMode = useContext(ColorModeContext);
 
   return (
     <>
@@ -39,11 +39,11 @@ const Header: VFC<Props> = ({ handleMenuOpen }) => {
             V最協S4 練習カスタム結果
           </Typography>
 
-          <Tooltip title={(isDarkMode ? 'ライトテーマ' : 'ダークテーマ') + 'に切り替える'}>
+          {/* <Tooltip title={(isDarkMode ? 'ライトテーマ' : 'ダークテーマ') + 'に切り替える'}>
             <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color='inherit'>
               {isDarkMode ? <BrightnessHighIcon /> : <DarkModeIcon />}
             </IconButton>
-          </Tooltip>
+          </Tooltip> */}
         </Toolbar>
       </AppBar>
     </>
