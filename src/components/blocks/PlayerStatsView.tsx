@@ -18,7 +18,7 @@ const PlayerStatsView: VFC<Props> = (props) => {
 
   return (
     <>
-      <Accordion square defaultExpanded>
+      <Accordion square>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h5' component='div'>
             注意事項

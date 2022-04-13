@@ -13,7 +13,7 @@ const Page: NextPage = () => {
     <Layout title='テスト'>
       <SiteDescription />
 
-      <Alert className='my-4' severity='warning'>
+      <Alert severity='warning'>
         このページではテストデータを表示しています。実際の練習カスタムの結果ではありません。他の日の試合結果は左上のメニュー
         <InlineMenuIcon />
         からご覧いただけます。

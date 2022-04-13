@@ -21,7 +21,8 @@ const PlayerStatsOptionForm = memo<Props>(function PlayerStatsOptionForm({ sortK
 
   return (
     <Stack
-      className='m-6'
+      m={2}
+      ml={4}
       direction={{ xs: 'column', sm: 'row' }}
       spacing={{ xs: 0, sm: 2, md: 4 }}
       divider={<Divider orientation='vertical' flexItem />}
