@@ -4,7 +4,7 @@ import InlineMenuIcon from 'components/atoms/InlineMenuIcon';
 import SiteDescription from 'components/blocks/SiteDescription';
 import StatsView from 'components/blocks/StatsView';
 import Layout from 'components/layouts/Layout';
-import data from 'data/day2.json';
+import data from 'data/day3.json';
 import { formatData } from 'utils/resultData';
 
 const Page: NextPage = () => {
@@ -13,14 +13,15 @@ const Page: NextPage = () => {
     <Layout title='トップ'>
       <SiteDescription />
 
-      <Alert className='my-4' severity='info'>
-        カスタム2日目の結果を表示しています。他の日の試合結果は左上のメニュー
+      <Alert severity='info'>
+        カスタム3日目の結果を表示しています。結果は随時更新中です
+        (試合終了後15分程度で反映されます)。他の日の試合結果は左上のメニュー
         <InlineMenuIcon />
         からご覧いただけます。
       </Alert>
 
       <StatsView
-        statsTitle='2日目 (4月12日)'
+        statsTitle='3日目 (4月13日)'
         teamResult={teamResult}
         playerResult={playerResult}
         defaultNumberOfMatches={5}
