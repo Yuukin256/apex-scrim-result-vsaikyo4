@@ -73,12 +73,12 @@ export const usePlayerStats = (result: PlayerResultCollection): Result => {
       {
         value: `match${i + 1}_kill`,
         text: `${i + 1}試合目キル`,
-        sort: (a, b) => (b.matches[i].kill ?? 0) - (a.matches[i].kill ?? 0),
+        sort: (a, b) => (b.matches[i].kill ?? -Infinity) - (a.matches[i].kill ?? -Infinity),
       },
       {
         value: `match${i + 1}_damage`,
         text: `${i + 1}試合目ダメージ`,
-        sort: (a, b) => (b.matches[i].damage ?? 0) - (a.matches[i].damage ?? 0),
+        sort: (a, b) => (b.matches[i].damage ?? -Infinity) - (a.matches[i].damage ?? -Infinity),
       },
     ]);
 
@@ -86,22 +86,22 @@ export const usePlayerStats = (result: PlayerResultCollection): Result => {
       {
         value: 'total_kill',
         text: '合計キル',
-        sort: (a, b) => (b.total.kill ?? 0) - (a.total.kill ?? 0),
+        sort: (a, b) => (b.total.kill ?? -Infinity) - (a.total.kill ?? -Infinity),
       },
       {
         value: 'total_damage',
         text: '合計ダメージ',
-        sort: (a, b) => (b.total.damage ?? 0) - (a.total.damage ?? 0),
+        sort: (a, b) => (b.total.damage ?? -Infinity) - (a.total.damage ?? -Infinity),
       },
       {
         value: 'average_kill',
         text: '平均キル',
-        sort: (a, b) => (b.average.kill ?? 0) - (a.average.kill ?? 0),
+        sort: (a, b) => (b.average.kill ?? -Infinity) - (a.average.kill ?? -Infinity),
       },
       {
         value: 'average_damage',
         text: '平均ダメージ',
-        sort: (a, b) => (b.average.damage ?? 0) - (a.average.damage ?? 0),
+        sort: (a, b) => (b.average.damage ?? -Infinity) - (a.average.damage ?? -Infinity),
       },
       ...forMatches,
     ];
