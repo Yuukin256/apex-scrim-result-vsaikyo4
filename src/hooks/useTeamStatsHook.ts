@@ -134,7 +134,7 @@ export const useTeamStats = ({ result, defaultNumberOfMatches }: Props): Result 
       {
         value: `match${i + 1}_placement`,
         text: `${i + 1}試合目順位`,
-        sort: (a, b) => (a.matches[i].placement ?? 20) - (b.matches[i].placement ?? 20),
+        sort: (a, b) => (a.matches[i].placement ?? Infinity) - (b.matches[i].placement ?? Infinity),
       },
       {
         value: `match${i + 1}_killPoint`,
@@ -178,7 +178,7 @@ export const useTeamStats = ({ result, defaultNumberOfMatches }: Props): Result 
       {
         value: 'average_placement',
         text: '平均順位',
-        sort: (a, b) => (a.average.placementPoint ?? 0) - (b.average.placement ?? 0),
+        sort: (a, b) => (a.average.placement ?? Infinity) - (b.average.placement ?? Infinity),
       },
       {
         value: 'average_killPoint',

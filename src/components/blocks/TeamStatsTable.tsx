@@ -141,7 +141,9 @@ const TeamStatsTable: React.VFC<Props> = ({ teams, numberOfMatches, enableMaxKil
       return (
         <>
           <TableCell align='right'>{props.point.toFixed(1)}</TableCell>
-          <TableCell align='right'>{props.placementPoint.toFixed(1)}</TableCell>
+          <Tooltip title={`${props.placementPoint.toFixed(1)}ポイント`}>
+            <TableCell align='right'>{props.placement.toFixed(1)}</TableCell>
+          </Tooltip>
           <Tooltip title={`${props.kill.toFixed(1)}キル`}>
             <TableCell
               align='right'
