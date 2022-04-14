@@ -10,12 +10,11 @@ import { formatData } from 'utils/resultData';
 const Page: NextPage = () => {
   const { team: teamResult, player: playerResult } = formatData(data);
   return (
-    <Layout title='トップ'>
+    <Layout title='4日目'>
       <SiteDescription />
 
       <Alert severity='info'>
-        カスタム4日目の結果を表示しています。結果は随時更新中です
-        (試合終了後15分程度で反映されます)。他の日の試合結果は左上のメニュー
+        このページにはカスタム4日目の結果を表示しています。他の日の試合結果は左上のメニュー
         <InlineMenuIcon />
         からご覧いただけます。
       </Alert>
