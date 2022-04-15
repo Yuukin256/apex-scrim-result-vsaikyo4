@@ -14,7 +14,7 @@ const Page: NextPage = () => {
       <SiteDescription />
 
       <Alert severity='info'>
-        カスタム4日目の結果を表示しています。6試合目以降は後ほど更新を行います。他の日の試合結果は左上のメニュー
+        カスタム4日目の結果を表示しています。他の日の試合結果は左上のメニュー
         <InlineMenuIcon />
         からご覧いただけます。
       </Alert>
