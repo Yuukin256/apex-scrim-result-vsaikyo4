@@ -115,7 +115,13 @@ export const useTeamStats = ({ result, defaultNumberOfMatches }: Props): Result 
         };
       });
 
-      return calculateTotalAndAverage({ ...team, matches });
+      return calculateTotalAndAverage({
+        id: team.id,
+        name: team.name,
+        tag: team.tag,
+        members: team.members.map((v) => v.name),
+        matches,
+      });
     });
   }, [defaultNumberOfMatches, enableMaxKill, includeAdditionalMatch, result]);
 

@@ -5,7 +5,10 @@ export interface TeamInfo {
   id: number;
   name: string;
   tag: string;
-  members: string[];
+  members: {
+    id: number;
+    name: string;
+  }[];
 }
 
 export const teams: Collection<number, TeamInfo> = new Collection(
@@ -15,7 +18,7 @@ export const teams: Collection<number, TeamInfo> = new Collection(
       id: t.id,
       name: t.name,
       tag: t.tag,
-      members: t.players.map((p) => p.name),
+      members: t.players,
     },
   ])
 );

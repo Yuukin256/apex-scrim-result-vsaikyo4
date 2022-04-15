@@ -21,7 +21,7 @@ export interface TeamResult {
   id: number;
   name: string;
   tag: string;
-  members: string[];
+  members: { id: number; name: string }[];
   matches: {
     placement: number | null;
     placementPoint: number;
