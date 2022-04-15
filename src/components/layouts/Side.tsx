@@ -74,6 +74,11 @@ const Side: VFC<Props> = ({ open, handleClose: handleClone }) => {
             path: '/day4',
             date: '4月14日',
           },
+          {
+            name: '5日目',
+            path: '/day5',
+            date: '4月15日',
+          },
         ].map((value) => (
           <ListItemButton
             component={NextLinkComposed}
