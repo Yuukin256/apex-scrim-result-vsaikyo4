@@ -16,7 +16,7 @@ const Page: NextPage = () => {
       <Alert severity='info'>
         このページにはカスタム5日目の結果を表示しています。他の日の試合結果は左上のメニュー
         <InlineMenuIcon />
-        からご覧いただけます。
+        からご覧いただけます。なお、7試合目はリザルト画面のバグのため集計できませんでした。
       </Alert>
 
       <StatsView
