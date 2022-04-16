@@ -13,16 +13,15 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import { useRouter } from 'next/router';
-import { MouseEventHandler, VFC } from 'react';
-import ExternalLink from 'components/atoms/ExternalLink';
+import { VFC } from 'react';
 import { NextLinkComposed } from 'components/atoms/Link';
 
 interface Props {
   open: boolean;
-  handleClose: MouseEventHandler<HTMLButtonElement>;
+  handleClose: () => void;
 }
 
-const Side: VFC<Props> = ({ open, handleClose: handleClone }) => {
+const Side: VFC<Props> = ({ open, handleClose }) => {
   const router = useRouter();
   return (
     <Drawer variant='persistent' anchor='left' open={open}>
@@ -35,7 +34,7 @@ const Side: VFC<Props> = ({ open, handleClose: handleClone }) => {
           justifyContent: 'flex-end',
         })}
       >
-        <IconButton onClick={handleClone}>
+        <IconButton onClick={handleClose}>
           <ChevronLeftIcon />
         </IconButton>
       </Box>
@@ -122,7 +121,7 @@ const Side: VFC<Props> = ({ open, handleClose: handleClone }) => {
             icon: <YouTubeIcon />,
           },
         ].map((value) => (
-          <ListItemButton component={ExternalLink} href={value.url} key={value.primary}>
+          <ListItemButton component={NextLinkComposed} to={{ pathname: value.url }} key={value.primary}>
             {value.icon && <ListItemIcon>{value.icon}</ListItemIcon>}
             <ListItemText primary={value.primary} secondary={value.secondary} />
           </ListItemButton>

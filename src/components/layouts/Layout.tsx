@@ -1,5 +1,6 @@
 import { useDisclosure } from '@mantine/hooks';
 import Box from '@mui/material/Box';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Head from 'next/head';
 import Footer from './Footer';
 import Header from './Header';
@@ -32,8 +33,12 @@ const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ chil
         <meta name='twitter:image' content='' />
       </Head>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Header handleMenuOpen={menuHandlers.open} />
-        <Side open={opened} handleClose={menuHandlers.close} />
+        <ClickAwayListener onClickAway={menuHandlers.close}>
+          <div>
+            <Header handleMenuOpen={menuHandlers.open} />
+            <Side open={opened} handleClose={menuHandlers.close} />
+          </div>
+        </ClickAwayListener>
         <Box
           sx={(theme) => ({
             [theme.breakpoints.up('sm')]: { mx: 2 },
