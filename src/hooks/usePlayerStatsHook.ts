@@ -41,7 +41,7 @@ const calculateTotalAndAverage = (result: PlayerResult): PlayerStats => {
 
   return {
     ...result,
-    team: `${result.team.tag} ${result.team.name}`,
+    team: `(${result.team.tag}) ${result.team.name}`,
     total,
     average,
   };

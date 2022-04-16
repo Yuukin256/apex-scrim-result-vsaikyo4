@@ -48,7 +48,7 @@ const HeadRow2 = memo<{ numberOfMatches: number }>(function HeadRow2({ numberOfM
       <TableCell align='center' sx={{ width: '2rem', borderRightWidth: '1px', borderLeftWidth: '1px' }}>
         #
       </TableCell>
-      <TableCell align='center' colSpan={2} sx={{ width: '25rem', borderRightWidth: '1px' }}>
+      <TableCell align='center' colSpan={2} sx={{ width: '12rem', borderRightWidth: '1px' }}>
         チーム
       </TableCell>
 
