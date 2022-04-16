@@ -61,8 +61,21 @@ interface Result {
   forForm: PlayerStatsOptionFormProps;
 }
 
-export const usePlayerStats = (result: PlayerResultCollection): Result => {
-  const stats = useMemo(() => result.map((p) => calculateTotalAndAverage(p)), [result]);
+export const usePlayerStats = (result: PlayerResultCollection, defaultNumberOfMatches: number): Result => {
+  const [sortKey, setSortKey] = useState('total_kill');
+  const [includeAdditionalMatch, setIncludeAdditionalMatch] = useState(false);
+
+  const stats = useMemo(() => {
+    const maxNumberOfMatches = includeAdditionalMatch ? Infinity : defaultNumberOfMatches;
+    return result.map((player) => {
+      const matches = player.matches.slice(0, maxNumberOfMatches);
+      return calculateTotalAndAverage({
+        ...player,
+        matches,
+      });
+    });
+  }, [defaultNumberOfMatches, includeAdditionalMatch, result]);
+
   const numberOfMatches = useMemo(
     () => stats.map((v) => v.matches.length).reduce((prev, cur) => (prev > cur ? prev : cur)),
     [stats]
@@ -107,8 +120,6 @@ export const usePlayerStats = (result: PlayerResultCollection): Result => {
     ];
   }, [numberOfMatches]);
 
-  const [sortKey, setSortKey] = useState('total_kill');
-
   const sorter = useMemo(() => {
     return sortOptions.find((option) => option.value === sortKey)?.sort;
   }, [sortKey, sortOptions]);
@@ -121,9 +132,12 @@ export const usePlayerStats = (result: PlayerResultCollection): Result => {
       stats: sortedStats,
       numberOfMatches,
       forForm: {
+        defaultNumberOfMatches,
         sortKey: 'total_kill',
         setSortKey,
         sortOptions,
+        includeAdditionalMatch,
+        setIncludeAdditionalMatch,
       },
     };
   }
@@ -132,9 +146,12 @@ export const usePlayerStats = (result: PlayerResultCollection): Result => {
     stats: sortedStats,
     numberOfMatches,
     forForm: {
+      defaultNumberOfMatches,
       sortKey,
       setSortKey,
       sortOptions,
+      includeAdditionalMatch,
+      setIncludeAdditionalMatch,
     },
   };
 };

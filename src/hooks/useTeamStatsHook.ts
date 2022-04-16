@@ -98,7 +98,7 @@ interface Result {
 export const useTeamStats = ({ result, defaultNumberOfMatches }: Props): Result => {
   const [sortKey, setSortKey] = useState('total_point');
   const [enableMaxKill, setEnableMaxKill] = useState(false);
-  const [includeAdditionalMatch, setIncludeAdditionalMatch] = useState(true);
+  const [includeAdditionalMatch, setIncludeAdditionalMatch] = useState(false);
 
   const stats = useMemo(() => {
     const maxNumberOfMatches = includeAdditionalMatch ? Infinity : defaultNumberOfMatches;

@@ -47,7 +47,7 @@ const StatsView: VFC<Props> = ({ statsTitle, teamResult, playerResult, defaultNu
     result: teamResult,
     defaultNumberOfMatches,
   });
-  const playerStats = usePlayerStats(playerResult);
+  const playerStats = usePlayerStats(playerResult, defaultNumberOfMatches);
 
   return (
     <>
