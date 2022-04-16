@@ -8,7 +8,7 @@ import Side from './Side';
 import FabToTop from 'components/atoms/FabToTop';
 
 const Layout: React.VFC<{ children: React.ReactNode; title?: string }> = ({ children, title }) => {
-  const siteTitle = 'V最協S4 練習カスタム試合結果 (非公式)';
+  const siteTitle = '#V最協S4 練習カスタム結果';
   const description =
     'VTuber最協決定戦 SEASON4 Ver APEX LEGENDS の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト';
 

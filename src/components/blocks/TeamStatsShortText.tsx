@@ -12,7 +12,7 @@ interface Props {
 }
 
 const TeamStatsShortText = memo<Props>(function TeamStatsShortText({ teams, numberOfMatches, enableMaxKill }) {
-  const points = teams.map((t) => `${t.tag || t.members[0]}${t.total.point}`).join('/');
+  const points = teams.map((t) => `${t.tag || t.members[0]} ${t.total.point}`).join('/');
   const text = `【集計 ${numberOfMatches}試合】${points} (キルポ上限${enableMaxKill ? 'あり' : 'なし'})`;
 
   const clipboard = useClipboard({ timeout: 2000 });
