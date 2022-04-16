@@ -40,7 +40,7 @@ const PlayerStatsTable: VFC<Props> = ({ players, numberOfMatches }) => {
         <TableCell align='center' sx={{ width: '2rem', borderRightWidth: '1px', borderLeftWidth: '1px' }}>
           #
         </TableCell>
-        <TableCell align='center' sx={{ width: '12rem', borderRightWidth: '1px' }}>
+        <TableCell align='center' sx={{ width: '8rem', borderRightWidth: '1px' }}>
           選手名
         </TableCell>
         {[...new Array(numberOfMatches + 2)].flatMap((_, i) => [
