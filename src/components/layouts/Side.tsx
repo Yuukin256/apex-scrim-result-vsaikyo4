@@ -1,7 +1,6 @@
 import ArticleIcon from '@mui/icons-material/Article';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import HomeIcon from '@mui/icons-material/Home';
-import LaunchIcon from '@mui/icons-material/Launch';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Box from '@mui/material/Box';
@@ -15,6 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import { useRouter } from 'next/router';
 import { MouseEventHandler, VFC } from 'react';
+import ExternalLink from 'components/atoms/ExternalLink';
 import { NextLinkComposed } from 'components/atoms/Link';
 
 interface Props {
@@ -117,17 +117,9 @@ const Side: VFC<Props> = ({ open, handleClose: handleClone }) => {
             icon: <YouTubeIcon />,
           },
         ].map((value) => (
-          <ListItemButton component={NextLinkComposed} to={{ pathname: value.url }} key={value.primary}>
+          <ListItemButton component={ExternalLink} href={value.url} key={value.primary}>
             {value.icon && <ListItemIcon>{value.icon}</ListItemIcon>}
-            <ListItemText
-              primary={
-                <>
-                  {value.primary}
-                  <LaunchIcon sx={{ fontSize: '0.8em', verticalAlign: 'middle', ml: '.25em' }} />
-                </>
-              }
-              secondary={value.secondary}
-            />
+            <ListItemText primary={value.primary} secondary={value.secondary} />
           </ListItemButton>
         ))}
       </List>
