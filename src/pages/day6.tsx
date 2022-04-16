@@ -10,13 +10,13 @@ import { formatData } from 'utils/resultData';
 const Page: NextPage = () => {
   const { team: teamResult, player: playerResult } = formatData(data);
   return (
-    <Layout title='トップ'>
+    <Layout title='6日目'>
       <SiteDescription />
 
       <Alert severity='info'>
-        カスタム6日目の結果を表示しています。他の日の試合結果は左上のメニュー
+        このページにはカスタム6日目の結果を表示しています。他の日の試合結果は左上のメニュー
         <InlineMenuIcon />
-        からご覧いただけます。なお、7試合目はリザルト画面のバグのため集計できませんでした。
+        からご覧いただけます。
       </Alert>
 
       <StatsView
