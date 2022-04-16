@@ -21,32 +21,23 @@ const Header: VFC<Props> = ({ handleMenuOpen }) => {
   // const colorMode = useContext(ColorModeContext);
 
   return (
-    <>
-      <AppBar position='sticky' enableColorOnDark>
-        <Toolbar variant='dense'>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            sx={{ mr: 2 }}
-            onClick={handleMenuOpen}
-          >
-            <MenuIcon />
-          </IconButton>
+    <AppBar position='sticky' enableColorOnDark>
+      <Toolbar variant='dense'>
+        <IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }} onClick={handleMenuOpen}>
+          <MenuIcon />
+        </IconButton>
 
-          <Typography variant='h6' component='h1' sx={{ flexGrow: 1 }}>
-            V最協S4 練習カスタム結果
-          </Typography>
+        <Typography variant='h6' component='h1' sx={{ flexGrow: 1 }}>
+          V最協S4 練習カスタム結果
+        </Typography>
 
-          {/* <Tooltip title={(isDarkMode ? 'ライトテーマ' : 'ダークテーマ') + 'に切り替える'}>
+        {/* <Tooltip title={(isDarkMode ? 'ライトテーマ' : 'ダークテーマ') + 'に切り替える'}>
             <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color='inherit'>
               {isDarkMode ? <BrightnessHighIcon /> : <DarkModeIcon />}
             </IconButton>
           </Tooltip> */}
-        </Toolbar>
-      </AppBar>
-    </>
+      </Toolbar>
+    </AppBar>
   );
 };
 
