@@ -45,7 +45,7 @@ const Side: VFC<Props> = ({ open, handleClose }) => {
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText primary='トップページ' secondary='最新の試合結果' />
+          <ListItemText primary='トップページ' />
         </ListItemButton>
       </List>
       <Divider />
@@ -121,7 +121,13 @@ const Side: VFC<Props> = ({ open, handleClose }) => {
             icon: <YouTubeIcon />,
           },
         ].map((value) => (
-          <ListItemButton component={NextLinkComposed} to={{ pathname: value.url }} key={value.primary}>
+          <ListItemButton
+            component={NextLinkComposed}
+            to={{ pathname: value.url }}
+            target='_blank'
+            rel='noopener'
+            key={value.primary}
+          >
             {value.icon && <ListItemIcon>{value.icon}</ListItemIcon>}
             <ListItemText primary={value.primary} secondary={value.secondary} />
           </ListItemButton>

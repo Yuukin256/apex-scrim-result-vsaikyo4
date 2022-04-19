@@ -63,7 +63,7 @@ interface Result {
 
 export const usePlayerStats = (result: PlayerResultCollection, defaultNumberOfMatches: number): Result => {
   const [sortKey, setSortKey] = useState('total_kill');
-  const [includeAdditionalMatch, setIncludeAdditionalMatch] = useState(false);
+  const [includeAdditionalMatch, setIncludeAdditionalMatch] = useState(true);
 
   const stats = useMemo(() => {
     const maxNumberOfMatches = includeAdditionalMatch ? Infinity : defaultNumberOfMatches;
